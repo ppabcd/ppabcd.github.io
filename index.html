@@ -1,0 +1,348 @@
+
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Reza Juliandri</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style type="text/tailwindcss">
+        @theme {
+            --color-brand-primary: #06b6d4;
+            --color-brand-secondary: #8b5cf6;
+            --color-accent: #f59e0b;
+            --font-family-display: 'Inter', sans-serif;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+        
+        .animate-fade-in-up {
+            animation: fadeInUp 0.8s ease-out;
+            animation-fill-mode: both;
+        }
+
+        .animate-float {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .glass-effect {
+            backdrop-filter: blur(10px);
+            background: rgba(31, 41, 55, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .section-title {
+            @apply text-3xl font-bold mb-2 text-white text-center;
+        }
+        .section-subtitle {
+            @apply text-lg text-cyan-400 mb-12 text-center tracking-wider;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0f172a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #06b6d4;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #0891b2;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class="bg-black text-gray-100 font-display selection:bg-cyan-400 selection:text-black">
+
+    <header class="fixed top-0 left-0 right-0 z-50 glass-effect shadow-lg">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <a href="#" class="text-2xl font-bold text-white hover:text-cyan-400 transition-colors duration-300">
+                    Reza Juliandri
+                </a>
+                <nav class="hidden md:flex space-x-6 items-center">
+                    <a href="#about" class="text-gray-300 hover:text-cyan-400 transition-colors duration-300 px-3 py-2 rounded-md text-sm font-medium">About</a>
+                    <a href="#experience" class="text-gray-300 hover:text-cyan-400 transition-colors duration-300 px-3 py-2 rounded-md text-sm font-medium">Experience</a>
+                    <a href="#projects" class="text-gray-300 hover:text-cyan-400 transition-colors duration-300 px-3 py-2 rounded-md text-sm font-medium">Projects</a>
+                    <a href="#skills" class="text-gray-300 hover:text-cyan-400 transition-colors duration-300 px-3 py-2 rounded-md text-sm font-medium">Skills</a>
+                    <a href="#contact" class="bg-cyan-400 text-white hover:bg-cyan-600 px-4 py-2 rounded-lg transform hover:scale-105 transition-all duration-300 shadow-md hover:shadow-cyan-400/25 text-sm font-medium">
+                        Contact Me
+                    </a>
+                </nav>
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-300 hover:text-white focus:outline-none focus:text-white">
+                        <svg class="h-6 w-6 fill-current" viewBox="0 0 24 24">
+                            <path id="menu-icon-open" d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+                            <path id="menu-icon-close" d="M6 18L18 6M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" class="hidden"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu" class="md:hidden hidden glass-effect">
+            <a href="#about" class="block text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 text-base font-medium">About</a>
+            <a href="#experience" class="block text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 text-base font-medium">Experience</a>
+            <a href="#projects" class="block text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 text-base font-medium">Projects</a>
+            <a href="#skills" class="block text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 text-base font-medium">Skills</a>
+            <a href="#contact" class="block text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 text-base font-medium">Contact</a>
+        </div>
+    </header>
+
+    <section id="hero" class="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-800 flex items-center justify-center relative overflow-hidden pt-20">
+        <div class="absolute inset-0 opacity-10"></div>
+        <div class="absolute top-20 left-10 w-3 h-3 md:w-4 md:h-4 bg-cyan-400 rounded-full animate-float" style="animation-delay: 0.5s;"></div>
+        <div class="absolute bottom-32 right-16 w-4 h-4 md:w-6 md:h-6 bg-purple-500 rounded-full animate-float" style="animation-delay: 1s;"></div>
+        <div class="absolute top-1/3 right-1/4 w-2 h-2 md:w-3 md:h-3 bg-amber-500 rounded-full animate-float" style="animation-delay: 1.5s;"></div>
+
+        <div class="max-w-4xl mx-auto px-4 text-center z-10">
+            <div class="mb-8 animate-fade-in-up" style="animation-delay: 0.1s;">
+                <img src="./profile.jpg" alt="Reza Juliandri" class="w-32 h-32 md:w-40 md:h-40 rounded-full mx-auto border-4 border-cyan-400 shadow-xl object-cover">
+            </div>
+            <h1 class="text-4xl md:text-6xl font-bold text-white mb-4 animate-fade-in-up" style="animation-delay: 0.2s;">
+                Hi, I'm <span class="bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent">Reza Juliandri</span>
+            </h1>
+            <p class="text-lg md:text-xl text-gray-300 mb-8 leading-relaxed max-w-2xl mx-auto animate-fade-in-up" style="animation-delay: 0.4s;">
+                A Backend Engineer with 6+ years of experience, specializing in efficient REST APIs, automation, and database optimization. My work has impacted millions.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up" style="animation-delay: 0.6s;">
+                <a href="#projects" class="bg-cyan-400 hover:bg-cyan-600 text-white px-8 py-3 rounded-lg transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-cyan-400/25 text-lg">
+                    View My Work
+                </a>
+                /* <a href="#" class="glass-effect text-white px-8 py-3 rounded-lg hover:bg-gray-700/50 transition-all duration-300 text-lg border border-gray-600 hover:border-gray-500">
+                    Download CV
+                </a> */
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-20 bg-gray-900">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="section-title animate-fade-in-up">About Me</h2>
+                <p class="section-subtitle animate-fade-in-up" style="animation-delay: 0.2s;">My Journey and Passion</p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="animate-fade-in-up" style="animation-delay: 0.3s;">
+                    <img src="about.jpg" alt="About Reza" class="rounded-lg shadow-2xl glass-effect p-2">
+                </div>
+                <div class="animate-fade-in-up" style="animation-delay: 0.4s;">
+                    <h3 class="text-2xl font-semibold text-white mb-4">Reza Juliandri</h3>
+                    <p class="text-gray-300 mb-4 leading-relaxed">
+                        I am a backend engineer with over six years of rich experience spanning both mobile and web development. My core passion lies in crafting highly efficient REST APIs, developing automation bots to streamline processes, and meticulously fine-tuning database performance to ensure optimal speed and reliability.
+                    </p>
+                    <p class="text-gray-300 mb-6 leading-relaxed">
+                        It's incredibly rewarding to know that the products and systems I've helped build have been utilized by millions of users, making a tangible impact. I thrive in dynamic environments where I can continuously learn and apply cutting-edge technologies to solve complex challenges.
+                    </p>
+                    <!--<a href="#" class="inline-block bg-purple-500 hover:bg-purple-700 text-white px-6 py-3 rounded-lg transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-purple-500/25">
+                        Download My CV
+                    </a>-->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="py-20 bg-black">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="section-title animate-fade-in-up">My Experience</h2>
+                <p class="section-subtitle animate-fade-in-up" style="animation-delay: 0.2s;">Professional Journey & Roles</p>
+            </div>
+            <div class="relative border-l-2 border-cyan-400/30 space-y-12">
+                <div class="pl-10 ml-2 relative fade-on-scroll">
+                    <div class="absolute -left-3 top-1 w-5 h-5 bg-cyan-400 rounded-full border-4 border-black"></div>
+                    <div class="glass-effect p-6 rounded-lg shadow-xl hover:shadow-cyan-400/10 transition-shadow duration-300">
+                        <span class="text-sm text-cyan-400 font-semibold">AUGUST 2018 - PRESENT</span>
+                        <h3 class="text-xl font-bold text-white mt-1">Backend Engineer</h3>
+                        <p class="text-gray-400 mb-3">PT. Kredibel Teknologi Indonesia</p>
+                        <ul class="list-disc list-inside text-gray-300 space-y-1 text-sm leading-relaxed">
+                            <li>Develop and implement new features and enhancements for APIs.</li>
+                            <li>Design and implement scalable and reliable backend systems.</li>
+                            <li>Write clean, maintainable, and well-documented code.</li>
+                            <li>Continuously monitor and improve backend system performance and security.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="pl-10 ml-2 relative fade-on-scroll">
+                    <div class="absolute -left-3 top-1 w-5 h-5 bg-cyan-400 rounded-full border-4 border-black"></div>
+                    <div class="glass-effect p-6 rounded-lg shadow-xl hover:shadow-cyan-400/10 transition-shadow duration-300">
+                        <span class="text-sm text-cyan-400 font-semibold">JANUARY 2024 - DECEMBER 2024</span>
+                        <h3 class="text-xl font-bold text-white mt-1">Mobile Development Instructor</h3>
+                        <p class="text-gray-400 mb-3">Bangkit Academy 2024</p>
+                        <ul class="list-disc list-inside text-gray-300 space-y-1 text-sm leading-relaxed">
+                            <li>Delivered instructional material on Android development (Kotlin) to 50 students.</li>
+                            <li>Implemented interactive learning strategies to boost engagement.</li>
+                            <li>Stayed updated with latest trends in mobile development and machine learning.</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="pl-10 ml-2 relative fade-on-scroll">
+                    <div class="absolute -left-3 top-1 w-5 h-5 bg-cyan-400 rounded-full border-4 border-black"></div>
+                    <div class="glass-effect p-6 rounded-lg shadow-xl hover:shadow-cyan-400/10 transition-shadow duration-300">
+                        <span class="text-sm text-cyan-400 font-semibold">FEBRUARY 2023 - JANUARY 2024</span>
+                        <h3 class="text-xl font-bold text-white mt-1">Mobile Development Mentor</h3>
+                        <p class="text-gray-400 mb-3">Bangkit Academy 2023</p>
+                        <ul class="list-disc list-inside text-gray-300 space-y-1 text-sm leading-relaxed">
+                            <li>Assisted Instructor during ILT sessions and mentored 25 students.</li>
+                            <li>Achieved a minimum graduation rate of 86% among students.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="pl-10 ml-2 relative fade-on-scroll">
+                    <div class="absolute -left-3 top-1 w-5 h-5 bg-cyan-400 rounded-full border-4 border-black"></div>
+                    <div class="glass-effect p-6 rounded-lg shadow-xl hover:shadow-cyan-400/10 transition-shadow duration-300">
+                        <span class="text-sm text-cyan-400 font-semibold">AUGUST 2022 - DECEMBER 2022</span>
+                        <h3 class="text-xl font-bold text-white mt-1">Backend Engineer Intern</h3>
+                        <p class="text-gray-400 mb-3">Traveloka (Financial Team)</p>
+                        <ul class="list-disc list-inside text-gray-300 space-y-1 text-sm leading-relaxed">
+                            <li>Developed new features and implemented unit/automated tests.</li>
+                            <li>Developed Know Your Business (KYB) for verifying business partners.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="py-20 bg-gray-900">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="section-title animate-fade-in-up">My Projects</h2>
+                <p class="section-subtitle animate-fade-in-up" style="animation-delay: 0.2s;">Featured Work & Contributions</p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="group glass-effect rounded-xl p-6 hover:bg-gray-700/30 transition-all duration-300 hover:shadow-2xl hover:shadow-purple-500/10 fade-on-scroll">
+                    <div class="aspect-video bg-gray-700 rounded-lg mb-4 overflow-hidden">
+                        <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="https://via.placeholder.com/600x400/1f2937/8b5cf6?text=Vee+Project" alt="Vee Project">
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-2 group-hover:text-purple-500 transition-colors">Vee: Vehicle Management</h3>
+                    <p class="text-gray-300 mb-4 leading-relaxed text-sm">
+                        Capstone project for Bangkit Academy 2022. A vehicle management system developed in collaboration with Machine Learning and Cloud Computing students. Selected as one of the top 53 capstone projects.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-purple-500/20 text-purple-500 px-3 py-1 rounded-full text-xs border border-purple-500/30">Android (Kotlin)</span>
+                        <span class="bg-amber-500/20 text-amber-500 px-3 py-1 rounded-full text-xs border border-amber-500/30">Machine Learning</span>
+                        <span class="bg-cyan-400/20 text-cyan-400 px-3 py-1 rounded-full text-xs border border-cyan-400/30">Cloud Computing</span>
+                    </div>
+                     <div class="flex gap-3">
+                        <span class="text-gray-400 text-sm font-medium">Achievement: Top 53 Capstone</span>
+                    </div>
+                </div>
+                
+                <div class="group glass-effect rounded-xl p-6 hover:bg-gray-700/30 transition-all duration-300 hover:shadow-2xl hover:shadow-amber-500/10 fade-on-scroll">
+                    <div class="aspect-video bg-gray-700 rounded-lg mb-4 overflow-hidden">
+                        <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="https://via.placeholder.com/600x400/1f2937/f59e0b?text=Assessment+Platform" alt="Assessment Platform">
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-2 group-hover:text-amber-500 transition-colors">English Electronic Assessment Platform</h3>
+                    <p class="text-gray-300 mb-4 leading-relaxed text-sm">
+                        Developed for Politeknik Penerbangan Indonesia Curug. This platform facilitates electronic assessments in English.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-rose-400/20 text-rose-400 px-3 py-1 rounded-full text-xs border border-rose-400/30">Laravel</span>
+                        <span class="bg-emerald-400/20 text-emerald-400 px-3 py-1 rounded-full text-xs border border-emerald-400/30">Vue.js</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="skills" class="py-20 bg-black">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="section-title animate-fade-in-up">Skills & Technologies</h2>
+                <p class="section-subtitle animate-fade-in-up" style="animation-delay: 0.2s;">My Technical Arsenal</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="glass-effect p-6 rounded-lg fade-on-scroll shadow-lg">
+                    <h3 class="text-xl font-semibold text-cyan-400 mb-4">Backend Development</h3>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="bg-gray-700 text-gray-200 px-4 py-2 rounded-md text-sm hover:bg-cyan-400/50 hover:text-white transition-colors">PHP</span>
+                        <span class="bg-gray-700 text-gray-200 px-4 py-2 rounded-md text-sm hover:bg-cyan-400/50 hover:text-white transition-colors">Node.js</span>
+                        <span class="bg-gray-700 text-gray-200 px-4 py-2 rounded-md text-sm hover:bg-cyan-400/50 hover:text-white transition-colors">Kotlin</span>
+                        <span class="bg-gray-700 text-gray-200 px-4 py-2 rounded-md text-sm hover:bg-cyan-400/50 hover:text-white transition-colors">TypeScript</span>
+                        <span class="bg-gray-700 text-gray-200 px-4 py-2 rounded-md text-sm hover:bg-cyan-400/50 hover:text-white transition-colors">Laravel</span>
+                    </div>
+                </div>
+                <div class="glass-effect p-6 rounded-lg fade-on-scroll shadow-lg" style="animation-delay: 0.1s;">
+                    <h3 class="text-xl font-semibold text-purple-500 mb-4">Frontend Development</h3>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="bg-gray-700 text-gray-200 px-4 py-2 rounded-md text-sm hover:bg-purple-500/50 hover:text-white transition-colors">Vue.js</span>
+                        <span class="bg-gray-700 text-gray-200 px-4 py-2 rounded-md text-sm hover:bg-purple-500/50 hover:text-white transition-colors">NuxtJS</span>
+                    </div>
+                </div>
+                <div class="glass-effect p-6 rounded-lg fade-on-scroll shadow-lg" style="animation-delay: 0.2s;">
+                    <h3 class="text-xl font-semibold text-amber-500 mb-4">Databases</h3>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="bg-gray-700 text-gray-200 px-4 py-2 rounded-md text-sm hover:bg-amber-500/50 hover:text-white transition-colors">MySQL</span>
+                        <span class="bg-gray-700 text-gray-200 px-4 py-2 rounded-md text-sm hover:bg-amber-500/50 hover:text-white transition-colors">MongoDB</span>
+                        <span class="bg-gray-700 text-gray-200 px-4 py-2 rounded-md text-sm hover:bg-amber-500/50 hover:text-white transition-colors">PostgreSQL</span>
+                        <span class="bg-gray-700 text-gray-200 px-4 py-2 rounded-md text-sm hover:bg-amber-500/50 hover:text-white transition-colors">Firebase</span>
+                    </div>
+                </div>
+                <div class="glass-effect p-6 rounded-lg fade-on-scroll shadow-lg md:col-span-2 lg:col-span-3" style="animation-delay: 0.3s;">
+                    <h3 class="text-xl font-semibold text-emerald-400 mb-4">Cloud Platforms & Tools</h3>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="bg-gray-700 text-gray-200 px-4 py-2 rounded-md text-sm hover:bg-emerald-400/50 hover:text-white transition-colors">Google Cloud Platform</span>
+                        <span class="bg-gray-700 text-gray-200 px-4 py-2 rounded-md text-sm hover:bg-emerald-400/50 hover:text-white transition-colors">Cloud Computing</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="education" class="py-20 bg-gray-900">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="section-title animate-fade-in-up">Education</h2>
+                <p class="section-subtitle animate-fade-in-up" style="animation-delay: 0.2s;">My Academic Background</p>
+            </div>
+            <div class="glass-effect p-8 rounded-lg shadow-xl max-w-3xl mx-auto fade-on-scroll">
+                <h3 class="text-2xl font-bold text-white">Universitas Multimedia Nusantara</h3>
+                <p class="text-cyan-400 text-lg mb-1">Bachelor Degree of Information System</p>
+                <p class="text-gray-400 text-sm mb-3">AUGUST 2019 - JANUARY 2024</p>
+                <p class="text-gray-300 mb-4">Cumulative GPA: <span class="font-semibold text-white">3.85 / 4.00</span></p>
+                <h4 class="text-md font-semibold text-white mb-2">Relevant Coursework:</h4>
+                <ul class="list-disc list-inside text-gray-300 space-y-1 text-sm leading-relaxed">
+                    <li>Web Design and Development</li>
+                    <li>Algorithm and Data Structure</li>
+                    <li>Mobile Application Development</li>
+                    <li>Artificial Intelligence</li>
+                    <li>Big Data Analytics</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="certifications" class="py-20 bg-black">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="section-title animate-fade-in-up">Certifications & Achievements</h2>
+                <p class="section-subtitle animate-fade-in-up" style="animation-delay: 0.2s;">Recognitions and Awards</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6
