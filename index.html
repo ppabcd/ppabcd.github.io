@@ -87,6 +87,20 @@
             display: block;
             animation: fadeInUp 0.5s ease-out;
         }
+
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .fade-on-scroll {
+            opacity: 1;
+        }
+
+        .lazyload {
+            transition: opacity 0.3s;
+        }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
@@ -345,7 +359,7 @@
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <div
                         class="group glass-effect rounded-xl p-6 hover:bg-gray-700/30 transition-all duration-300 hover:shadow-2xl hover:shadow-purple-500/10 fade-on-scroll">
-                    <div class="aspect-video bg-gray-700 rounded-lg mb-4 overflow-hidden">
+                    <div class="aspect-video bg-gray-700 rounded-lg mb-4 overflow-hidden" onclick="openModal('projects/Kredibel.jpg')">
                         <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 lazyload"
                              src="projects/Kredibel.jpg" alt="Kredibel">
                     </div>
@@ -365,7 +379,7 @@
                 </div>
                 <div
                         class="group glass-effect rounded-xl p-6 hover:bg-gray-700/30 transition-all duration-300 hover:shadow-2xl hover:shadow-purple-500/10 fade-on-scroll">
-                    <div class="aspect-video bg-gray-700 rounded-lg mb-4 overflow-hidden">
+                    <div class="aspect-video bg-gray-700 rounded-lg mb-4 overflow-hidden" onclick="openModal('projects/Vee Presentation.jpg')">
                         <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 lazyload"
                              src="projects/Vee Presentation.jpg" alt="Vee Project">
                     </div>
@@ -395,7 +409,7 @@
 
                 <div
                         class="group glass-effect rounded-xl p-6 hover:bg-gray-700/30 transition-all duration-300 hover:shadow-2xl hover:shadow-amber-500/10 fade-on-scroll">
-                    <div class="aspect-video bg-gray-700 rounded-lg mb-4 overflow-hidden">
+                    <div class="aspect-video bg-gray-700 rounded-lg mb-4 overflow-hidden" onclick="openModal('projects/PPI.jpg')">
                         <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 lazyload"
                              src="/projects/PPI.jpg"
                              alt="Assessment Platform">
@@ -417,7 +431,7 @@
                     </div>
                 </div>
                 <div class="group glass-effect rounded-xl p-6 hover:bg-gray-700/30 transition-all duration-300 hover:shadow-2xl hover:shadow-amber-500/10 fade-on-scroll">
-                    <div class="aspect-video bg-gray-700 rounded-lg mb-4 overflow-hidden">
+                    <div class="aspect-video bg-gray-700 rounded-lg mb-4 overflow-hidden" onclick="openModal('projects/Amegu.png')">
                         <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 lazyload"
                              src="projects/Amegu.png" alt="Amegu">
                     </div>
@@ -441,7 +455,7 @@
                     </div>
                 </div>
                 <div class="group glass-effect rounded-xl p-6 hover:bg-gray-700/30 transition-all duration-300 hover:shadow-2xl hover:shadow-amber-500/10 fade-on-scroll">
-                    <div class="aspect-video bg-gray-700 rounded-lg mb-4 overflow-hidden">
+                    <div class="aspect-video bg-gray-700 rounded-lg mb-4 overflow-hidden" onclick="openModal('projects/Klinik.jpg')">
                         <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 lazyload"
                              src="projects/Klinik.jpg" alt="Clinic Web App">
                     </div>
@@ -464,7 +478,7 @@
         <div id="uiux-portfolio" class="tab-content">
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <div class="group glass-effect rounded-xl p-6 hover:bg-gray-700/30 transition-all duration-300 hover:shadow-2xl hover:shadow-purple-500/10 fade-on-scroll">
-                    <div class="aspect-video bg-gray-700 rounded-lg mb-4 overflow-hidden">
+                    <div class="aspect-video bg-gray-700 rounded-lg mb-4 overflow-hidden" onclick="openModal('projects/Distro.jpg')">
                         <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 lazyload"
                              src="projects/Distro.jpg" alt="Distro">
                     </div>
@@ -485,7 +499,7 @@
                     </div>
                 </div>
                 <div class="group glass-effect rounded-xl p-6 hover:bg-gray-700/30 transition-all duration-300 hover:shadow-2xl hover:shadow-purple-500/10 fade-on-scroll">
-                    <div class="aspect-video bg-gray-700 rounded-lg mb-4 overflow-hidden">
+                    <div class="aspect-video bg-gray-700 rounded-lg mb-4 overflow-hidden" onclick="openModal('projects/Finess.jpg')">
                         <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 lazyload"
                              src="projects/Finess.jpg" alt="Finess">
                     </div>
@@ -510,7 +524,7 @@
                     </div>
                 </div>
                 <div class="group glass-effect rounded-xl p-6 hover:bg-gray-700/30 transition-all duration-300 hover:shadow-2xl hover:shadow-purple-500/10 fade-on-scroll">
-                    <div class="aspect-video bg-gray-700 rounded-lg mb-4 overflow-hidden">
+                    <div class="aspect-video bg-gray-700 rounded-lg mb-4 overflow-hidden" onclick="openModal('projects/Sharity.jpg')">
                         <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 lazyload"
                              src="projects/Sharity.jpg" alt="Sharity">
                     </div>
@@ -530,7 +544,7 @@
                     </div>
                 </div>
                 <div class="group glass-effect rounded-xl p-6 hover:bg-gray-700/30 transition-all duration-300 hover:shadow-2xl hover:shadow-purple-500/10 fade-on-scroll">
-                    <div class="aspect-video bg-gray-700 rounded-lg mb-4 overflow-hidden">
+                    <div class="aspect-video bg-gray-700 rounded-lg mb-4 overflow-hidden" onclick="openModal('projects/Stecy.jpg')">
                         <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 lazyload"
                              src="projects/Stecy.jpg" alt="Stecy">
                     </div>
@@ -550,7 +564,7 @@
                     </div>
                 </div>
                 <div class="group glass-effect rounded-xl p-6 hover:bg-gray-700/30 transition-all duration-300 hover:shadow-2xl hover:shadow-purple-500/10 fade-on-scroll">
-                    <div class="aspect-video bg-gray-700 rounded-lg mb-4 overflow-hidden">
+                    <div class="aspect-video bg-gray-700 rounded-lg mb-4 overflow-hidden" onclick="openModal('projects/Cultrip.jpg')">
                         <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 lazyload"
                              src="projects/Cultrip.jpg" alt="Cultrip">
                     </div>
@@ -827,7 +841,25 @@
         </div>
     </div>
 </section>
+<!-- Modal -->
+<div id="imageModal" class="fixed inset-0 bg-black bg-opacity-90 z-50 hidden items-center justify-center p-4 transition-opacity duration-300">
+    <div class="relative max-w-4xl max-h-full">
+        <!-- Close button -->
+        <button onclick="closeModal()" class="absolute -top-12 right-0 text-white hover:text-red-500 transition-colors duration-200 text-2xl font-bold z-10">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+        </button>
 
+        <!-- Modal content -->
+        <div class="bg-white rounded-lg overflow-hidden shadow-2xl transform transition-all duration-300 scale-95" id="modalContent">
+            <img id="modalImage" src="" alt="" class="w-full h-auto max-h-screen object-contain">
+            <div class="p-4 bg-gray-900">
+                <h3 id="modalTitle" class="text-xl font-semibold text-white"></h3>
+            </div>
+        </div>
+    </div>
+</div>
 <footer class="bg-black border-t border-gray-800 py-8">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center text-gray-400">
@@ -862,6 +894,52 @@
             const targetTab = button.getAttribute('data-tab');
             document.getElementById(targetTab).classList.add('active');
         });
+    });
+
+    function openModal(imageSrc, title) {
+        const modal = document.getElementById('imageModal');
+        const modalImage = document.getElementById('modalImage');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalContent = document.getElementById('modalContent');
+
+        modalImage.src = imageSrc;
+        modalTitle.textContent = title;
+
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+
+        // Trigger animation
+        setTimeout(() => {
+            modalContent.classList.remove('scale-95');
+            modalContent.classList.add('scale-100');
+        }, 10);
+    }
+
+    function closeModal() {
+        const modal = document.getElementById('imageModal');
+        const modalContent = document.getElementById('modalContent');
+
+        modalContent.classList.remove('scale-100');
+        modalContent.classList.add('scale-95');
+
+        setTimeout(() => {
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }, 300);
+    }
+
+    // Close modal when clicking outside the image
+    document.getElementById('imageModal').addEventListener('click', function(e) {
+        if (e.target === this) {
+            closeModal();
+        }
+    });
+
+    // Close modal with Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            closeModal();
+        }
     });
 </script>
 </body>
