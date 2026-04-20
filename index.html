@@ -4,79 +4,120 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio - Reza Juliandri</title>
+    <title>Reza Juliandri — Backend Engineer</title>
+    <meta name="description"
+          content="Backend engineer based in Indonesia. Eight years shipping APIs, automation, and data systems that serve millions.">
 
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
-          rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
 
     <style type="text/tailwindcss">
         @theme {
-            --color-brand-primary: #06b6d4;
-            --color-brand-secondary: #8b5cf6;
-            --color-accent: #f59e0b;
-            --font-family-display: 'Inter', sans-serif;
+            --color-ink: #0a0a0a;
+            --color-surface: #111111;
+            --color-line: #1f1f1f;
+            --color-paper: #ededeb;
+            --color-muted: #8a8a87;
+            --color-accent: #e8b765;
+            --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+            --font-serif: 'Fraunces', Georgia, serif;
+            --font-mono: 'JetBrains Mono', ui-monospace, monospace;
         }
 
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        html, body {
+            background: var(--color-ink);
+            color: var(--color-paper);
         }
 
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0px);
-            }
-            50% {
-                transform: translateY(-10px);
-            }
+        body {
+            font-family: var(--font-sans);
+            font-feature-settings: "ss01", "cv01";
+            -webkit-font-smoothing: antialiased;
         }
 
-        .animate-fade-in-up {
-            animation: fadeInUp 0.8s ease-out;
-            animation-fill-mode: both;
+        .display {
+            font-family: var(--font-serif);
+            font-feature-settings: "ss01";
+            letter-spacing: -0.025em;
+            line-height: 1.02;
+            font-weight: 400;
         }
 
-        .animate-float {
-            animation: float 3s ease-in-out infinite;
+        .label {
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--color-muted);
         }
 
-        .glass-effect {
-            backdrop-filter: blur(10px);
-            background: rgba(31, 41, 55, 0.6);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+        .mono {
+            font-family: var(--font-mono);
         }
 
-        .section-title {
-            @apply text-3xl font-bold mb-2 text-white text-center;
+        .link-underline {
+            position: relative;
+            color: var(--color-paper);
+            text-decoration: none;
         }
 
-        .section-subtitle {
-            @apply text-lg text-cyan-400 mb-8 text-center tracking-wider;
+        .link-underline::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: -2px;
+            height: 1px;
+            background: currentColor;
+            transform-origin: right;
+            transform: scaleX(1);
+            transition: transform 350ms ease;
+        }
+
+        .link-underline:hover::after {
+            transform-origin: left;
+            transform: scaleX(0);
+        }
+
+        .tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.25rem 0.6rem;
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            letter-spacing: 0.04em;
+            color: var(--color-muted);
+            border: 1px solid var(--color-line);
+            border-radius: 2px;
+        }
+
+        .tag::before {
+            content: "";
+            width: 4px;
+            height: 4px;
+            background: var(--color-muted);
+            border-radius: 50%;
         }
 
         ::-webkit-scrollbar {
-            width: 8px;
+            width: 6px;
         }
 
         ::-webkit-scrollbar-track {
-            background: #0f172a;
+            background: var(--color-ink);
         }
 
         ::-webkit-scrollbar-thumb {
-            background: #06b6d4;
-            border-radius: 4px;
+            background: #2a2a2a;
         }
 
         ::-webkit-scrollbar-thumb:hover {
-            background: #0891b2;
+            background: #3a3a3a;
         }
 
         .tab-content {
@@ -85,514 +126,662 @@
 
         .tab-content.active {
             display: block;
-            animation: fadeInUp 0.5s ease-out;
         }
 
-        .glass-effect {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+        .tab-btn[aria-selected="true"] {
+            color: var(--color-paper);
         }
 
-        .fade-on-scroll {
+        .tab-btn[aria-selected="true"] .tab-dot {
+            background: var(--color-accent);
+        }
+
+        .work-card {
+            position: relative;
+            display: block;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--color-line);
+            transition: border-color 300ms ease;
+        }
+
+        .work-card:hover {
+            border-top-color: var(--color-paper);
+        }
+
+        .work-card .work-thumb {
+            transition: filter 500ms ease, transform 500ms ease;
+            filter: grayscale(100%) brightness(0.85);
+        }
+
+        .work-card:hover .work-thumb {
+            filter: grayscale(0%) brightness(1);
+        }
+
+        .work-card .work-arrow {
+            transition: transform 300ms ease, opacity 300ms ease;
+            opacity: 0.4;
+        }
+
+        .work-card:hover .work-arrow {
             opacity: 1;
+            transform: translate(2px, -2px);
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(12px);
+            transition: opacity 700ms ease, transform 700ms ease;
+        }
+
+        .fade-in.is-visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .lazyload {
             transition: opacity 0.3s;
         }
+
+        .exp-row:hover .exp-year {
+            color: var(--color-accent);
+        }
+
+        .profile-frame {
+            position: relative;
+        }
+
+        .profile-frame::before {
+            content: "";
+            position: absolute;
+            inset: -10px;
+            border: 1px solid var(--color-line);
+            pointer-events: none;
+        }
+
+        .grid-rule {
+            background-image: linear-gradient(to right, transparent calc(100% - 1px), var(--color-line) calc(100% - 1px));
+            background-size: calc(100% / 12) 100%;
+        }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 
-<body class="bg-black text-gray-100 font-display selection:bg-cyan-400 selection:text-black">
+<body class="bg-ink text-paper selection:bg-accent selection:text-ink">
 
-<header class="fixed top-0 left-0 right-0 z-50 glass-effect shadow-lg">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex items-center justify-between h-20">
-            <a href="#" class="text-2xl font-bold text-white hover:text-cyan-400 transition-colors duration-300">
-                Reza Juliandri
+<header class="fixed top-0 left-0 right-0 z-40 border-b border-[color:var(--color-line)] bg-ink/85 backdrop-blur-md">
+    <div class="max-w-6xl mx-auto px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+            <a href="#" class="mono text-sm text-paper">
+                reza juliandri<span style="color: var(--color-accent);">.</span>
             </a>
-            <nav class="hidden md:flex space-x-6 items-center">
-                <a href="#about"
-                   class="text-gray-300 hover:text-cyan-400 transition-colors duration-300 px-3 py-2 rounded-md text-sm font-medium">About</a>
-                <a href="#experience"
-                   class="text-gray-300 hover:text-cyan-400 transition-colors duration-300 px-3 py-2 rounded-md text-sm font-medium">Experience</a>
-                <a href="#projects"
-                   class="text-gray-300 hover:text-cyan-400 transition-colors duration-300 px-3 py-2 rounded-md text-sm font-medium">Projects</a>
-                <a href="#skills"
-                   class="text-gray-300 hover:text-cyan-400 transition-colors duration-300 px-3 py-2 rounded-md text-sm font-medium">Skills</a>
-                <a href="#contact"
-                   class="bg-cyan-400 text-white hover:bg-cyan-600 px-4 py-2 rounded-lg transform hover:scale-105 transition-all duration-300 shadow-md hover:shadow-cyan-400/25 text-sm font-medium">
-                    Contact Me
-                </a>
+            <nav class="hidden md:flex items-center gap-10">
+                <a href="#about" class="label hover:text-paper transition-colors">About</a>
+                <a href="#work" class="label hover:text-paper transition-colors">Work</a>
+                <a href="#experience" class="label hover:text-paper transition-colors">Experience</a>
+                <a href="#skills" class="label hover:text-paper transition-colors">Skills</a>
+                <a href="#contact" class="label hover:text-paper transition-colors">Contact</a>
             </nav>
-            <div class="md:hidden">
-                <button id="mobile-menu-button"
-                        class="text-gray-300 hover:text-white focus:outline-none focus:text-white">
-                    <svg class="h-6 w-6 fill-current" viewBox="0 0 24 24">
-                        <path id="menu-icon-open" d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2"
-                              stroke-linecap="round"></path>
-                        <path id="menu-icon-close" d="M6 18L18 6M6 6l12 12" stroke="currentColor" stroke-width="2"
-                              stroke-linecap="round" class="hidden"></path>
-                    </svg>
-                </button>
-            </div>
+            <button id="mobile-menu-button" class="md:hidden text-paper focus:outline-none" aria-label="Menu">
+                <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25">
+                    <path id="menu-icon-open" d="M4 8h16M4 16h16" stroke-linecap="round"></path>
+                    <path id="menu-icon-close" d="M6 18L18 6M6 6l12 12" stroke-linecap="round" class="hidden"></path>
+                </svg>
+            </button>
         </div>
     </div>
-    <div id="mobile-menu" class="md:hidden hidden glass-effect">
-        <a href="#about"
-           class="block text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 text-base font-medium">About</a>
-        <a href="#experience"
-           class="block text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 text-base font-medium">Experience</a>
-        <a href="#projects"
-           class="block text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 text-base font-medium">Projects</a>
-        <a href="#skills"
-           class="block text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 text-base font-medium">Skills</a>
-        <a href="#contact"
-           class="block text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 text-base font-medium">Contact</a>
+    <div id="mobile-menu" class="md:hidden hidden border-t border-[color:var(--color-line)]">
+        <div class="max-w-6xl mx-auto px-6 py-5 flex flex-col gap-5">
+            <a href="#about" class="label">About</a>
+            <a href="#work" class="label">Work</a>
+            <a href="#experience" class="label">Experience</a>
+            <a href="#skills" class="label">Skills</a>
+            <a href="#contact" class="label">Contact</a>
+        </div>
     </div>
 </header>
 
-<section id="hero"
-         class="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-800 flex items-center justify-center relative overflow-hidden pt-20">
-    <div class="absolute inset-0 opacity-10"></div>
-    <div class="absolute top-20 left-10 w-3 h-3 md:w-4 md:h-4 bg-cyan-400 rounded-full animate-float"
-         style="animation-delay: 0.5s;"></div>
-    <div class="absolute bottom-32 right-16 w-4 h-4 md:w-6 md:h-6 bg-purple-500 rounded-full animate-float"
-         style="animation-delay: 1s;"></div>
-    <div class="absolute top-1/3 right-1/4 w-2 h-2 md:w-3 md:h-3 bg-amber-500 rounded-full animate-float"
-         style="animation-delay: 1.5s;"></div>
-
-    <div class="max-w-4xl mx-auto px-4 text-center z-10">
-        <div class="mb-8 animate-fade-in-up" style="animation-delay: 0.1s;">
-            <img src="./profile.jpg" alt="Reza Juliandri"
-                 class="w-32 h-32 md:w-40 md:h-40 rounded-full mx-auto border-4 border-cyan-400 shadow-xl object-cover lazyload">
-        </div>
-        <h1 class="text-4xl md:text-6xl font-bold text-white mb-4 animate-fade-in-up"
-            style="animation-delay: 0.2s;">
-            Hi, I'm <span class="bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent">Reza
-                    Juliandri</span>
-        </h1>
-        <p class="text-lg md:text-xl text-gray-300 mb-8 leading-relaxed max-w-2xl mx-auto animate-fade-in-up"
-           style="animation-delay: 0.4s;">
-            A Backend Engineer with 8+ years of experience, specializing in efficient REST APIs, automation, and
-            database optimization. My work has impacted millions.
-        </p>
-        <div class="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up"
-             style="animation-delay: 0.6s;">
-            <a href="#projects"
-               class="bg-cyan-400 hover:bg-cyan-600 text-white px-8 py-3 rounded-lg transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-cyan-400/25 text-lg">
-                View My Work
-            </a>
-            <!--<a href="#" class="glass-effect text-white px-8 py-3 rounded-lg hover:bg-gray-700/50 transition-all duration-300 text-lg border border-gray-600 hover:border-gray-500">
-                Download CV
-            </a>-->
-        </div>
-    </div>
-</section>
-
-<section id="about" class="py-20 bg-gray-900">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-16">
-            <h2 class="section-title animate-fade-in-up">About Me</h2>
-            <p class="section-subtitle animate-fade-in-up" style="animation-delay: 0.2s;">My Journey and Passion</p>
-        </div>
-        <div class="grid md:grid-cols-2 gap-12 items-center">
-            <div class="animate-fade-in-up" style="animation-delay: 0.3s;">
-                <img src="about.jpg" alt="About Reza" class="rounded-lg shadow-2xl glass-effect p-2 lazyload">
-            </div>
-            <div class="animate-fade-in-up" style="animation-delay: 0.4s;">
-                <h3 class="text-2xl font-semibold text-white mb-4">Reza Juliandri</h3>
-                <p class="text-gray-300 mb-4 leading-relaxed">
-                    I am a backend engineer with over six years of rich experience spanning both mobile and web
-                    development. My core passion lies in crafting highly efficient REST APIs, developing automation
-                    bots to streamline processes, and meticulously fine-tuning database performance to ensure
-                    optimal speed and reliability.
+<section id="hero" class="min-h-screen flex items-center pt-28 pb-20">
+    <div class="max-w-6xl mx-auto px-6 lg:px-8 w-full">
+        <div class="grid md:grid-cols-12 gap-12 md:gap-16 items-center">
+            <div class="md:col-span-8 order-2 md:order-1">
+                <div class="flex items-center gap-3 mb-10">
+                    <span class="relative flex h-2 w-2">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-60"></span>
+                        <span class="relative inline-flex h-2 w-2 rounded-full bg-emerald-400"></span>
+                    </span>
+                    <span class="label">Available for select engagements</span>
+                </div>
+                <h1 class="display text-[clamp(2.8rem,8vw,6.5rem)] text-paper mb-8">
+                    Reza<br>Juliandri<span style="color: var(--color-accent);">.</span>
+                </h1>
+                <p class="text-lg md:text-xl text-[color:var(--color-muted)] leading-relaxed max-w-xl">
+                    Backend engineer based in Indonesia. Eight years shipping APIs, automation, and
+                    data systems that serve millions — currently at
+                    <a href="https://www.kredibel.com" target="_blank" rel="noopener" class="link-underline">Kredibel</a>,
+                    working on fraud and trust infrastructure.
                 </p>
-                <p class="text-gray-300 mb-6 leading-relaxed">
-                    It's incredibly rewarding to know that the products and systems I've helped build have been
-                    utilized by millions of users, making a tangible impact. I thrive in dynamic environments where
-                    I can continuously learn and apply cutting-edge technologies to solve complex challenges.
+                <div class="mt-12 flex flex-wrap gap-x-8 gap-y-4 label">
+                    <a href="#work" class="hover:text-paper transition-colors">
+                        Selected work <span class="ml-2" style="color: var(--color-accent);">↓</span>
+                    </a>
+                    <a href="#contact" class="hover:text-paper transition-colors">
+                        Get in touch <span class="ml-2" style="color: var(--color-accent);">→</span>
+                    </a>
+                </div>
+            </div>
+            <div class="md:col-span-4 order-1 md:order-2">
+                <div class="profile-frame max-w-[260px] md:max-w-none">
+                    <img src="./profile.jpg" alt="Reza Juliandri"
+                         class="w-full aspect-[4/5] object-cover lazyload">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="about" class="py-24 md:py-32 border-t border-[color:var(--color-line)]">
+    <div class="max-w-6xl mx-auto px-6 lg:px-8">
+        <div class="grid md:grid-cols-12 gap-10 md:gap-16">
+            <div class="md:col-span-4">
+                <div class="label mb-5">01 &mdash; About</div>
+                <h2 class="display text-3xl md:text-4xl text-paper">A brief introduction.</h2>
+            </div>
+            <div class="md:col-span-8 space-y-6 text-[17px] md:text-lg text-[color:var(--color-muted)] leading-relaxed">
+                <p>
+                    I work on the parts of software most users never see but rely on every
+                    day &mdash; REST APIs, automation pipelines, database performance, and
+                    the glue that keeps data flowing reliably.
                 </p>
-                <!--<a href="#" class="inline-block bg-purple-500 hover:bg-purple-700 text-white px-6 py-3 rounded-lg transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-purple-500/25">
-                    Download My CV
-                </a>-->
-            </div>
-        </div>
-    </div>
-</section>
-
-<section id="experience" class="py-20 bg-black">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-16">
-            <h2 class="section-title animate-fade-in-up">My Experience</h2>
-            <p class="section-subtitle animate-fade-in-up" style="animation-delay: 0.2s;">Professional Journey &
-                Roles</p>
-        </div>
-        <div class="relative border-l-2 border-cyan-400/30 space-y-12">
-            <div class="pl-10 ml-2 relative fade-on-scroll">
-                <div class="absolute -left-3 top-1 w-5 h-5 bg-cyan-400 rounded-full border-4 border-black"></div>
-                <div
-                        class="glass-effect p-6 rounded-lg shadow-xl hover:shadow-cyan-400/10 transition-shadow duration-300">
-                    <span class="text-sm text-cyan-400 font-semibold">AUGUST 2018 - PRESENT</span>
-                    <h3 class="text-xl font-bold text-white mt-1">Backend Engineer</h3>
-                    <p class="text-gray-400 mb-3">PT. Kredibel Teknologi Indonesia</p>
-                    <ul class="list-disc list-inside text-gray-300 space-y-1 text-sm leading-relaxed">
-                        <li>Develop and implement new features and enhancements for APIs.</li>
-                        <li>Design and implement scalable and reliable backend systems.</li>
-                        <li>Write clean, maintainable, and well-documented code.</li>
-                        <li>Continuously monitor and improve backend system performance and security.</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="pl-10 ml-2 relative fade-on-scroll">
-                <div class="absolute -left-3 top-1 w-5 h-5 bg-cyan-400 rounded-full border-4 border-black"></div>
-                <div
-                        class="glass-effect p-6 rounded-lg shadow-xl hover:shadow-cyan-400/10 transition-shadow duration-300">
-                    <span class="text-sm text-cyan-400 font-semibold">JANUARY 2024 - DECEMBER 2024</span>
-                    <h3 class="text-xl font-bold text-white mt-1">Mobile Development Instructor</h3>
-                    <p class="text-gray-400 mb-3">Bangkit Academy 2024</p>
-                    <ul class="list-disc list-inside text-gray-300 space-y-1 text-sm leading-relaxed">
-                        <li>Delivered instructional material on Android development (Kotlin) to 50 students.</li>
-                        <li>Implemented interactive learning strategies to boost engagement.</li>
-                        <li>Stayed updated with latest trends in mobile development and machine learning.</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="pl-10 ml-2 relative fade-on-scroll">
-                <div class="absolute -left-3 top-1 w-5 h-5 bg-cyan-400 rounded-full border-4 border-black"></div>
-                <div
-                        class="glass-effect p-6 rounded-lg shadow-xl hover:shadow-cyan-400/10 transition-shadow duration-300">
-                    <span class="text-sm text-cyan-400 font-semibold">FEBRUARY 2023 - JANUARY 2024</span>
-                    <h3 class="text-xl font-bold text-white mt-1">Mobile Development Mentor</h3>
-                    <p class="text-gray-400 mb-3">Bangkit Academy 2023</p>
-                    <ul class="list-disc list-inside text-gray-300 space-y-1 text-sm leading-relaxed">
-                        <li>Assisted Instructor during ILT sessions and mentored 25 students.</li>
-                        <li>Achieved a minimum graduation rate of 86% among students.</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="pl-10 ml-2 relative fade-on-scroll">
-                <div class="absolute -left-3 top-1 w-5 h-5 bg-cyan-400 rounded-full border-4 border-black"></div>
-                <div
-                        class="glass-effect p-6 rounded-lg shadow-xl hover:shadow-cyan-400/10 transition-shadow duration-300">
-                    <span class="text-sm text-cyan-400 font-semibold">AUGUST 2022 - DECEMBER 2022</span>
-                    <h3 class="text-xl font-bold text-white mt-1">Backend Engineer Intern</h3>
-                    <p class="text-gray-400 mb-3">Traveloka (Financial Team)</p>
-                    <ul class="list-disc list-inside text-gray-300 space-y-1 text-sm leading-relaxed">
-                        <li>Developed new features and implemented unit/automated tests.</li>
-                        <li>Developed Know Your Business (KYB) for verifying business partners.</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="pl-10 ml-2 relative fade-on-scroll">
-                <div class="absolute -left-3 top-1 w-5 h-5 bg-cyan-400 rounded-full border-4 border-black"></div>
-                <div
-                        class="glass-effect p-6 rounded-lg shadow-xl hover:shadow-cyan-400/10 transition-shadow duration-300">
-                    <span class="text-sm text-cyan-400 font-semibold">AUGUST 2021 - JUNE 2022</span>
-                    <h3 class="text-xl font-bold text-white mt-1">Laboratory Assistant</h3>
-                    <p class="text-gray-400 mb-3">Universitas Multimedia Nusantara</p>
-                    <ul class="list-disc list-inside text-gray-300 space-y-1 text-sm leading-relaxed">
-                        <li>Demonstrated laboratory sessions across multiple computer science disciplines to 25-40
-                            students per session
-                        </li>
-                        <li>Conducted labs in Probability and Statistics, Web Design and Development, and Mobile
-                            Application Development
-                        </li>
-                        <li>Taught front-end web development (HTML, CSS, JavaScript), back-end development (PHP), and
-                            Android programming using Java
-                        </li>
-                        <li>Provided comprehensive assessment and evaluation of student assignments across all subject
-                            areas
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="pl-10 ml-2 relative fade-on-scroll">
-                <div class="absolute -left-3 top-1 w-5 h-5 bg-cyan-400 rounded-full border-4 border-black"></div>
-                <div
-                        class="glass-effect p-6 rounded-lg shadow-xl hover:shadow-cyan-400/10 transition-shadow duration-300">
-                    <span class="text-sm text-cyan-400 font-semibold">MARCH 2020 - DECEMBER 2021</span>
-                    <h3 class="text-xl font-bold text-white mt-1">Software Engineer</h3>
-                    <p class="text-gray-400 mb-3">Arxist</p>
-                    <ul class="list-disc list-inside text-gray-300 space-y-1 text-sm leading-relaxed">
-                        <li>Developed an English electronic assessment platform for Politeknik Penerbangan Indonesia
-                            Curug
-                        </li>
-                        <li>Built full-stack web application using Laravel framework for backend development</li>
-                        <li>Created comprehensive assessment system to digitize English language testing and evaluation
-                            processes
-                        </li>
-                    </ul>
+                <p>
+                    Since 2018 I've been at <span class="text-paper">Kredibel</span>, tackling
+                    fraud and online trust for an audience in the millions. Before that, I
+                    interned on the financial team at <span class="text-paper">Traveloka</span>
+                    and built an English assessment platform for the Indonesian civil aviation
+                    academy at <span class="text-paper">Arxist</span>.
+                </p>
+                <p>
+                    I also teach. Over the past two cohorts I've mentored and instructed
+                    dozens of students in mobile development through
+                    <span class="text-paper">Bangkit Academy</span> &mdash; a joint program
+                    from Google, GoTo, and Traveloka.
+                </p>
+                <div class="grid grid-cols-2 gap-6 pt-6 mt-2 border-t border-[color:var(--color-line)]">
+                    <div>
+                        <div class="label mb-2">Based in</div>
+                        <div class="text-paper">Bali, Indonesia</div>
+                    </div>
+                    <div>
+                        <div class="label mb-2">Focus</div>
+                        <div class="text-paper">APIs &middot; Automation &middot; Data</div>
+                    </div>
+                    <div>
+                        <div class="label mb-2">Writing</div>
+                        <div class="text-paper">Go &middot; TypeScript &middot; Swift</div>
+                    </div>
+                    <div>
+                        <div class="label mb-2">Experience</div>
+                        <div class="text-paper">8+ years</div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<section id="projects" class="py-20 bg-gray-900">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-16">
-            <h2 class="section-title animate-fade-in-up">My Projects</h2>
-            <p class="section-subtitle animate-fade-in-up" style="animation-delay: 0.2s;">Featured Work &
-                Contributions</p>
-        </div>
-        <div class="flex justify-center mb-12">
-            <div class="glass-effect rounded-full p-2 inline-flex">
-                <button
-                        class="tab-btn px-8 py-3 rounded-full font-semibold transition-all duration-300 bg-purple-500 text-white shadow-lg shadow-purple-500/25"
-                        data-tab="web-portfolio"
-                >
-                    Website & App
-                </button>
-                <button class="tab-btn px-8 py-3 rounded-full font-semibold transition-all duration-300 text-gray-300 hover:text-white hover:bg-gray-700/50 ml-2"
-                        data-tab="uiux-portfolio">
-                    UI/UX
-                </button>
+<section id="experience" class="py-24 md:py-32 border-t border-[color:var(--color-line)]">
+    <div class="max-w-6xl mx-auto px-6 lg:px-8">
+        <div class="grid md:grid-cols-12 gap-10 md:gap-16 mb-16">
+            <div class="md:col-span-4">
+                <div class="label mb-5">02 &mdash; Experience</div>
+                <h2 class="display text-3xl md:text-4xl text-paper">Where I've worked.</h2>
             </div>
         </div>
+
+        <ol class="border-t border-[color:var(--color-line)]">
+            <li class="exp-row py-10 grid md:grid-cols-12 gap-6 md:gap-10 border-b border-[color:var(--color-line)]">
+                <div class="md:col-span-3 exp-year label transition-colors">Aug 2018 &mdash; Present</div>
+                <div class="md:col-span-9">
+                    <h3 class="display text-2xl text-paper mb-1">Backend Engineer</h3>
+                    <p class="text-[color:var(--color-muted)] mb-5">PT. Kredibel Teknologi Indonesia</p>
+                    <ul class="space-y-2 text-[color:var(--color-muted)] leading-relaxed">
+                        <li>Design and ship features for APIs used across consumer and business products.</li>
+                        <li>Build scalable backend systems with clear ownership and operational boundaries.</li>
+                        <li>Tune database queries and indexes to hold up under production traffic.</li>
+                    </ul>
+                </div>
+            </li>
+
+            <li class="exp-row py-10 grid md:grid-cols-12 gap-6 md:gap-10 border-b border-[color:var(--color-line)]">
+                <div class="md:col-span-3 exp-year label transition-colors">Jan 2024 &mdash; Dec 2024</div>
+                <div class="md:col-span-9">
+                    <h3 class="display text-2xl text-paper mb-1">Mobile Development Instructor</h3>
+                    <p class="text-[color:var(--color-muted)] mb-5">Bangkit Academy 2024</p>
+                    <ul class="space-y-2 text-[color:var(--color-muted)] leading-relaxed">
+                        <li>Taught Kotlin-based Android development to a cohort of 50 students.</li>
+                        <li>Designed interactive sessions to keep engagement high across a remote format.</li>
+                    </ul>
+                </div>
+            </li>
+
+            <li class="exp-row py-10 grid md:grid-cols-12 gap-6 md:gap-10 border-b border-[color:var(--color-line)]">
+                <div class="md:col-span-3 exp-year label transition-colors">Feb 2023 &mdash; Jan 2024</div>
+                <div class="md:col-span-9">
+                    <h3 class="display text-2xl text-paper mb-1">Mobile Development Mentor</h3>
+                    <p class="text-[color:var(--color-muted)] mb-5">Bangkit Academy 2023</p>
+                    <ul class="space-y-2 text-[color:var(--color-muted)] leading-relaxed">
+                        <li>Ran ILT sessions and mentored 25 students to an 86% graduation rate.</li>
+                    </ul>
+                </div>
+            </li>
+
+            <li class="exp-row py-10 grid md:grid-cols-12 gap-6 md:gap-10 border-b border-[color:var(--color-line)]">
+                <div class="md:col-span-3 exp-year label transition-colors">Aug 2022 &mdash; Dec 2022</div>
+                <div class="md:col-span-9">
+                    <h3 class="display text-2xl text-paper mb-1">Backend Engineer Intern</h3>
+                    <p class="text-[color:var(--color-muted)] mb-5">Traveloka &middot; Financial Team</p>
+                    <ul class="space-y-2 text-[color:var(--color-muted)] leading-relaxed">
+                        <li>Shipped features with unit and automated tests in a production codebase.</li>
+                        <li>Built Know-Your-Business (KYB) flows for verifying financial partners.</li>
+                    </ul>
+                </div>
+            </li>
+
+            <li class="exp-row py-10 grid md:grid-cols-12 gap-6 md:gap-10 border-b border-[color:var(--color-line)]">
+                <div class="md:col-span-3 exp-year label transition-colors">Aug 2021 &mdash; Jun 2022</div>
+                <div class="md:col-span-9">
+                    <h3 class="display text-2xl text-paper mb-1">Laboratory Assistant</h3>
+                    <p class="text-[color:var(--color-muted)] mb-5">Universitas Multimedia Nusantara</p>
+                    <ul class="space-y-2 text-[color:var(--color-muted)] leading-relaxed">
+                        <li>Ran lab sessions in probability &amp; statistics, web dev, and mobile development.</li>
+                        <li>Taught HTML/CSS/JS, PHP, and Android (Java) to groups of 25&ndash;40 students.</li>
+                        <li>Graded and reviewed assignments across all three subject areas.</li>
+                    </ul>
+                </div>
+            </li>
+
+            <li class="exp-row py-10 grid md:grid-cols-12 gap-6 md:gap-10 border-b border-[color:var(--color-line)]">
+                <div class="md:col-span-3 exp-year label transition-colors">Mar 2020 &mdash; Dec 2021</div>
+                <div class="md:col-span-9">
+                    <h3 class="display text-2xl text-paper mb-1">Software Engineer</h3>
+                    <p class="text-[color:var(--color-muted)] mb-5">Arxist</p>
+                    <ul class="space-y-2 text-[color:var(--color-muted)] leading-relaxed">
+                        <li>Built a full-stack English assessment platform for Politeknik Penerbangan Indonesia Curug.</li>
+                        <li>Developed the Laravel backend and integrated with the web front-end.</li>
+                    </ul>
+                </div>
+            </li>
+
+            <li class="exp-row py-10 grid md:grid-cols-12 gap-6 md:gap-10 border-b border-[color:var(--color-line)]">
+                <div class="md:col-span-3 exp-year label transition-colors">Jan 2020 &mdash; Jan 2021</div>
+                <div class="md:col-span-9">
+                    <h3 class="display text-2xl text-paper mb-1">IT Division</h3>
+                    <p class="text-[color:var(--color-muted)] mb-5">U-Store UMN Gen 4</p>
+                    <ul class="space-y-2 text-[color:var(--color-muted)] leading-relaxed">
+                        <li>Supported the campus student store's IT operations and digital tooling.</li>
+                    </ul>
+                </div>
+            </li>
+
+            <li class="exp-row py-10 grid md:grid-cols-12 gap-6 md:gap-10 border-b border-[color:var(--color-line)]">
+                <div class="md:col-span-3 exp-year label transition-colors">Nov 2019 &mdash; Jan 2020</div>
+                <div class="md:col-span-9">
+                    <h3 class="display text-2xl text-paper mb-1">Google Code-in Mentor</h3>
+                    <p class="text-[color:var(--color-muted)] mb-5">OpenWISP</p>
+                    <ul class="space-y-2 text-[color:var(--color-muted)] leading-relaxed">
+                        <li>Reviewed student tasks and authored new ones aligned with OpenWISP's standards.</li>
+                        <li>Performed quality assurance on student GitHub contributions.</li>
+                    </ul>
+                </div>
+            </li>
+
+            <li class="exp-row py-10 grid md:grid-cols-12 gap-6 md:gap-10 border-b border-[color:var(--color-line)]">
+                <div class="md:col-span-3 exp-year label transition-colors">Nov 2017 &mdash; Dec 2018</div>
+                <div class="md:col-span-9">
+                    <h3 class="display text-2xl text-paper mb-1">Vice Leader</h3>
+                    <p class="text-[color:var(--color-muted)] mb-5">IT Community</p>
+                    <ul class="space-y-2 text-[color:var(--color-muted)] leading-relaxed">
+                        <li>Co-led the community's programs and coordinated member activities.</li>
+                    </ul>
+                </div>
+            </li>
+
+            <li class="exp-row py-10 grid md:grid-cols-12 gap-6 md:gap-10 border-b border-[color:var(--color-line)]">
+                <div class="md:col-span-3 exp-year label transition-colors">Jun 2016 &mdash; May 2017</div>
+                <div class="md:col-span-9">
+                    <h3 class="display text-2xl text-paper mb-1">LITBANG RPL</h3>
+                    <p class="text-[color:var(--color-muted)] mb-5">IT Community</p>
+                    <ul class="space-y-2 text-[color:var(--color-muted)] leading-relaxed">
+                        <li>Worked on research and development within the software engineering division.</li>
+                    </ul>
+                </div>
+            </li>
+        </ol>
+    </div>
+</section>
+
+<section id="work" class="py-24 md:py-32 border-t border-[color:var(--color-line)]">
+    <div class="max-w-6xl mx-auto px-6 lg:px-8">
+        <div class="grid md:grid-cols-12 gap-10 md:gap-16 mb-14">
+            <div class="md:col-span-4">
+                <div class="label mb-5">03 &mdash; Work</div>
+                <h2 class="display text-3xl md:text-4xl text-paper">Selected projects.</h2>
+            </div>
+            <div class="md:col-span-8 flex items-end">
+                <div class="flex items-center gap-10 border-b border-[color:var(--color-line)] w-full pb-3">
+                    <button class="tab-btn flex items-center gap-3 label hover:text-paper transition-colors"
+                            data-tab="web-portfolio" aria-selected="true">
+                        <span class="tab-dot w-1.5 h-1.5 rounded-full bg-[color:var(--color-line)]"></span>
+                        Software
+                    </button>
+                    <button class="tab-btn flex items-center gap-3 label hover:text-paper transition-colors"
+                            data-tab="uiux-portfolio" aria-selected="false">
+                        <span class="tab-dot w-1.5 h-1.5 rounded-full bg-[color:var(--color-line)]"></span>
+                        Design &amp; UX
+                    </button>
+                </div>
+            </div>
+        </div>
+
         <div id="web-portfolio" class="tab-content active">
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div
-                        class="group glass-effect rounded-xl p-6 hover:bg-gray-700/30 transition-all duration-300 hover:shadow-2xl hover:shadow-purple-500/10 fade-on-scroll">
-                    <div class="aspect-video bg-gray-700 rounded-lg mb-4 overflow-hidden"
-                         onclick="openModal('projects/Kredibel.jpg')">
-                        <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 lazyload"
+            <div class="grid md:grid-cols-2 gap-x-10 gap-y-14">
+                <article class="work-card">
+                    <div class="aspect-[16/10] overflow-hidden mb-6 cursor-pointer bg-[color:var(--color-surface)]"
+                         onclick="openModal('projects/Kredibel.jpg', 'Kredibel')">
+                        <img class="work-thumb w-full h-full object-cover lazyload"
                              src="projects/Kredibel.jpg" alt="Kredibel">
                     </div>
-                    <h3 class="text-xl font-semibold text-white mb-2 group-hover:text-yellow-500 transition-colors">
-                        <a href="https://www.kredibel.com" target="_blank">Kredibel</a>
-                    </h3>
-                    <p class="text-gray-300 mb-4 leading-relaxed text-sm">
-                        Kredibel is a startup focused on solving issues related to fraud and customer trust. Our
-                        solutions help the public avoid scams while enabling businesses to onboard more users, comply
-                        with government regulations, and reduce fraud rates.
+                    <div class="flex items-start justify-between gap-4 mb-3">
+                        <h3 class="display text-2xl text-paper">
+                            <a href="https://www.kredibel.com" target="_blank" rel="noopener" class="link-underline">
+                                Kredibel
+                            </a>
+                        </h3>
+                        <span class="work-arrow mono text-xs mt-2">↗</span>
+                    </div>
+                    <p class="text-[color:var(--color-muted)] leading-relaxed mb-5">
+                        A fraud and trust platform helping Indonesian consumers avoid scams and
+                        helping businesses onboard verified users in line with regulation.
                     </p>
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="bg-rose-400/20 text-rose-400 px-3 py-1 rounded-full text-xs border border-rose-400/30">Laravel</span>
-                        <span class="bg-amber-500/20 text-amber-500 px-3 py-1 rounded-full text-xs border border-amber-500/30">Lumen</span>
-                        <span class="bg-cyan-400/20 text-cyan-400 px-3 py-1 rounded-full text-xs border border-cyan-400/30">Filament</span>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="tag">Laravel</span>
+                        <span class="tag">Lumen</span>
+                        <span class="tag">Filament</span>
                     </div>
-                </div>
-                <div
-                        class="group glass-effect rounded-xl p-6 hover:bg-gray-700/30 transition-all duration-300 hover:shadow-2xl hover:shadow-purple-500/10 fade-on-scroll">
-                    <div class="aspect-video bg-gray-700 rounded-lg mb-4 overflow-hidden"
-                         onclick="openModal('projects/Vee Presentation.jpg')">
-                        <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 lazyload"
-                             src="projects/Vee Presentation.jpg" alt="Vee Project">
-                    </div>
-                    <h3 class="text-xl font-semibold text-white mb-2 group-hover:text-yellow-500 transition-colors">
-                        <a href="https://github.com/C22-PS001-Capstone" target="_blank">Vee: Vehicle Management</a>
-                    </h3>
-                    <p class="text-gray-300 mb-4 leading-relaxed text-sm">
-                        Capstone project for Bangkit Academy 2022. A vehicle management system developed in
-                        collaboration with Machine Learning and Cloud Computing students. Selected as one of the top 53
-                        capstone projects.
-                    </p>
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        <span
-                                class="bg-purple-500/20 text-purple-500 px-3 py-1 rounded-full text-xs border border-purple-500/30">Android
-                            (Kotlin)</span>
-                        <span
-                                class="bg-amber-500/20 text-amber-500 px-3 py-1 rounded-full text-xs border border-amber-500/30">Machine
-                            Learning</span>
-                        <span
-                                class="bg-cyan-400/20 text-cyan-400 px-3 py-1 rounded-full text-xs border border-cyan-400/30">Cloud
-                            Computing</span>
-                    </div>
-                    <div class="flex gap-3">
-                        <span class="text-gray-400 text-sm font-medium">Achievement: Top 53 Capstone</span>
-                    </div>
-                </div>
+                </article>
 
-                <div
-                        class="group glass-effect rounded-xl p-6 hover:bg-gray-700/30 transition-all duration-300 hover:shadow-2xl hover:shadow-amber-500/10 fade-on-scroll">
-                    <div class="aspect-video bg-gray-700 rounded-lg mb-4 overflow-hidden"
-                         onclick="openModal('projects/PPI.jpg')">
-                        <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 lazyload"
-                             src="/projects/PPI.jpg"
-                             alt="Assessment Platform">
+                <article class="work-card">
+                    <div class="aspect-[16/10] overflow-hidden mb-6 cursor-pointer bg-[color:var(--color-surface)]"
+                         onclick="openModal('projects/Vee Presentation.jpg', 'Vee: Vehicle Management')">
+                        <img class="work-thumb w-full h-full object-cover lazyload"
+                             src="projects/Vee Presentation.jpg" alt="Vee: Vehicle Management">
                     </div>
-                    <h3 class="text-xl font-semibold text-white mb-2 group-hover:text-amber-500 transition-colors">
-                        <a href="#">
-                            English Electronic Assessment Platform
-                        </a>
-                    </h3>
-                    <p class="text-gray-300 mb-4 leading-relaxed text-sm">
-                        Developed for Politeknik Penerbangan Indonesia Curug. This platform facilitates electronic
-                        assessments in English.
+                    <div class="flex items-start justify-between gap-4 mb-3">
+                        <h3 class="display text-2xl text-paper">
+                            <a href="https://github.com/C22-PS001-Capstone" target="_blank" rel="noopener"
+                               class="link-underline">Vee &mdash; Vehicle Management</a>
+                        </h3>
+                        <span class="work-arrow mono text-xs mt-2">↗</span>
+                    </div>
+                    <p class="text-[color:var(--color-muted)] leading-relaxed mb-5">
+                        Bangkit Academy 2022 capstone with Machine Learning and Cloud Computing
+                        students. Selected among the top 53 projects across the cohort.
                     </p>
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        <span
-                                class="bg-rose-400/20 text-rose-400 px-3 py-1 rounded-full text-xs border border-rose-400/30">Laravel</span>
-                        <span
-                                class="bg-emerald-400/20 text-emerald-400 px-3 py-1 rounded-full text-xs border border-emerald-400/30">Vue.js</span>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="tag">Kotlin</span>
+                        <span class="tag">ML</span>
+                        <span class="tag">GCP</span>
+                        <span class="tag">Top 53 Capstone</span>
                     </div>
-                </div>
-                <div class="group glass-effect rounded-xl p-6 hover:bg-gray-700/30 transition-all duration-300 hover:shadow-2xl hover:shadow-amber-500/10 fade-on-scroll">
-                    <div class="aspect-video bg-gray-700 rounded-lg mb-4 overflow-hidden"
-                         onclick="openModal('projects/Amegu.png')">
-                        <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 lazyload"
+                </article>
+
+                <article class="work-card">
+                    <div class="aspect-[16/10] overflow-hidden mb-6 cursor-pointer bg-[color:var(--color-surface)]"
+                         onclick="openModal('projects/PPI.jpg', 'English Electronic Assessment')">
+                        <img class="work-thumb w-full h-full object-cover lazyload"
+                             src="projects/PPI.jpg" alt="English Electronic Assessment Platform">
+                    </div>
+                    <div class="flex items-start justify-between gap-4 mb-3">
+                        <h3 class="display text-2xl text-paper">English Electronic Assessment</h3>
+                        <span class="work-arrow mono text-xs mt-2">·</span>
+                    </div>
+                    <p class="text-[color:var(--color-muted)] leading-relaxed mb-5">
+                        An assessment platform for Politeknik Penerbangan Indonesia Curug,
+                        digitizing placement and evaluation of English proficiency.
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="tag">Laravel</span>
+                        <span class="tag">Vue.js</span>
+                    </div>
+                </article>
+
+                <article class="work-card">
+                    <div class="aspect-[16/10] overflow-hidden mb-6 cursor-pointer bg-[color:var(--color-surface)]"
+                         onclick="openModal('projects/Amegu.png', 'Amegu')">
+                        <img class="work-thumb w-full h-full object-cover lazyload"
                              src="projects/Amegu.png" alt="Amegu">
                     </div>
-                    <h3 class="text-xl font-semibold text-white mb-2 group-hover:text-indigo-500 transition-colors">
-                        <a href="https://amegu.netlify.app/">
-                            Amegu: Adopsi Hewan Peliharaan
-                        </a>
-                    </h3>
-                    <p class="text-gray-300 mb-4 leading-relaxed text-sm">
-                        Amegu is a final project that connects animal owners with adopters, using Laravel for the
-                        back-end, NuxtJS with Tailwind for the web front-end, and Java for the Android app, all linked
-                        via REST API. </p>
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        <span
-                                class="bg-rose-400/20 text-rose-400 px-3 py-1 rounded-full text-xs border border-rose-400/30">Laravel</span>
-                        <span
-                                class="bg-emerald-400/20 text-emerald-400 px-3 py-1 rounded-full text-xs border border-emerald-400/30">NuxtJS</span>
-                        <span
-                                class="bg-purple-400/20 text-purple-400 px-3 py-1 rounded-full text-xs border border-purple-400/30">Android
-                            (Java)</span>
+                    <div class="flex items-start justify-between gap-4 mb-3">
+                        <h3 class="display text-2xl text-paper">
+                            <a href="https://amegu.netlify.app/" target="_blank" rel="noopener" class="link-underline">
+                                Amegu &mdash; Pet Adoption
+                            </a>
+                        </h3>
+                        <span class="work-arrow mono text-xs mt-2">↗</span>
                     </div>
-                </div>
-                <div class="group glass-effect rounded-xl p-6 hover:bg-gray-700/30 transition-all duration-300 hover:shadow-2xl hover:shadow-amber-500/10 fade-on-scroll">
-                    <div class="aspect-video bg-gray-700 rounded-lg mb-4 overflow-hidden"
-                         onclick="openModal('projects/Klinik.jpg')">
-                        <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 lazyload"
+                    <p class="text-[color:var(--color-muted)] leading-relaxed mb-5">
+                        A final project connecting pet owners with adopters. Laravel API, a Nuxt
+                        web client, and a Java Android app &mdash; all tied together over REST.
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="tag">Laravel</span>
+                        <span class="tag">NuxtJS</span>
+                        <span class="tag">Android</span>
+                    </div>
+                </article>
+
+                <article class="work-card">
+                    <div class="aspect-[16/10] overflow-hidden mb-6 cursor-pointer bg-[color:var(--color-surface)]"
+                         onclick="openModal('projects/Klinik.jpg', 'Clinic Web App')">
+                        <img class="work-thumb w-full h-full object-cover lazyload"
                              src="projects/Klinik.jpg" alt="Clinic Web App">
                     </div>
-                    <h3 class="text-xl font-semibold text-white mb-2 group-hover:text-indigo-500 transition-colors">
-                        <a href="#">
-                            Clinic Web App
-                        </a>
-                    </h3>
-                    <p class="text-gray-300 mb-4 leading-relaxed text-sm">
-                        A clinic application for the Inspectorate General of the Indonesian Ministry of Education and
-                        Culture. This app manages internal medical records, laboratory tests, and medication inventory.
-                    </p>
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="bg-rose-400/20 text-rose-400 px-3 py-1 rounded-full text-xs border border-rose-400/30">Laravel</span>
-                        <span class="bg-emerald-400/20 text-emerald-400 px-3 py-1 rounded-full text-xs border border-emerald-400/30">Bootstrap</span>
+                    <div class="flex items-start justify-between gap-4 mb-3">
+                        <h3 class="display text-2xl text-paper">Clinic Web App</h3>
+                        <span class="work-arrow mono text-xs mt-2">·</span>
                     </div>
-                </div>
+                    <p class="text-[color:var(--color-muted)] leading-relaxed mb-5">
+                        A clinic management tool for the Inspectorate General of Indonesia's
+                        Ministry of Education &amp; Culture &mdash; medical records, lab tests,
+                        and medication inventory.
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="tag">Laravel</span>
+                        <span class="tag">Bootstrap</span>
+                    </div>
+                </article>
             </div>
         </div>
+
         <div id="uiux-portfolio" class="tab-content">
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="group glass-effect rounded-xl p-6 hover:bg-gray-700/30 transition-all duration-300 hover:shadow-2xl hover:shadow-purple-500/10 fade-on-scroll">
-                    <div class="aspect-video bg-gray-700 rounded-lg mb-4 overflow-hidden"
-                         onclick="openModal('projects/Distro.jpg')">
-                        <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 lazyload"
+            <div class="grid md:grid-cols-2 gap-x-10 gap-y-14">
+                <article class="work-card">
+                    <div class="aspect-[16/10] overflow-hidden mb-6 cursor-pointer bg-[color:var(--color-surface)]"
+                         onclick="openModal('projects/Distro.jpg', 'Distro')">
+                        <img class="work-thumb w-full h-full object-cover lazyload"
                              src="projects/Distro.jpg" alt="Distro">
                     </div>
-                    <h3 class="text-xl font-semibold text-white mb-2 group-hover:text-blue-500 transition-colors">
-                        <a href="https://link.rezajuliandri.my.id/distro" target="_blank">Distro</a>
-                    </h3>
-                    <p class="text-gray-300 mb-4 leading-relaxed text-sm">
-                        Distro is an online clothing shopping application. Unlike other similar applications, Distro can
-                        scan products you want to find and provide personalized product recommendations.
+                    <div class="flex items-start justify-between gap-4 mb-3">
+                        <h3 class="display text-2xl text-paper">
+                            <a href="https://link.rezajuliandri.my.id/distro" target="_blank" rel="noopener"
+                               class="link-underline">Distro</a>
+                        </h3>
+                        <span class="work-arrow mono text-xs mt-2">↗</span>
+                    </div>
+                    <p class="text-[color:var(--color-muted)] leading-relaxed mb-4">
+                        An online clothing shopping concept with visual product search and
+                        personalized recommendations.
                     </p>
-                    <div class="mb-4">
-                        <a class="text-gray-300 hover:text-cyan-400 leading-relaxed text-sm font-semibold mb-4" href="https://docs.google.com/presentation/d/17Ki4n-5iDxFDy8HzmDT4D-GVAsoyIb2NJ0UR_4RqSOU/edit?usp=sharing">UX Research</a>
+                    <a href="https://docs.google.com/presentation/d/17Ki4n-5iDxFDy8HzmDT4D-GVAsoyIb2NJ0UR_4RqSOU/edit?usp=sharing"
+                       target="_blank" rel="noopener"
+                       class="label hover:text-paper transition-colors inline-block mb-5">
+                        Read UX research &rarr;
+                    </a>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="tag">UX Research</span>
+                        <span class="tag">UI</span>
+                        <span class="tag">Figma</span>
                     </div>
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        <span
-                                class="bg-purple-500/20 text-purple-500 px-3 py-1 rounded-full text-xs border border-purple-500/30">UX Research</span>
-                        <span
-                                class="bg-amber-500/20 text-amber-500 px-3 py-1 rounded-full text-xs border border-amber-500/30">User Interface</span>
-                        <span
-                                class="bg-cyan-400/20 text-cyan-400 px-3 py-1 rounded-full text-xs border border-cyan-400/30">Figma</span>
-                    </div>
-                </div>
-                <div class="group glass-effect rounded-xl p-6 hover:bg-gray-700/30 transition-all duration-300 hover:shadow-2xl hover:shadow-purple-500/10 fade-on-scroll">
-                    <div class="aspect-video bg-gray-700 rounded-lg mb-4 overflow-hidden"
-                         onclick="openModal('projects/Finess.jpg')">
-                        <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 lazyload"
+                </article>
+
+                <article class="work-card">
+                    <div class="aspect-[16/10] overflow-hidden mb-6 cursor-pointer bg-[color:var(--color-surface)]"
+                         onclick="openModal('projects/Finess.jpg', 'Finess')">
+                        <img class="work-thumb w-full h-full object-cover lazyload"
                              src="projects/Finess.jpg" alt="Finess">
                     </div>
-                    <h3 class="text-xl font-semibold text-white mb-2 group-hover:text-yellow-500 transition-colors">
-                        <a href="https://link.rezajuliandri.my.id/finess" target="_blank">Finess</a>
-                    </h3>
-                    <p class="text-gray-300 mb-4 leading-relaxed text-sm">
-                        Finess is an application that helps users exercise at home. The application offers various
-                        workout activities and consultation features. It also includes a reward system that motivates
-                        users to exercise more frequently.
+                    <div class="flex items-start justify-between gap-4 mb-3">
+                        <h3 class="display text-2xl text-paper">
+                            <a href="https://link.rezajuliandri.my.id/finess" target="_blank" rel="noopener"
+                               class="link-underline">Finess</a>
+                        </h3>
+                        <span class="work-arrow mono text-xs mt-2">↗</span>
+                    </div>
+                    <p class="text-[color:var(--color-muted)] leading-relaxed mb-5">
+                        A home-workout companion with guided activities, consultation, and a
+                        reward loop to keep users consistent.
                     </p>
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        <span
-                                class="bg-purple-500/20 text-purple-500 px-3 py-1 rounded-full text-xs border border-purple-500/30">UX Research</span>
-                        <span
-                                class="bg-amber-500/20 text-amber-500 px-3 py-1 rounded-full text-xs border border-amber-500/30">User Interface</span>
-                        <span
-                                class="bg-cyan-400/20 text-cyan-400 px-3 py-1 rounded-full text-xs border border-cyan-400/30">Figma</span>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="tag">UX Research</span>
+                        <span class="tag">UI</span>
+                        <span class="tag">Figma</span>
+                        <span class="tag">1st &mdash; GenFest 2021</span>
                     </div>
-                    <div class="flex gap-3">
-                        <span class="text-gray-400 text-sm font-medium">Achievement: 1st Winner Hackaton GenFest 2021 UI/UX</span>
-                    </div>
-                </div>
-                <div class="group glass-effect rounded-xl p-6 hover:bg-gray-700/30 transition-all duration-300 hover:shadow-2xl hover:shadow-purple-500/10 fade-on-scroll">
-                    <div class="aspect-video bg-gray-700 rounded-lg mb-4 overflow-hidden"
-                         onclick="openModal('projects/Sharity.jpg')">
-                        <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 lazyload"
+                </article>
+
+                <article class="work-card">
+                    <div class="aspect-[16/10] overflow-hidden mb-6 cursor-pointer bg-[color:var(--color-surface)]"
+                         onclick="openModal('projects/Sharity.jpg', 'Sharity')">
+                        <img class="work-thumb w-full h-full object-cover lazyload"
                              src="projects/Sharity.jpg" alt="Sharity">
                     </div>
-                    <h3 class="text-xl font-semibold text-white mb-2 group-hover:text-green-500 transition-colors">
-                        <a href="https://link.rezajuliandri.my.id/sharity" target="_blank">Sharity</a>
-                    </h3>
-                    <p class="text-gray-300 mb-4 leading-relaxed text-sm">
-                        Sharity aims to help people during the pandemic, particularly in the health sector. The app
-                        enables benefactors to easily donate money or goods. Donation items include medicines, vitamins,
-                        oxygen, and blood.
-                    </p>
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        <span
-                                class="bg-amber-500/20 text-amber-500 px-3 py-1 rounded-full text-xs border border-amber-500/30">User Interface</span>
-                        <span
-                                class="bg-cyan-400/20 text-cyan-400 px-3 py-1 rounded-full text-xs border border-cyan-400/30">Figma</span>
+                    <div class="flex items-start justify-between gap-4 mb-3">
+                        <h3 class="display text-2xl text-paper">
+                            <a href="https://link.rezajuliandri.my.id/sharity" target="_blank" rel="noopener"
+                               class="link-underline">Sharity</a>
+                        </h3>
+                        <span class="work-arrow mono text-xs mt-2">↗</span>
                     </div>
-                </div>
-                <div class="group glass-effect rounded-xl p-6 hover:bg-gray-700/30 transition-all duration-300 hover:shadow-2xl hover:shadow-purple-500/10 fade-on-scroll">
-                    <div class="aspect-video bg-gray-700 rounded-lg mb-4 overflow-hidden"
-                         onclick="openModal('projects/Stecy.jpg')">
-                        <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 lazyload"
+                    <p class="text-[color:var(--color-muted)] leading-relaxed mb-5">
+                        A pandemic-era donation app for medicine, vitamins, oxygen, and blood
+                        &mdash; matching benefactors with those in immediate need.
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="tag">UI</span>
+                        <span class="tag">Figma</span>
+                    </div>
+                </article>
+
+                <article class="work-card">
+                    <div class="aspect-[16/10] overflow-hidden mb-6 cursor-pointer bg-[color:var(--color-surface)]"
+                         onclick="openModal('projects/Stecy.jpg', 'Stecy')">
+                        <img class="work-thumb w-full h-full object-cover lazyload"
                              src="projects/Stecy.jpg" alt="Stecy">
                     </div>
-                    <h3 class="text-xl font-semibold text-white mb-2 group-hover:text-green-500 transition-colors">
-                        <a href="https://link.rezajuliandri.my.id/sharity" target="_blank">Stecy</a>
-                    </h3>
-                    <p class="text-gray-300 mb-4 leading-relaxed text-sm">
-                        Stecy is a platform that facilitates managing stocks and cryptocurrency in one app. The app
-                        provides real-time prices and charts for both stocks and cryptocurrency. It also offers detailed
-                        information including market cap, price movement percentages, and market data.
-                    </p>
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        <span
-                                class="bg-amber-500/20 text-amber-500 px-3 py-1 rounded-full text-xs border border-amber-500/30">User Interface</span>
-                        <span
-                                class="bg-cyan-400/20 text-cyan-400 px-3 py-1 rounded-full text-xs border border-cyan-400/30">Figma</span>
+                    <div class="flex items-start justify-between gap-4 mb-3">
+                        <h3 class="display text-2xl text-paper">Stecy</h3>
+                        <span class="work-arrow mono text-xs mt-2">·</span>
                     </div>
-                </div>
-                <div class="group glass-effect rounded-xl p-6 hover:bg-gray-700/30 transition-all duration-300 hover:shadow-2xl hover:shadow-purple-500/10 fade-on-scroll">
-                    <div class="aspect-video bg-gray-700 rounded-lg mb-4 overflow-hidden"
-                         onclick="openModal('projects/Cultrip.jpg')">
-                        <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 lazyload"
+                    <p class="text-[color:var(--color-muted)] leading-relaxed mb-5">
+                        One app for stocks and crypto &mdash; real-time prices, charts, market
+                        cap, and price movement, all in a single unified portfolio view.
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="tag">UI</span>
+                        <span class="tag">Figma</span>
+                    </div>
+                </article>
+
+                <article class="work-card">
+                    <div class="aspect-[16/10] overflow-hidden mb-6 cursor-pointer bg-[color:var(--color-surface)]"
+                         onclick="openModal('projects/Cultrip.jpg', 'Cultrip')">
+                        <img class="work-thumb w-full h-full object-cover lazyload"
                              src="projects/Cultrip.jpg" alt="Cultrip">
                     </div>
-                    <h3 class="text-xl font-semibold text-white mb-2 group-hover:text-red-300 transition-colors">
-                        Cultrip
-                    </h3>
-                    <p class="text-gray-300 mb-4 leading-relaxed text-sm">
-                        Cultrip is an application that makes it easy for tourists to visit cultural destinations in one
-                        place. This application will search and recommend the nearest cultural destinations.
+                    <div class="flex items-start justify-between gap-4 mb-3">
+                        <h3 class="display text-2xl text-paper">Cultrip</h3>
+                        <span class="work-arrow mono text-xs mt-2">·</span>
+                    </div>
+                    <p class="text-[color:var(--color-muted)] leading-relaxed mb-5">
+                        An app that makes it easier for travelers to discover and visit cultural
+                        destinations nearby &mdash; surfacing context, not just coordinates.
                     </p>
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        <span
-                                class="bg-amber-500/20 text-amber-500 px-3 py-1 rounded-full text-xs border border-amber-500/30">User Interface</span>
-                        <span
-                                class="bg-red-400/20 text-red-400 px-3 py-1 rounded-full text-xs border border-red-400/30">Adobe Xd</span>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="tag">UI</span>
+                        <span class="tag">Adobe XD</span>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="skills" class="py-24 md:py-32 border-t border-[color:var(--color-line)]">
+    <div class="max-w-6xl mx-auto px-6 lg:px-8">
+        <div class="grid md:grid-cols-12 gap-10 md:gap-16">
+            <div class="md:col-span-4">
+                <div class="label mb-5">04 &mdash; Skills</div>
+                <h2 class="display text-3xl md:text-4xl text-paper">Tools of the trade.</h2>
+            </div>
+            <div class="md:col-span-8 space-y-10">
+                <div class="grid md:grid-cols-4 gap-6 pb-8 border-b border-[color:var(--color-line)]">
+                    <div class="md:col-span-1 label pt-1">Backend</div>
+                    <div class="md:col-span-3 flex flex-wrap gap-2">
+                        <span class="tag">PHP</span>
+                        <span class="tag">Laravel</span>
+                        <span class="tag">Node.js</span>
+                        <span class="tag">Express</span>
+                        <span class="tag">TypeScript</span>
+                        <span class="tag">Python</span>
+                        <span class="tag">Java</span>
+                        <span class="tag">Kotlin</span>
+                        <span class="tag">Swift</span>
+                        <span class="tag">Objective-C</span>
+                    </div>
+                </div>
+
+                <div class="grid md:grid-cols-4 gap-6 pb-8 border-b border-[color:var(--color-line)]">
+                    <div class="md:col-span-1 label pt-1">Frontend</div>
+                    <div class="md:col-span-3 flex flex-wrap gap-2">
+                        <span class="tag">Vue.js</span>
+                        <span class="tag">NuxtJS</span>
+                        <span class="tag">Next.js</span>
+                    </div>
+                </div>
+
+                <div class="grid md:grid-cols-4 gap-6 pb-8 border-b border-[color:var(--color-line)]">
+                    <div class="md:col-span-1 label pt-1">Data</div>
+                    <div class="md:col-span-3 flex flex-wrap gap-2">
+                        <span class="tag">PostgreSQL</span>
+                        <span class="tag">MySQL</span>
+                        <span class="tag">MongoDB</span>
+                        <span class="tag">Firebase</span>
+                    </div>
+                </div>
+
+                <div class="grid md:grid-cols-4 gap-6 pb-8 border-b border-[color:var(--color-line)]">
+                    <div class="md:col-span-1 label pt-1">Platform</div>
+                    <div class="md:col-span-3 flex flex-wrap gap-2">
+                        <span class="tag">Google Cloud</span>
+                        <span class="tag">Docker</span>
+                        <span class="tag">Nginx</span>
+                        <span class="tag">Composer</span>
+                    </div>
+                </div>
+
+                <div class="grid md:grid-cols-4 gap-6">
+                    <div class="md:col-span-1 label pt-1">Design</div>
+                    <div class="md:col-span-3 flex flex-wrap gap-2">
+                        <span class="tag">Figma</span>
                     </div>
                 </div>
             </div>
@@ -600,328 +789,278 @@
     </div>
 </section>
 
-<section id="skills" class="py-20 bg-black">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-16">
-            <h2 class="section-title animate-fade-in-up">Skills & Technologies</h2>
-            <p class="section-subtitle animate-fade-in-up" style="animation-delay: 0.2s;">My Technical Arsenal</p>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div class="glass-effect p-6 rounded-lg fade-on-scroll shadow-lg">
-                <h3 class="text-xl font-semibold text-cyan-400 mb-4">Backend Development</h3>
-                <div class="flex flex-wrap gap-3">
-                    <span class="bg-gray-700 text-gray-200 px-4 py-2 rounded-md text-sm hover:bg-cyan-400/50 hover:text-white transition-colors">PHP</span>
-                    <span class="bg-gray-700 text-gray-200 px-4 py-2 rounded-md text-sm hover:bg-cyan-400/50 hover:text-white transition-colors">Laravel</span>
-                    <span class="bg-gray-700 text-gray-200 px-4 py-2 rounded-md text-sm hover:bg-cyan-400/50 hover:text-white transition-colors">Node.js</span>
-                    <span class="bg-gray-700 text-gray-200 px-4 py-2 rounded-md text-sm hover:bg-cyan-400/50 hover:text-white transition-colors">Express</span>
-                    <span class="bg-gray-700 text-gray-200 px-4 py-2 rounded-md text-sm hover:bg-cyan-400/50 hover:text-white transition-colors">Kotlin</span>
-                    <span class="bg-gray-700 text-gray-200 px-4 py-2 rounded-md text-sm hover:bg-cyan-400/50 hover:text-white transition-colors">Java</span>
-                    <span class="bg-gray-700 text-gray-200 px-4 py-2 rounded-md text-sm hover:bg-cyan-400/50 hover:text-white transition-colors">Python</span>
-                    <span class="bg-gray-700 text-gray-200 px-4 py-2 rounded-md text-sm hover:bg-cyan-400/50 hover:text-white transition-colors">Objective C</span>
-                    <span class="bg-gray-700 text-gray-200 px-4 py-2 rounded-md text-sm hover:bg-cyan-400/50 hover:text-white transition-colors">Swift</span>
-                    <span class="bg-gray-700 text-gray-200 px-4 py-2 rounded-md text-sm hover:bg-cyan-400/50 hover:text-white transition-colors">TypeScript</span>
-                </div>
-            </div>
-            <div class="glass-effect p-6 rounded-lg fade-on-scroll shadow-lg" style="animation-delay: 0.1s;">
-                <h3 class="text-xl font-semibold text-purple-500 mb-4">Frontend Development</h3>
-                <div class="flex flex-wrap gap-3">
-                        <span
-                                class="bg-gray-700 text-gray-200 px-4 py-2 rounded-md text-sm hover:bg-purple-500/50 hover:text-white transition-colors">Vue.js</span>
-                    <span
-                            class="bg-gray-700 text-gray-200 px-4 py-2 rounded-md text-sm hover:bg-purple-500/50 hover:text-white transition-colors">NuxtJS</span>
-                    <span
-                            class="bg-gray-700 text-gray-200 px-4 py-2 rounded-md text-sm hover:bg-purple-500/50 hover:text-white transition-colors">NextJS</span>
-                </div>
-            </div>
-            <div class="glass-effect p-6 rounded-lg fade-on-scroll shadow-lg" style="animation-delay: 0.2s;">
-                <h3 class="text-xl font-semibold text-amber-500 mb-4">Databases</h3>
-                <div class="flex flex-wrap gap-3">
-                    <span class="bg-gray-700 text-gray-200 px-4 py-2 rounded-md text-sm hover:bg-amber-500/50 hover:text-white transition-colors">MySQL</span>
-                    <span class="bg-gray-700 text-gray-200 px-4 py-2 rounded-md text-sm hover:bg-amber-500/50 hover:text-white transition-colors">MongoDB</span>
-                    <span class="bg-gray-700 text-gray-200 px-4 py-2 rounded-md text-sm hover:bg-amber-500/50 hover:text-white transition-colors">PostgreSQL</span>
-                    <span class="bg-gray-700 text-gray-200 px-4 py-2 rounded-md text-sm hover:bg-amber-500/50 hover:text-white transition-colors">Firebase</span>
-                </div>
-            </div>
-            <div class="glass-effect p-6 rounded-lg fade-on-scroll shadow-lg" style="animation-delay: 0.1s;">
-                <h3 class="text-xl font-semibold text-emerald-400 mb-4">Cloud Platforms & Tools</h3>
-                <div class="flex flex-wrap gap-3">
-                    <span class="bg-gray-700 text-gray-200 px-4 py-2 rounded-md text-sm hover:bg-emerald-400/50 hover:text-white transition-colors">Google Cloud Platform</span>
-                    <span class="bg-gray-700 text-gray-200 px-4 py-2 rounded-md text-sm hover:bg-emerald-400/50 hover:text-white transition-colors">Docker</span>
-                    <span class="bg-gray-700 text-gray-200 px-4 py-2 rounded-md text-sm hover:bg-emerald-400/50 hover:text-white transition-colors">Nginx</span>
-                    <span class="bg-gray-700 text-gray-200 px-4 py-2 rounded-md text-sm hover:bg-emerald-400/50 hover:text-white transition-colors">Composer</span>
-                </div>
-            </div>
-            <div class="glass-effect p-6 rounded-lg fade-on-scroll shadow-lg" style="animation-delay: 0.1s;">
-                <h3 class="text-xl font-semibold text-red-400 mb-4">Design</h3>
-                <div class="flex flex-wrap gap-3">
-                        <span class="bg-gray-700 text-gray-200 px-4 py-2 rounded-md text-sm hover:bg-red-400/50 hover:text-white transition-colors">
-                            Figma</span>
-                </div>
+<section id="education" class="py-24 md:py-32 border-t border-[color:var(--color-line)]">
+    <div class="max-w-6xl mx-auto px-6 lg:px-8">
+        <div class="grid md:grid-cols-12 gap-10 md:gap-16 mb-14">
+            <div class="md:col-span-4">
+                <div class="label mb-5">05 &mdash; Education</div>
+                <h2 class="display text-3xl md:text-4xl text-paper">How I've learned.</h2>
             </div>
         </div>
-    </div>
-</section>
 
-<section id="education" class="py-20 bg-gray-900">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-16">
-            <h2 class="section-title animate-fade-in-up">Education</h2>
-            <p class="section-subtitle animate-fade-in-up" style="animation-delay: 0.2s;">My Academic & Professional
-                Training</p>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="grid md:grid-cols-2 gap-8">
+            <article class="p-8 border border-[color:var(--color-line)] hover:border-[color:var(--color-muted)] transition-colors">
+                <div class="label mb-3">Feb 2025 &mdash; Dec 2025</div>
+                <h3 class="display text-2xl text-paper mb-1">
+                    <a href="https://developeracademy.apps.binus.ac.id/bali/" target="_blank" rel="noopener"
+                       class="link-underline">Apple Developer Academy</a>
+                </h3>
+                <p class="text-[color:var(--color-muted)] mb-5">Bali &middot; Cohort 2025</p>
+                <p class="text-[color:var(--color-muted)] leading-relaxed mb-5">
+                    A ten-month intensive program focused on iOS app development and the
+                    entrepreneurial skills around shipping native apps.
+                </p>
+                <ul class="space-y-1.5 text-[color:var(--color-muted)] text-sm">
+                    <li>&middot; Swift &amp; SwiftUI</li>
+                    <li>&middot; App design and prototyping</li>
+                    <li>&middot; Core Apple frameworks (CoreMotion, Watch Connectivity, Multipeer)</li>
+                    <li>&middot; Agile project management</li>
+                </ul>
+            </article>
 
-            <div class="glass-effect p-8 rounded-lg shadow-xl fade-on-scroll">
-                <h3 class="text-2xl font-bold text-white hover:text-fuchsia-400 transition-colors duration-300">
-                    <a href="https://developeracademy.apps.binus.ac.id/bali/">
-                        Apple Developer Academy - Bali
+            <article class="p-8 border border-[color:var(--color-line)] hover:border-[color:var(--color-muted)] transition-colors">
+                <div class="label mb-3">Aug 2019 &mdash; Jan 2024</div>
+                <h3 class="display text-2xl text-paper mb-1">
+                    <a href="https://umn.ac.id" target="_blank" rel="noopener" class="link-underline">
+                        Universitas Multimedia Nusantara
                     </a>
                 </h3>
-                <p class="text-cyan-400 text-lg mb-1">Cohort 2025</p>
-                <p class="text-gray-400 text-sm mb-3">FEBRUARY 2025 - DECEMBER 2025</p>
-                <p class="text-gray-300 mb-4">An intensive, 10-month program focused on app development and
-                    entrepreneurial skills for the iOS ecosystem.
+                <p class="text-[color:var(--color-muted)] mb-5">B.Sc. Information Systems &middot; GPA 3.85 / 4.00</p>
+                <p class="text-[color:var(--color-muted)] leading-relaxed mb-5">
+                    Studied information systems with a heavy dose of software engineering,
+                    algorithms, and data foundations.
                 </p>
-                <h4 class="text-md font-semibold text-white mb-2">Key Learning Areas:</h4>
-                <ul class="list-disc list-inside text-gray-300 space-y-1 text-sm leading-relaxed">
-                    <li>Swift and SwiftUI Programming</li>
-                    <li>App Design & Prototyping (UI/UX)</li>
-                    <li>Core Apple Technologies (e.g., CoreMotion, Multipeer Connection, Watch Connectivity)
-                    </li>
-                    <li>Agile Project Management</li>
+                <ul class="space-y-1.5 text-[color:var(--color-muted)] text-sm">
+                    <li>&middot; Web design &amp; development</li>
+                    <li>&middot; Algorithms &amp; data structures</li>
+                    <li>&middot; Mobile application development</li>
+                    <li>&middot; Artificial intelligence</li>
+                    <li>&middot; Big data analytics</li>
                 </ul>
-            </div>
+            </article>
 
-            <div class="glass-effect p-8 rounded-lg shadow-xl fade-on-scroll">
-                <h3 class="text-2xl font-bold text-white hover:text-blue-600 transition-colors duration-300">
-                    <a href="https://umn.ac.id">Universitas Multimedia Nusantara</a>
-                </h3>
-                <p class="text-cyan-400 text-lg mb-1">Bachelor Degree of Information System</p>
-                <p class="text-gray-400 text-sm mb-3">AUGUST 2019 - JANUARY 2024</p>
-                <p class="text-gray-300 mb-4">Cumulative GPA: <span class="font-semibold text-white">3.85 /
-                            4.00</span>
-                </p>
-                <h4 class="text-md font-semibold text-white mb-2">Relevant Coursework:</h4>
-                <ul class="list-disc list-inside text-gray-300 space-y-1 text-sm leading-relaxed">
-                    <li>Web Design and Development</li>
-                    <li>Algorithm and Data Structure</li>
-                    <li>Mobile Application Development</li>
-                    <li>Artificial Intelligence</li>
-                    <li>Big Data Analytics</li>
-                </ul>
-            </div>
-
-            <div class="glass-effect p-8 rounded-lg shadow-xl fade-on-scroll md:col-span-2">
-                <h3 class="text-2xl font-bold text-white hover:text-red-400 transition-colors duration-300">
-                    <a href="http://bangkit.academy/">
+            <article class="md:col-span-2 p-8 border border-[color:var(--color-line)] hover:border-[color:var(--color-muted)] transition-colors">
+                <div class="label mb-3">Feb 2022 &mdash; Jul 2022</div>
+                <h3 class="display text-2xl text-paper mb-1">
+                    <a href="http://bangkit.academy/" target="_blank" rel="noopener" class="link-underline">
                         Bangkit Academy
                     </a>
                 </h3>
-                <p class="text-cyan-400 text-lg mb-1">Mobile Development Cohort</p>
-                <p class="text-gray-400 text-sm mb-3">FEBRUARY 2022 - JULY 2022</p>
-                <p class="text-gray-300 mb-4">A career readiness program by Google, GoTo, & Traveloka, focusing
-                    on
-                    in-demand tech skills.
+                <p class="text-[color:var(--color-muted)] mb-5">Mobile Development Cohort &middot; Google, GoTo &amp; Traveloka</p>
+                <p class="text-[color:var(--color-muted)] leading-relaxed max-w-3xl">
+                    Career-readiness program focused on in-demand mobile skills &mdash; Kotlin,
+                    fundamental and intermediate Android, UX design, SOLID principles, and
+                    career development.
                 </p>
-                <h4 class="text-md font-semibold text-white mb-2">Relevant Skills:</h4>
-                <ul class="list-disc list-inside text-gray-300 space-y-1 text-sm leading-relaxed">
-                    <li>Basic Kotlin</li>
-                    <li>Fundamental Android</li>
-                    <li>UX Design</li>
-                    <li>SOLID Principles</li>
-                    <li>Intermediate Android</li>
-                    <li>Soft skill & Career Development</li>
-                </ul>
-            </div>
+            </article>
         </div>
     </div>
 </section>
 
-<section id="certifications" class="py-20 bg-black">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-16">
-            <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">Certifications & Achievements</h2>
-            <p class="text-lg text-gray-400 max-w-2xl mx-auto">Recognitions and Awards</p>
+<section id="certifications" class="py-24 md:py-32 border-t border-[color:var(--color-line)]">
+    <div class="max-w-6xl mx-auto px-6 lg:px-8">
+        <div class="grid md:grid-cols-12 gap-10 md:gap-16 mb-14">
+            <div class="md:col-span-4">
+                <div class="label mb-5">06 &mdash; Credentials</div>
+                <h2 class="display text-3xl md:text-4xl text-paper">Certifications &amp; recognition.</h2>
+            </div>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- Certificate 1 -->
-            <div
-                    class="bg-gray-900 rounded-xl p-6 border border-gray-800 hover:border-blue-500 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl group">
-                <div class="mb-6 overflow-hidden rounded-lg" onclick="openModal('certificates/AAD.jpg')">
-                    <img src="certificates/AAD.jpg"
-                         alt="Associate Android Developer"
-                         class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110 lazyload">
+        <div class="grid md:grid-cols-3 gap-8">
+            <article class="group">
+                <div class="aspect-[4/3] overflow-hidden mb-5 cursor-pointer bg-[color:var(--color-surface)] border border-[color:var(--color-line)]"
+                     onclick="openModal('certificates/AAD.jpg', 'Associate Android Developer')">
+                    <img src="certificates/AAD.jpg" alt="Associate Android Developer"
+                         class="work-thumb w-full h-full object-cover lazyload">
                 </div>
-                <div>
-                    <h3 class="text-xl font-bold text-white mb-2">
-                        <a href="https://www.credential.net/c05c17d2-dd1b-4b70-a524-e2226f547afa#acc.RZnw9iET">
-                            Associate Android Developer
-                        </a>
-                    </h3>
-                    <p class="text-gray-400 text-sm mb-3">Google</p>
-                    <div class="flex items-center justify-between">
-                        <span class="text-blue-400 text-sm font-medium">Certified July 2022</span>
-                        <div class="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center">
-                            <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd"
-                                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                                      clip-rule="evenodd"></path>
-                            </svg>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                <div class="label mb-2">Google &middot; Jul 2022</div>
+                <h3 class="display text-xl text-paper">
+                    <a href="https://www.credential.net/c05c17d2-dd1b-4b70-a524-e2226f547afa#acc.RZnw9iET"
+                       target="_blank" rel="noopener" class="link-underline">Associate Android Developer</a>
+                </h3>
+            </article>
 
-            <div
-                    class="bg-gray-900 rounded-xl p-6 border border-gray-800 hover:border-purple-500 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl group">
-                <div class="mb-6 overflow-hidden rounded-lg" onclick="openModal('certificates/CISDV.jpg')">
-                    <img src="certificates/CISDV.jpg"
-                         alt="CISDV"
-                         class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110 lazyload">
+            <article class="group">
+                <div class="aspect-[4/3] overflow-hidden mb-5 cursor-pointer bg-[color:var(--color-surface)] border border-[color:var(--color-line)]"
+                     onclick="openModal('certificates/CISDV.jpg', 'CISDV')">
+                    <img src="certificates/CISDV.jpg" alt="CISDV"
+                         class="work-thumb w-full h-full object-cover lazyload">
                 </div>
-                <div>
-                    <h3 class="text-xl font-bold text-white mb-2">
-                        <a href="https://drive.google.com/file/d/198tqFlM0u8rYIxUc2ewqVK7p_7mOhRNb/view">
-                            Certified International Specialist in Data Visualization (CISDV)
-                        </a>
-                    </h3>
-                    <p class="text-gray-400 text-sm mb-3">PASAS Institute</p>
-                    <div class="flex items-center justify-between">
-                        <span class="text-purple-400 text-sm font-medium">Certified March 2022</span>
-                        <div class="w-8 h-8 bg-purple-600 rounded-full flex items-center justify-center">
-                            <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd"
-                                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                                      clip-rule="evenodd"></path>
-                            </svg>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div
-                    class="bg-gray-900 rounded-xl p-6 border border-gray-800 hover:border-yellow-500 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl group">
-                <div class="mb-6 overflow-hidden rounded-lg"
-                     onclick="openModal('certificates/GCI 2018 Certificate for Reza Juliandri_page-0001.jpg')">
+                <div class="label mb-2">PASAS Institute &middot; Mar 2022</div>
+                <h3 class="display text-xl text-paper">
+                    <a href="https://drive.google.com/file/d/198tqFlM0u8rYIxUc2ewqVK7p_7mOhRNb/view"
+                       target="_blank" rel="noopener" class="link-underline">
+                        Certified Specialist in Data Visualization
+                    </a>
+                </h3>
+            </article>
+
+            <article class="group">
+                <div class="aspect-[4/3] overflow-hidden mb-5 cursor-pointer bg-[color:var(--color-surface)] border border-[color:var(--color-line)]"
+                     onclick="openModal('certificates/GCI 2018 Certificate for Reza Juliandri_page-0001.jpg', 'Google Code-in Grand Prize')">
                     <img src="certificates/GCI 2018 Certificate for Reza Juliandri_page-0001.jpg"
-                         alt="CISDV"
-                         class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110 lazyload">
+                         alt="Google Code-in Grand Prize Winner"
+                         class="work-thumb w-full h-full object-cover lazyload">
                 </div>
-                <div>
-                    <h3 class="text-xl font-bold text-white mb-2">
-                        <a href="https://drive.google.com/file/d/1KPNQbPOYT1Au21O5Pb6VuLwyRsSE7wWN/view?usp=sharing">
-                            Google Code-in Grand Prize Winner
-                        </a>
-                    </h3>
-                    <p class="text-gray-400 text-sm mb-3">Google Code-in</p>
-                    <div class="flex items-center justify-between">
-                        <span class="text-yellow-400 text-sm font-medium">Certified December 2018</span>
-                        <div class="w-8 h-8 bg-yellow-600 rounded-full flex items-center justify-center">
-                            <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd"
-                                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                                      clip-rule="evenodd"></path>
-                            </svg>
-                        </div>
-                    </div>
-                </div>
+                <div class="label mb-2">Google Code-in &middot; Dec 2018</div>
+                <h3 class="display text-xl text-paper">
+                    <a href="https://drive.google.com/file/d/1KPNQbPOYT1Au21O5Pb6VuLwyRsSE7wWN/view?usp=sharing"
+                       target="_blank" rel="noopener" class="link-underline">
+                        Google Code-in Grand Prize Winner
+                    </a>
+                </h3>
+            </article>
+        </div>
+
+        <div class="mt-20 grid md:grid-cols-12 gap-10 md:gap-16">
+            <div class="md:col-span-4">
+                <div class="label">Also &mdash; Awards</div>
+            </div>
+            <div class="md:col-span-8">
+                <ol class="border-t border-[color:var(--color-line)]">
+                    <li class="py-5 grid md:grid-cols-12 gap-4 md:gap-8 border-b border-[color:var(--color-line)]">
+                        <div class="md:col-span-3 label">Feb 2019</div>
+                        <div class="md:col-span-7 text-paper">1st Winner &mdash; Tangerang Skill Competition, Web Design &amp; Development</div>
+                        <div class="md:col-span-2 text-[color:var(--color-muted)] text-sm md:text-right">Ditsmk</div>
+                    </li>
+                    <li class="py-5 grid md:grid-cols-12 gap-4 md:gap-8 border-b border-[color:var(--color-line)]">
+                        <div class="md:col-span-3 label">Nov 2018</div>
+                        <div class="md:col-span-7 text-paper">1st Winner &mdash; Web Design LINEA 2018</div>
+                        <div class="md:col-span-2 text-[color:var(--color-muted)] text-sm md:text-right">SMKN 5 Tangerang</div>
+                    </li>
+                    <li class="py-5 grid md:grid-cols-12 gap-4 md:gap-8 border-b border-[color:var(--color-line)]">
+                        <div class="md:col-span-3 label">Apr 2018</div>
+                        <div class="md:col-span-7 text-paper">2nd Winner &mdash; Banten Skill Competition, Web Design &amp; Development</div>
+                        <div class="md:col-span-2 text-[color:var(--color-muted)] text-sm md:text-right">Ditsmk</div>
+                    </li>
+                    <li class="py-5 grid md:grid-cols-12 gap-4 md:gap-8 border-b border-[color:var(--color-line)]">
+                        <div class="md:col-span-3 label">Feb 2018</div>
+                        <div class="md:col-span-7 text-paper">1st Winner &mdash; Tangerang Skill Competition, Web Design &amp; Development</div>
+                        <div class="md:col-span-2 text-[color:var(--color-muted)] text-sm md:text-right">Ditsmk</div>
+                    </li>
+                    <li class="py-5 grid md:grid-cols-12 gap-4 md:gap-8 border-b border-[color:var(--color-line)]">
+                        <div class="md:col-span-3 label">Jan 2018</div>
+                        <div class="md:col-span-7 text-paper">Google Code-in 2017 Participant</div>
+                        <div class="md:col-span-2 text-[color:var(--color-muted)] text-sm md:text-right">Google</div>
+                    </li>
+                    <li class="py-5 grid md:grid-cols-12 gap-4 md:gap-8 border-b border-[color:var(--color-line)]">
+                        <div class="md:col-span-3 label">Dec 2017</div>
+                        <div class="md:col-span-7 text-paper">1st Winner &mdash; Web Design LINEA 2017</div>
+                        <div class="md:col-span-2 text-[color:var(--color-muted)] text-sm md:text-right">SMKN 5 Tangerang</div>
+                    </li>
+                    <li class="py-5 grid md:grid-cols-12 gap-4 md:gap-8 border-b border-[color:var(--color-line)]">
+                        <div class="md:col-span-3 label">Mar 2017</div>
+                        <div class="md:col-span-7 text-paper">2nd Winner &mdash; Tangerang Skill Competition, Web Design &amp; Development</div>
+                        <div class="md:col-span-2 text-[color:var(--color-muted)] text-sm md:text-right">Ditsmk</div>
+                    </li>
+                    <li class="py-5 grid md:grid-cols-12 gap-4 md:gap-8 border-b border-[color:var(--color-line)]">
+                        <div class="md:col-span-3 label">Oct 2016</div>
+                        <div class="md:col-span-7 text-paper">3rd Winner &mdash; Web Design LINEA 2016</div>
+                        <div class="md:col-span-2 text-[color:var(--color-muted)] text-sm md:text-right">SMKN 5 Tangerang</div>
+                    </li>
+                </ol>
             </div>
         </div>
     </div>
 </section>
 
-<section id="contact" class="py-20 bg-gray-900">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center">
-            <h2 class="section-title animate-fade-in-up">Let's Connect</h2>
-            <p class="section-subtitle animate-fade-in-up" style="animation-delay: 0.2s;">Get in Touch</p>
-        </div>
-        <div class="max-w-4xl mx-auto">
-            <div class="max-w-2xl mx-auto text-center animate-fade-in-up" style="animation-delay: 0.3s;">
-                <p class="text-gray-300 mb-8 leading-relaxed">
-                    I'm always interested in hearing about new opportunities and exciting projects. Feel free to
-                    reach out through my social channels.
+<section id="contact" class="py-24 md:py-36 border-t border-[color:var(--color-line)]">
+    <div class="max-w-6xl mx-auto px-6 lg:px-8">
+        <div class="grid md:grid-cols-12 gap-10 md:gap-16 items-start">
+            <div class="md:col-span-4">
+                <div class="label mb-5">07 &mdash; Contact</div>
+                <h2 class="display text-3xl md:text-4xl text-paper">Say hello.</h2>
+            </div>
+            <div class="md:col-span-8">
+                <p class="display text-3xl md:text-5xl text-paper leading-tight mb-10">
+                    Have an interesting problem to solve?
+                    <span style="color: var(--color-accent);">Let's talk.</span>
                 </p>
-                <div class="flex justify-center items-center space-x-8 mt-8">
+                <div class="flex flex-col gap-4 mb-10">
                     <a href="#"
-                       onclick="window.location.href = 'mailto:' + ['me','rezajuliandri','my.id'].join('@').replace('@my.id','@rezajuliandri.my.id')"
-                       class="text-gray-300 hover:text-cyan-400 transition-colors duration-300 transform hover:scale-110">
-                        <i class="fas fa-envelope text-4xl"></i>
+                       onclick="window.location.href = 'mailto:' + ['me','rezajuliandri','my.id'].join('@').replace('@my.id','@rezajuliandri.my.id'); return false;"
+                       class="flex items-center justify-between border-b border-[color:var(--color-line)] hover:border-paper py-5 group transition-colors">
+                        <span class="display text-2xl text-paper">me@rezajuliandri.my.id</span>
+                        <span class="mono text-xs text-[color:var(--color-muted)] group-hover:text-paper transition">
+                            Email &rarr;
+                        </span>
                     </a>
                     <a href="#"
-                       onclick="window.open(atob('aHR0cHM6Ly9saW5rZWRpbi5jb20vaW4vcmV6YWp1bGlhbmRyaQ=='), '_blank')"
-                       rel="noopener noreferrer"
-                       class="text-gray-300 hover:text-cyan-400 transition-colors duration-300 transform hover:scale-110">
-                        <i class="fab fa-linkedin text-4xl"></i>
+                       onclick="window.open(atob('aHR0cHM6Ly9saW5rZWRpbi5jb20vaW4vcmV6YWp1bGlhbmRyaQ=='), '_blank'); return false;"
+                       class="flex items-center justify-between border-b border-[color:var(--color-line)] hover:border-paper py-5 group transition-colors">
+                        <span class="display text-2xl text-paper">LinkedIn</span>
+                        <span class="mono text-xs text-[color:var(--color-muted)] group-hover:text-paper transition">
+                            /in/rezajuliandri &rarr;
+                        </span>
                     </a>
-
-                    <a href="#" onclick="window.open(atob('aHR0cHM6Ly9naXRodWIuY29tL3BwYWJjZA=='), '_blank')"
-                       rel="noopener noreferrer"
-                       class="text-gray-300 hover:text-cyan-400 transition-colors duration-300 transform hover:scale-110">
-                        <i class="fab fa-github text-4xl"></i>
+                    <a href="#"
+                       onclick="window.open(atob('aHR0cHM6Ly9naXRodWIuY29tL3BwYWJjZA=='), '_blank'); return false;"
+                       class="flex items-center justify-between border-b border-[color:var(--color-line)] hover:border-paper py-5 group transition-colors">
+                        <span class="display text-2xl text-paper">GitHub</span>
+                        <span class="mono text-xs text-[color:var(--color-muted)] group-hover:text-paper transition">
+                            @ppabcd &rarr;
+                        </span>
                     </a>
                 </div>
             </div>
         </div>
     </div>
 </section>
-<!-- Modal -->
+
 <div id="imageModal"
-     class="fixed inset-0 bg-black bg-opacity-90 z-50 hidden items-center justify-center p-4 transition-opacity duration-300">
-    <div class="relative max-w-4xl max-h-full">
-        <!-- Close button -->
-        <button onclick="closeModal()"
-                class="absolute -top-12 right-0 text-white hover:text-red-500 transition-colors duration-200 text-2xl font-bold z-10">
-            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+     class="fixed inset-0 bg-ink/95 z-50 hidden items-center justify-center p-6 transition-opacity duration-300">
+    <div class="relative max-w-5xl w-full">
+        <button onclick="closeModal()" aria-label="Close"
+                class="absolute -top-12 right-0 text-paper hover:text-[color:var(--color-accent)] transition-colors z-10">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.25">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
             </svg>
         </button>
-
-        <!-- Modal content -->
-        <div class="bg-white rounded-lg overflow-hidden shadow-2xl transform transition-all duration-300 scale-95"
+        <div class="border border-[color:var(--color-line)] overflow-hidden transform transition-all duration-300 scale-95"
              id="modalContent">
-            <img id="modalImage" src="" alt="" class="w-full h-auto max-h-screen object-contain">
-            <div class="p-4 bg-gray-900">
-                <h3 id="modalTitle" class="text-xl font-semibold text-white"></h3>
+            <img id="modalImage" src="" alt="" class="w-full h-auto max-h-[85vh] object-contain bg-black">
+            <div class="px-6 py-4 bg-[color:var(--color-surface)] border-t border-[color:var(--color-line)]">
+                <h3 id="modalTitle" class="display text-lg text-paper"></h3>
             </div>
         </div>
     </div>
 </div>
-<footer class="bg-black border-t border-gray-800 py-8">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center text-gray-400">
-            <p>&copy; 2025 Reza Juliandri. All rights reserved.</p>
-        </div>
+
+<footer class="border-t border-[color:var(--color-line)] py-10">
+    <div class="max-w-6xl mx-auto px-6 lg:px-8 flex flex-col md:flex-row justify-between gap-4 label">
+        <p>&copy; 2026 Reza Juliandri. All rights reserved.</p>
+        <p>Built with care in Bali, Indonesia.</p>
     </div>
 </footer>
+
 <script src="https://cdn.jsdelivr.net/npm/lazysizes@5/lazysizes.min.js" async></script>
-<script type="text/javascript">
-    // Tab functionality
+<script>
     const tabButtons = document.querySelectorAll('.tab-btn');
     const tabContents = document.querySelectorAll('.tab-content');
 
     tabButtons.forEach(button => {
         button.addEventListener('click', () => {
-            // Remove active class from all buttons
-            tabButtons.forEach(btn => {
-                btn.classList.remove('bg-purple-500', 'text-white', 'shadow-lg', 'shadow-purple-500/25');
-                btn.classList.add('text-gray-300', 'hover:text-white', 'hover:bg-gray-700/50');
-            });
-
-            // Add active class to clicked button
-            button.classList.add('bg-purple-500', 'text-white', 'shadow-lg', 'shadow-purple-500/25');
-            button.classList.remove('text-gray-300', 'hover:text-white', 'hover:bg-gray-700/50');
-
-            // Hide all tab contents
-            tabContents.forEach(content => {
-                content.classList.remove('active');
-            });
-
-            // Show selected tab content
-            const targetTab = button.getAttribute('data-tab');
-            document.getElementById(targetTab).classList.add('active');
+            tabButtons.forEach(btn => btn.setAttribute('aria-selected', 'false'));
+            button.setAttribute('aria-selected', 'true');
+            tabContents.forEach(c => c.classList.remove('active'));
+            document.getElementById(button.dataset.tab).classList.add('active');
         });
     });
+
+    const menuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuOpen = document.getElementById('menu-icon-open');
+    const menuClose = document.getElementById('menu-icon-close');
+    menuButton?.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+        menuOpen.classList.toggle('hidden');
+        menuClose.classList.toggle('hidden');
+    });
+    mobileMenu?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        menuOpen.classList.remove('hidden');
+        menuClose.classList.add('hidden');
+    }));
 
     function openModal(imageSrc, title) {
         const modal = document.getElementById('imageModal');
@@ -930,12 +1069,11 @@
         const modalContent = document.getElementById('modalContent');
 
         modalImage.src = imageSrc;
-        modalTitle.textContent = title;
+        modalTitle.textContent = title || '';
 
         modal.classList.remove('hidden');
         modal.classList.add('flex');
 
-        // Trigger animation
         setTimeout(() => {
             modalContent.classList.remove('scale-95');
             modalContent.classList.add('scale-100');
@@ -955,20 +1093,23 @@
         }, 300);
     }
 
-    // Close modal when clicking outside the image
     document.getElementById('imageModal').addEventListener('click', function (e) {
-        if (e.target === this) {
-            closeModal();
-        }
+        if (e.target === this) closeModal();
     });
 
-    // Close modal with Escape key
-    document.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape') {
-            closeModal();
-        }
+    document.addEventListener('keydown', e => {
+        if (e.key === 'Escape') closeModal();
     });
+
+    const io = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+            if (e.isIntersecting) {
+                e.target.classList.add('is-visible');
+                io.unobserve(e.target);
+            }
+        });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.fade-in').forEach(el => io.observe(el));
 </script>
 </body>
-
 </html>
