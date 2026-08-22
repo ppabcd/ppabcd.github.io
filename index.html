@@ -1,1115 +1,2299 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reza Juliandri — Backend Engineer</title>
-    <meta name="description"
-          content="Backend engineer based in Indonesia. Eight years shipping APIs, automation, and data systems that serve millions.">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reza Juliandri · Senior Backend Engineer</title>
+<meta name="description" content="Senior backend engineer in Tangerang, Indonesia. Nine years designing APIs, database schemas, and automation for fraud and trust infrastructure at Kredibel, and co-founder of Tunelab.">
+<meta name="author" content="Reza Juliandri">
+<meta name="theme-color" content="#08090a">
+<link rel="canonical" href="https://rezajuliandri.my.id/">
 
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://rezajuliandri.my.id/">
+<meta property="og:title" content="Reza Juliandri · Senior Backend Engineer">
+<meta property="og:description" content="Nine years designing APIs, database schemas, and automation for fraud and trust infrastructure.">
+<meta property="og:image" content="https://rezajuliandri.my.id/profile.jpg">
+<meta name="twitter:card" content="summary_large_image">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700;800&display=swap">
 
-    <style type="text/tailwindcss">
-        @theme {
-            --color-ink: #0a0a0a;
-            --color-surface: #111111;
-            --color-line: #1f1f1f;
-            --color-paper: #ededeb;
-            --color-muted: #8a8a87;
-            --color-accent: #e8b765;
-            --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
-            --font-serif: 'Fraunces', Georgia, serif;
-            --font-mono: 'JetBrains Mono', ui-monospace, monospace;
-        }
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Reza Juliandri",
+  "jobTitle": "Senior Backend Engineer",
+  "url": "https://rezajuliandri.my.id/",
+  "image": "https://rezajuliandri.my.id/profile.jpg",
+  "address": { "@type": "PostalAddress", "addressLocality": "Tangerang", "addressCountry": "ID" },
+  "worksFor": { "@type": "Organization", "name": "PT. Kredibel Teknologi Indonesia" },
+  "alumniOf": [
+    { "@type": "CollegeOrUniversity", "name": "Universitas Multimedia Nusantara" },
+    { "@type": "EducationalOrganization", "name": "Apple Developer Academy" },
+    { "@type": "EducationalOrganization", "name": "Apple Developer Institute for Entrepreneurship" }
+  ],
+  "sameAs": ["https://github.com/ppabcd", "https://linkedin.com/in/rezajuliandri"]
+}
+</script>
 
-        html, body {
-            background: var(--color-ink);
-            color: var(--color-paper);
-        }
+<script>document.documentElement.className = 'js';</script>
 
-        body {
-            font-family: var(--font-sans);
-            font-feature-settings: "ss01", "cv01";
-            -webkit-font-smoothing: antialiased;
-        }
+<style>
+/* ── tokens ─────────────────────────────────────────────────────── */
+:root{
+  --bg:#08090a; --bg-2:#0c0e10; --bg-3:#111417; --bg-4:#151a1d;
+  --line:#1a1e21; --line-2:#272d31; --line-3:#394247;
+  --fg:#e9ecee; --fg-2:#a3acb0; --fg-3:#6b7478; --fg-4:#4a5155;
+  --accent:#5b8def; --accent-2:#2f5896; --accent-glow:rgba(91,141,239,.10);
+  --amber:#d9a441; --blue:#7aa2f7;
+  --mono:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  --sans:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  --max:1160px; --pad:clamp(20px,5vw,44px);
+  --ease:cubic-bezier(.22,.61,.36,1);
+}
 
-        .display {
-            font-family: var(--font-serif);
-            font-feature-settings: "ss01";
-            letter-spacing: -0.025em;
-            line-height: 1.02;
-            font-weight: 400;
-        }
+/* ── reset ──────────────────────────────────────────────────────── */
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;scroll-padding-top:72px}
+body{
+  margin:0;background:var(--bg);color:var(--fg);
+  font-family:var(--sans);font-size:16px;line-height:1.65;
+  -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
+  overflow-x:hidden;
+}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+ul,ol,dl,dd,figure{margin:0;padding:0;list-style:none}
+h1,h2,h3,h4,p{margin:0}
+::selection{background:var(--accent);color:#050b18}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+::-webkit-scrollbar{width:9px;height:9px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--line-2);border:2px solid var(--bg);border-radius:6px}
+::-webkit-scrollbar-thumb:hover{background:var(--line-3)}
 
-        .label {
-            font-family: var(--font-mono);
-            font-size: 0.72rem;
-            letter-spacing: 0.22em;
-            text-transform: uppercase;
-            color: var(--color-muted);
-        }
+/* blueprint grid, fades out below the fold */
+body::before{
+  content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+  background-image:
+    linear-gradient(var(--line) 1px,transparent 1px),
+    linear-gradient(90deg,var(--line) 1px,transparent 1px);
+  background-size:72px 72px;
+  opacity:.5;
+  -webkit-mask-image:radial-gradient(ellipse 90% 55% at 50% -5%,#000 0%,transparent 72%);
+  mask-image:radial-gradient(ellipse 90% 55% at 50% -5%,#000 0%,transparent 72%);
+}
 
-        .mono {
-            font-family: var(--font-mono);
-        }
+/* ── primitives ─────────────────────────────────────────────────── */
+.wrap{max-width:var(--max);margin:0 auto;padding-inline:var(--pad);position:relative;z-index:1}
+.mono{font-family:var(--mono)}
+.dim{color:var(--fg-3)}
+.acc{color:var(--accent)}
 
-        .link-underline {
-            position: relative;
-            color: var(--color-paper);
-            text-decoration: none;
-        }
+.kbd{
+  font-family:var(--mono);font-size:11px;letter-spacing:.02em;
+  color:var(--fg-3);border:1px solid var(--line-2);border-radius:3px;
+  padding:2px 6px;background:var(--bg-3);
+}
 
-        .link-underline::after {
-            content: "";
-            position: absolute;
-            left: 0;
-            right: 0;
-            bottom: -2px;
-            height: 1px;
-            background: currentColor;
-            transform-origin: right;
-            transform: scaleX(1);
-            transition: transform 350ms ease;
-        }
+.tag{
+  display:inline-flex;align-items:center;gap:6px;
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.01em;
+  color:var(--fg-2);background:var(--bg-3);
+  border:1px solid var(--line-2);border-radius:3px;
+  padding:4px 9px;transition:color .2s,border-color .2s,background .2s;
+}
+.tag::before{content:"";width:3px;height:3px;background:var(--fg-4);transition:background .2s}
+.tag:hover{color:var(--fg);border-color:var(--line-3)}
+.tag:hover::before{background:var(--accent)}
+.tag--hi{color:var(--accent);border-color:var(--accent-2);background:var(--accent-glow)}
+.tag--hi::before{background:var(--accent)}
 
-        .link-underline:hover::after {
-            transform-origin: left;
-            transform: scaleX(0);
-        }
+.ulink{
+  color:var(--fg);
+  background-image:linear-gradient(var(--accent),var(--accent));
+  background-repeat:no-repeat;background-position:0 100%;background-size:0 1px;
+  -webkit-box-decoration-break:clone;box-decoration-break:clone;
+  transition:background-size .35s var(--ease),color .25s;
+}
+.ulink:hover{color:var(--accent);background-size:100% 1px}
 
-        .tag {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.4rem;
-            padding: 0.25rem 0.6rem;
-            font-family: var(--font-mono);
-            font-size: 0.7rem;
-            letter-spacing: 0.04em;
-            color: var(--color-muted);
-            border: 1px solid var(--color-line);
-            border-radius: 2px;
-        }
+.arrow-link{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:var(--mono);font-size:12px;letter-spacing:.06em;
+  text-transform:uppercase;color:var(--fg-3);transition:color .25s;
+}
+.arrow-link span:last-child{transition:transform .25s var(--ease)}
+.arrow-link:hover{color:var(--accent)}
+.arrow-link:hover span:last-child{transform:translateX(4px)}
 
-        .tag::before {
-            content: "";
-            width: 4px;
-            height: 4px;
-            background: var(--color-muted);
-            border-radius: 50%;
-        }
+/* reveal on scroll; only hidden while JS is around to reveal it again */
+.js .rv{opacity:0;transform:translateY(16px)}
+.rv.in{opacity:1;transform:none;transition:opacity .7s var(--ease) var(--d,0ms),transform .7s var(--ease) var(--d,0ms)}
 
-        ::-webkit-scrollbar {
-            width: 6px;
-        }
+/* ── scroll progress ────────────────────────────────────────────── */
+#progress{position:fixed;top:0;left:0;height:2px;width:0;background:var(--accent);z-index:60;transition:width .1s linear}
 
-        ::-webkit-scrollbar-track {
-            background: var(--color-ink);
-        }
+/* ── header ─────────────────────────────────────────────────────── */
+.skip{position:absolute;left:-9999px;top:0;z-index:100;background:var(--accent);color:#050b18;padding:10px 16px;font-family:var(--mono);font-size:12px}
+.skip:focus{left:12px;top:12px}
 
-        ::-webkit-scrollbar-thumb {
-            background: #2a2a2a;
-        }
+header{
+  position:fixed;top:0;left:0;right:0;z-index:50;
+  background:rgba(8,9,10,.78);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line);
+}
+.hdr{display:flex;align-items:center;justify-content:space-between;gap:20px;height:60px}
+.brand{display:flex;align-items:center;gap:10px;font-family:var(--mono);font-size:13px}
+.brand-path{color:var(--fg-3)}
+.brand-path b{color:var(--fg);font-weight:500}
 
-        ::-webkit-scrollbar-thumb:hover {
-            background: #3a3a3a;
-        }
+nav.main{display:flex;align-items:center;gap:2px}
+nav.main a{
+  display:flex;align-items:baseline;gap:6px;padding:6px 10px;border-radius:3px;
+  font-family:var(--mono);font-size:12px;color:var(--fg-3);
+  transition:color .2s,background .2s;
+}
+nav.main a i{font-style:normal;font-size:10px;color:var(--fg-4);transition:color .2s}
+nav.main a:hover{color:var(--fg);background:var(--bg-3)}
+nav.main a:hover i{color:var(--accent)}
+nav.main a.active{color:var(--fg)}
+nav.main a.active i{color:var(--accent)}
 
-        .tab-content {
-            display: none;
-        }
+.hdr-status{display:flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;color:var(--fg-3)}
+.pulse{position:relative;display:inline-flex;width:7px;height:7px;flex:none}
+.pulse::before{content:"";position:absolute;inset:0;border-radius:50%;background:var(--accent);animation:ping 2.4s cubic-bezier(0,0,.2,1) infinite}
+.pulse::after{content:"";position:relative;width:7px;height:7px;border-radius:50%;background:var(--accent)}
+@keyframes ping{75%,100%{transform:scale(2.4);opacity:0}}
 
-        .tab-content.active {
-            display: block;
-        }
+.burger{display:none;width:34px;height:34px;place-items:center;border:1px solid var(--line-2);border-radius:3px}
+.burger svg{width:16px;height:16px}
+.burger svg path[hidden]{display:none}
 
-        .tab-btn[aria-selected="true"] {
-            color: var(--color-paper);
-        }
+#mobnav{display:none;border-top:1px solid var(--line);background:var(--bg)}
+#mobnav.open{display:block}
+#mobnav .wrap{padding-block:14px}
+#mobnav a{display:flex;justify-content:space-between;padding:11px 0;font-family:var(--mono);font-size:13px;color:var(--fg-2);border-bottom:1px solid var(--line)}
+#mobnav a:last-child{border-bottom:0}
+#mobnav a i{font-style:normal;color:var(--fg-4);font-size:11px}
 
-        .tab-btn[aria-selected="true"] .tab-dot {
-            background: var(--color-accent);
-        }
+/* ── section scaffolding ────────────────────────────────────────── */
+section{position:relative;z-index:1}
+.sec{padding-block:clamp(64px,9vw,116px);border-top:1px solid var(--line)}
+.sec-head{display:flex;align-items:center;gap:14px;margin-bottom:26px}
+.sec-idx{font-family:var(--mono);font-size:11px;font-weight:600;color:var(--accent);letter-spacing:.08em}
+.sec-name{font-family:var(--mono);font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--fg-3)}
+.sec-rule{flex:1;height:1px;background:linear-gradient(90deg,var(--line-2),transparent)}
+.h2{
+  font-weight:600;
+  font-size:clamp(1.6rem,3.4vw,2.35rem);line-height:1.15;letter-spacing:-.02em;
+  max-width:22ch;
+}
+.lead{margin-top:16px;color:var(--fg-2);font-size:17px;max-width:62ch}
+.sec-top{display:grid;grid-template-columns:1fr;gap:14px;margin-bottom:clamp(34px,5vw,58px)}
+@media(min-width:900px){
+  .sec-top{grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:48px;align-items:end}
+  .sec-top .lead{margin-top:0}
+}
 
-        .work-card {
-            position: relative;
-            display: block;
-            padding-top: 1.5rem;
-            border-top: 1px solid var(--color-line);
-            transition: border-color 300ms ease;
-        }
+/* ── hero ───────────────────────────────────────────────────────── */
+#hero{padding-top:clamp(104px,15vw,150px);padding-bottom:clamp(48px,7vw,84px)}
+.hero-grid{display:grid;grid-template-columns:1fr;gap:44px}
+@media(min-width:980px){
+  .hero-grid{grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:56px;align-items:center}
+}
+.name{
+  font-weight:700;
+  font-size:clamp(2.6rem,8vw,5.2rem);line-height:.95;letter-spacing:-.045em;
+  margin-bottom:20px;
+}
+.name span{display:block}
+.role{
+  display:flex;flex-wrap:wrap;align-items:center;gap:10px;
+  font-family:var(--mono);font-size:13px;color:var(--fg-2);margin-bottom:24px;
+}
+.role .sep{color:var(--fg-4)}
+@media(max-width:600px){.role .sep{display:none}}
+.hero-copy{color:var(--fg-2);font-size:17px;max-width:52ch;margin-bottom:32px}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px}
+.btn{
+  display:inline-flex;align-items:center;gap:10px;padding:11px 18px;border-radius:4px;
+  font-family:var(--mono);font-size:12.5px;letter-spacing:.02em;
+  border:1px solid var(--line-2);color:var(--fg-2);background:var(--bg-2);
+  transition:color .22s,border-color .22s,background .22s,transform .22s;
+}
+.btn:hover{color:var(--fg);border-color:var(--line-3);background:var(--bg-3);transform:translateY(-1px)}
+.btn--primary{border-color:var(--accent-2);color:var(--accent);background:var(--accent-glow)}
+.btn--primary:hover{color:#050b18;background:var(--accent);border-color:var(--accent)}
 
-        .work-card:hover {
-            border-top-color: var(--color-paper);
-        }
+/* status strip */
+.strip{
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
+  border-top:1px solid var(--line);margin-top:clamp(48px,7vw,76px);
+}
+@media(min-width:760px){.strip{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.strip div{padding:18px 0;border-bottom:1px solid var(--line)}
+@media(min-width:760px){
+  .strip div{padding:20px 22px;border-bottom:0;border-left:1px solid var(--line)}
+  .strip div:first-child{padding-left:0;border-left:0}
+}
+.strip dt{font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--fg-4);margin-bottom:7px}
+.strip dd{font-family:var(--mono);font-size:13px;color:var(--fg)}
 
-        .work-card .work-thumb {
-            transition: filter 500ms ease, transform 500ms ease;
-            filter: grayscale(100%) brightness(0.85);
-        }
+/* ── terminal / api console ─────────────────────────────────────── */
+.term{
+  border:1px solid var(--line-2);border-radius:7px;overflow:hidden;
+  background:linear-gradient(180deg,#0d1013,#0a0c0e);
+  box-shadow:0 30px 70px -34px rgba(0,0,0,.95),0 0 0 1px rgba(255,255,255,.014) inset;
+}
+.term-bar{display:flex;align-items:center;gap:7px;padding:11px 14px;border-bottom:1px solid var(--line);background:#0e1114}
+.term-bar b{font-family:var(--mono);font-size:11px;font-weight:400;color:var(--fg-4);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.term-bar .lat{margin-left:auto;font-family:var(--mono);font-size:10px;color:var(--fg-4);flex:none}
+.term-body{
+  padding:16px 16px 18px;font-family:var(--mono);font-size:12.5px;line-height:1.8;
+  min-height:396px;max-height:60vh;overflow:auto;tab-size:2;
+}
+.term-cmd{color:var(--fg-3);margin-bottom:12px;word-break:break-all}
+.term-cmd b{color:var(--accent);font-weight:500}
+.term-out{white-space:pre-wrap;word-break:break-word;color:var(--fg-4);margin:0}
+.term-meta{margin-top:14px;padding-top:12px;border-top:1px dashed var(--line-2);color:var(--fg-4);font-size:11px}
+.j-key{color:var(--accent)}
+.j-str{color:var(--fg)}
+.j-num{color:var(--amber)}
+.j-bool{color:var(--blue)}
+.j-punc{color:var(--fg-4)}
+.term-chips{display:flex;flex-wrap:wrap;gap:6px;padding:12px 14px;border-top:1px solid var(--line);background:#0a0c0e}
+.chip{
+  font-family:var(--mono);font-size:11px;color:var(--fg-3);
+  border:1px solid var(--line-2);border-radius:3px;padding:5px 9px;
+  transition:color .2s,border-color .2s,background .2s;
+}
+.chip:hover{color:var(--fg-2);border-color:var(--line-3)}
+.chip[aria-pressed="true"]{color:var(--accent);border-color:var(--accent-2);background:var(--accent-glow)}
 
-        .work-card:hover .work-thumb {
-            filter: grayscale(0%) brightness(1);
-        }
+/* ── about ──────────────────────────────────────────────────────── */
+.about-grid{display:grid;grid-template-columns:1fr;gap:40px}
+@media(min-width:900px){.about-grid{grid-template-columns:minmax(0,300px) minmax(0,1fr);gap:56px;align-items:start}}
+.portrait{position:relative;max-width:300px}
+.portrait img{width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;object-position:24% 45%;border-radius:4px;filter:grayscale(1) contrast(1.06) brightness(.88);transition:filter .6s var(--ease)}
+.portrait:hover img{filter:grayscale(.15) contrast(1.02) brightness(1)}
+.portrait::after{
+  content:"";position:absolute;inset:-9px;border:1px solid var(--line-2);border-radius:6px;pointer-events:none;
+}
+.portrait figcaption{
+  position:absolute;left:0;right:0;bottom:0;padding:12px 13px;
+  font-family:var(--mono);font-size:10.5px;color:var(--fg-2);
+  background:linear-gradient(0deg,rgba(8,9,10,.94),transparent);
+  display:flex;justify-content:space-between;gap:10px;border-radius:0 0 4px 4px;
+}
+.prose p{color:var(--fg-2);font-size:17px}
+.prose p + p{margin-top:18px}
+.prose strong{color:var(--fg);font-weight:500}
+.facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;margin-top:34px;background:var(--line);border:1px solid var(--line);border-radius:4px;overflow:hidden}
+@media(min-width:640px){.facts{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.facts div{background:var(--bg-2);padding:16px 15px}
+.facts dt{font-family:var(--mono);font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--fg-4);margin-bottom:8px}
+.facts dd{font-family:var(--mono);font-size:12.5px;color:var(--fg);line-height:1.5}
 
-        .work-card .work-arrow {
-            transition: transform 300ms ease, opacity 300ms ease;
-            opacity: 0.4;
-        }
+/* ── systems ────────────────────────────────────────────────────── */
+.diagram{
+  border:1px solid var(--line);border-radius:6px;background:var(--bg-2);
+  padding:clamp(14px,2.4vw,26px);overflow-x:auto;
+}
+.diagram svg{display:block;min-width:720px;width:100%;height:auto}
+@media(min-width:900px){.diagram-cap .scroll-hint{display:none}}
+.diagram-cap{
+  display:flex;flex-wrap:wrap;gap:8px 18px;justify-content:space-between;
+  margin-top:16px;padding-top:14px;border-top:1px dashed var(--line-2);
+  font-family:var(--mono);font-size:11px;color:var(--fg-4);
+}
+.principles{display:grid;grid-template-columns:1fr;gap:1px;margin-top:34px;background:var(--line);border:1px solid var(--line);border-radius:5px;overflow:hidden}
+@media(min-width:680px){.principles{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(min-width:1040px){.principles{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.principles article{background:var(--bg-2);padding:24px 22px;transition:background .3s}
+.principles article:hover{background:var(--bg-3)}
+.principles h3{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--fg);margin-bottom:12px;display:flex;align-items:center;gap:9px}
+.principles h3 em{font-style:normal;color:var(--accent);font-size:11px}
+.principles p{color:var(--fg-3);font-size:14.5px;line-height:1.6}
 
-        .work-card:hover .work-arrow {
-            opacity: 1;
-            transform: translate(2px, -2px);
-        }
+/* ── work ───────────────────────────────────────────────────────── */
+.tabs{display:flex;gap:4px;padding:4px;border:1px solid var(--line);border-radius:5px;background:var(--bg-2);width:fit-content}
+.tab{
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--fg-3);padding:8px 15px;border-radius:3px;
+  display:flex;align-items:center;gap:8px;transition:color .2s,background .2s;
+}
+.tab i{font-style:normal;width:4px;height:4px;background:var(--line-3);border-radius:50%;transition:background .2s}
+.tab:hover{color:var(--fg-2)}
+.tab[aria-selected="true"]{color:var(--fg);background:var(--bg-4)}
+.tab[aria-selected="true"] i{background:var(--accent)}
+.panel[hidden]{display:none}
+.grid-work{display:grid;grid-template-columns:1fr;gap:26px}
+@media(min-width:820px){.grid-work{grid-template-columns:repeat(2,minmax(0,1fr))}}
 
-        .fade-in {
-            opacity: 0;
-            transform: translateY(12px);
-            transition: opacity 700ms ease, transform 700ms ease;
-        }
+.proj{
+  display:flex;flex-direction:column;
+  border:1px solid var(--line);border-radius:5px;background:var(--bg-2);overflow:hidden;
+  transition:border-color .3s,transform .3s var(--ease),box-shadow .3s;
+}
+.proj:hover{border-color:var(--line-2);transform:translateY(-3px);box-shadow:0 22px 44px -30px rgba(0,0,0,.9)}
+.proj-media{position:relative;aspect-ratio:16/10;background:#0a0c0e;border-bottom:1px solid var(--line);overflow:hidden;cursor:zoom-in;width:100%}
+.proj-media img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) brightness(.62) contrast(1.06);transition:filter .55s var(--ease),transform .7s var(--ease)}
+.proj:hover .proj-media img{filter:grayscale(0) brightness(.98);transform:scale(1.03)}
+.proj-media::after{
+  content:"⤢ expand";position:absolute;right:10px;bottom:10px;
+  font-family:var(--mono);font-size:10px;color:var(--fg-2);
+  background:rgba(8,9,10,.82);border:1px solid var(--line-2);border-radius:3px;
+  padding:3px 7px;opacity:0;transform:translateY(4px);transition:opacity .3s,transform .3s;
+}
+.proj:hover .proj-media::after{opacity:1;transform:none}
+.proj-body{padding:22px;display:flex;flex-direction:column;flex:1}
+.proj-head{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;margin-bottom:10px}
+.proj-head h3{font-size:17px;font-weight:600;letter-spacing:-.015em}
+.proj-head .ext{font-family:var(--mono);font-size:12px;color:var(--fg-4);transition:color .25s,transform .25s var(--ease);flex:none;margin-top:3px}
+.proj:hover .ext{color:var(--accent);transform:translate(2px,-2px)}
+.proj-body > p{color:var(--fg-3);font-size:14.5px;margin-bottom:18px}
+.proj-meta{margin-bottom:18px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.proj-meta > div{display:grid;grid-template-columns:78px 1fr;gap:12px;padding:8px 0;font-family:var(--mono);font-size:11.5px}
+.proj-meta > div + div{border-top:1px solid var(--line)}
+.proj-meta dt{color:var(--fg-4);letter-spacing:.12em;text-transform:uppercase;font-size:10px;padding-top:2px}
+.proj-meta dd{color:var(--fg-2)}
+.flow{
+  font-family:var(--mono);font-size:11px;color:var(--fg-3);line-height:1.05;letter-spacing:0;
+  background:var(--bg);border:1px solid var(--line);border-radius:4px;
+  padding:14px 13px;margin-bottom:18px;overflow-x:auto;white-space:pre;
+}
+.flow b{color:var(--accent);font-weight:400}
+.proj-stats{
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;
+  background:var(--line);border:1px solid var(--line);border-radius:4px;
+  overflow:hidden;margin-bottom:18px;
+}
+@media(min-width:520px){.proj-stats{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.event-years > div{display:grid;grid-template-columns:1fr;gap:4px;padding:11px 0}
+@media(min-width:520px){.event-years > div{grid-template-columns:58px minmax(0,1fr);gap:20px;align-items:baseline}}
+.event-years > div + div{border-top:1px solid var(--line)}
+.event-years > div:first-child{padding-top:0}
+.event-years dt{font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;color:var(--accent)}
+.event-years dd span{display:block;font-family:var(--mono);font-size:12px;color:var(--fg-3);line-height:1.85}
+.proj-stats-note{
+  font-family:var(--mono);font-size:9.5px;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--fg-4);margin-bottom:9px;
+}
+.proj-stats--trio{grid-template-columns:repeat(3,minmax(0,1fr))}
+.proj-stats--trio dd{font-size:14px}
+.proj-stats > div{
+  background:var(--bg);padding:12px 13px;
+  /* labels wrap to different heights on narrow cards; keep the numbers on one line */
+  display:flex;flex-direction:column;justify-content:space-between;
+}
+.proj-stats dt{
+  font-family:var(--mono);font-size:9px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--fg-4);margin-bottom:7px;
+}
+.proj-stats dd{font-family:var(--mono);font-size:15px;color:var(--accent)}
+.proj-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto}
 
-        .fade-in.is-visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
+/* ── experience ─────────────────────────────────────────────────── */
+.timeline{position:relative}
+.xp{display:grid;grid-template-columns:1fr;gap:10px;padding:26px 0;border-top:1px solid var(--line);position:relative}
+.xp:last-child{border-bottom:1px solid var(--line)}
+@media(min-width:820px){
+  .xp{grid-template-columns:200px minmax(0,1fr);gap:40px;padding:30px 0 30px 26px}
+  .xp::before{
+    content:"";position:absolute;left:0;top:0;bottom:0;width:1px;background:var(--line);
+  }
+  .xp::after{
+    content:"";position:absolute;left:-3px;top:38px;width:7px;height:7px;border-radius:50%;
+    background:var(--bg);border:1px solid var(--line-3);transition:background .25s,border-color .25s;
+  }
+  .xp:hover::after{background:var(--accent);border-color:var(--accent)}
+  .xp:hover::before{background:linear-gradient(180deg,var(--accent-2),var(--line))}
+}
+.xp-when{font-family:var(--mono);font-size:11.5px;letter-spacing:.04em;color:var(--fg-4);transition:color .25s;padding-top:3px}
+.xp:hover .xp-when{color:var(--accent)}
+.xp-role{font-size:17px;font-weight:600;letter-spacing:-.015em;margin-bottom:5px}
+.xp-org{font-family:var(--mono);font-size:12.5px;color:var(--fg-3);margin-bottom:14px}
+.xp ul li{position:relative;padding-left:19px;color:var(--fg-2);font-size:15px}
+.xp ul li + li{margin-top:7px}
+.xp ul li::before{content:"→";position:absolute;left:0;top:0;color:var(--fg-4);font-family:var(--mono);font-size:12px}
+.xp-now{
+  display:inline-flex;align-items:center;gap:7px;margin-left:10px;
+  font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--accent);border:1px solid var(--accent-2);background:var(--accent-glow);
+  border-radius:3px;padding:2px 7px;vertical-align:middle;
+}
 
-        .lazyload {
-            transition: opacity 0.3s;
-        }
+/* numbers pulled from the record, kept scannable */
+.stat{font-family:var(--mono);font-size:.94em;color:var(--accent)}
 
-        .exp-row:hover .exp-year {
-            color: var(--color-accent);
-        }
+/* one employer, several roles over time */
+.xp-track{margin-top:4px;border-left:1px solid var(--line);padding-left:20px}
+.xp-step{position:relative;padding:15px 0}
+.xp-step + .xp-step{border-top:1px dashed var(--line)}
+.xp-step::before{
+  content:"";position:absolute;left:-24px;top:22px;width:5px;height:5px;border-radius:50%;
+  background:var(--bg);border:1px solid var(--line-3);transition:background .25s,border-color .25s;
+}
+.xp-step:hover::before{background:var(--fg-3);border-color:var(--fg-3)}
+.xp-step.is-now::before{background:var(--accent);border-color:var(--accent)}
+.xp-step-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 12px;margin-bottom:9px}
+.xp-step-role{font-size:15px;font-weight:600;letter-spacing:-.01em;color:var(--fg)}
+.xp-step-kind{
+  font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--fg-4);border:1px solid var(--line-2);border-radius:2px;padding:1px 6px;
+}
+.xp-step-when{font-family:var(--mono);font-size:11px;color:var(--fg-4)}
+@media(min-width:640px){.xp-step-when{margin-left:auto}}
+.xp-tenure{
+  display:inline-block;margin-top:6px;font-family:var(--mono);font-size:10.5px;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--fg-4);
+}
 
-        .profile-frame {
-            position: relative;
-        }
+/* the before/after code comparison */
+.code-pair{display:grid;grid-template-columns:1fr;gap:20px}
+@media(min-width:960px){.code-pair{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.code{
+  margin:0;padding:16px 18px;font-family:var(--mono);font-size:11.5px;line-height:1.7;
+  color:var(--fg-3);white-space:pre;overflow-x:auto;
+}
+.code b{color:var(--accent);font-weight:400}
+.code u{color:var(--amber);text-decoration:none}
+.term-bar .verdict{margin-left:auto;font-family:var(--mono);font-size:10px;letter-spacing:.1em;flex:none}
+@media(max-width:640px){.term-bar .verdict{display:none}}
+.matrix dd.rule{display:block;color:var(--fg-2);font-size:14.5px;line-height:1.65}
+.matrix dd.rule strong{color:var(--fg);font-weight:500}
+.matrix dd.rule .mono{font-size:12.5px}
+.verdict--bad{color:var(--amber)}
+.verdict--good{color:var(--accent)}
 
-        .profile-frame::before {
-            content: "";
-            position: absolute;
-            inset: -10px;
-            border: 1px solid var(--color-line);
-            pointer-events: none;
-        }
+/* project card with no screenshot worth showing; show the mark instead */
+.proj-media--logo{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;
+  /* a hair lighter than the mark's own ground, so the icon shape still reads */
+  background:#f2f1f0;cursor:default;
+  /* dimmed at rest like the screenshot cards; full colour on hover */
+  filter:grayscale(1) brightness(.78);
+  transition:filter .55s var(--ease);
+}
+.proj:hover .proj-media--logo{filter:none}
+/* the wordmark is an <img> inside .proj-media, so undo the screenshot treatment */
+.proj-media--logo img{
+  width:24%;min-width:72px;max-width:108px;height:auto;
+  object-fit:contain;filter:none;transform:none;
+}
+.proj:hover .proj-media--logo img{filter:none;transform:none}
+.proj-media--logo::after{content:none}
+.proj-media--logo svg{
+  width:auto;height:58%;display:block;
+  filter:drop-shadow(0 10px 24px rgba(0,0,0,.16));
+  transition:transform .5s var(--ease);
+}
+.proj:hover .proj-media--logo svg{transform:translateY(-3px) scale(1.05)}
+.proj-media--logo--dark{background:#121317}
+.proj-media--logo img.mark{width:auto;height:56%;max-width:none;border-radius:0}
+.proj-media--logo img.wordmark{width:34%;min-width:96px;max-width:150px}
+.proj-media--logo span{
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.26em;
+  text-transform:uppercase;color:#2d2d2d;opacity:.5;
+}
 
-        .grid-rule {
-            background-image: linear-gradient(to right, transparent calc(100% - 1px), var(--color-line) calc(100% - 1px));
-            background-size: calc(100% / 12) 100%;
-        }
-    </style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+/* ── stack matrix ───────────────────────────────────────────────── */
+.matrix{border:1px solid var(--line);border-radius:5px;overflow:hidden;background:var(--bg-2)}
+.matrix > div{display:grid;grid-template-columns:1fr;gap:12px;padding:20px clamp(16px,2.4vw,24px)}
+.matrix > div + div{border-top:1px solid var(--line)}
+@media(min-width:760px){.matrix > div{grid-template-columns:190px minmax(0,1fr);gap:28px;align-items:start}}
+.matrix dt{display:flex;align-items:center;gap:10px;font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--fg-3);padding-top:5px}
+.matrix dt em{font-style:normal;font-size:10px;color:var(--fg-4)}
+.matrix dd{display:flex;flex-wrap:wrap;gap:6px}
+
+/* ── education & credentials ────────────────────────────────────── */
+.cards{display:grid;grid-template-columns:1fr;gap:20px}
+@media(min-width:820px){.cards{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.card{
+  border:1px solid var(--line);border-radius:5px;background:var(--bg-2);
+  padding:clamp(22px,3vw,30px);transition:border-color .3s,background .3s;
+}
+.card:hover{border-color:var(--line-2);background:var(--bg-3)}
+.card .when{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--fg-4);margin-bottom:14px}
+.card h3{font-size:18px;font-weight:600;margin-bottom:6px;letter-spacing:-.015em}
+.card .sub{font-family:var(--mono);font-size:12px;color:var(--fg-3);margin-bottom:16px}
+.card > p{color:var(--fg-2);font-size:15px;margin-bottom:18px}
+.card ul li{position:relative;padding-left:18px;font-family:var(--mono);font-size:12px;color:var(--fg-3)}
+.card ul li + li{margin-top:6px}
+.card ul li::before{content:"·";position:absolute;left:4px;color:var(--fg-4)}
+.card--wide{grid-column:1/-1}
+
+.certs{display:grid;grid-template-columns:1fr;gap:20px}
+@media(min-width:700px){.certs{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.cert-media{position:relative;aspect-ratio:4/3;overflow:hidden;background:#0a0c0e;border:1px solid var(--line);border-radius:4px;cursor:zoom-in;width:100%;margin-bottom:14px}
+.cert-media img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) brightness(.68);transition:filter .5s,transform .6s var(--ease)}
+.cert:hover .cert-media img{filter:none;transform:scale(1.03)}
+.cert .when{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--fg-4);margin-bottom:9px}
+.cert h3{font-size:15px;font-weight:500;line-height:1.45;letter-spacing:-.01em}
+
+.awards{border-top:1px solid var(--line)}
+.awards li{display:grid;grid-template-columns:1fr;gap:5px;padding:15px 0;border-bottom:1px solid var(--line);transition:background .25s}
+@media(min-width:820px){.awards li{grid-template-columns:120px minmax(0,1fr) 190px;gap:24px;align-items:baseline}}
+.awards li:hover{background:var(--bg-2)}
+.awards .yr{font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(--fg-4)}
+.awards .ttl{color:var(--fg);font-size:15px}
+.awards .ttl b{color:var(--accent);font-weight:500;font-family:var(--mono);font-size:12px;margin-right:8px}
+.awards .by{font-family:var(--mono);font-size:11.5px;color:var(--fg-3)}
+@media(min-width:820px){.awards .by{text-align:right}}
+
+/* ── contact ────────────────────────────────────────────────────── */
+.contact-grid{display:grid;grid-template-columns:1fr;gap:34px}
+@media(min-width:960px){.contact-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:52px;align-items:start}}
+.contact-hook{font-size:clamp(1.4rem,3.2vw,2.2rem);font-weight:600;line-height:1.3;letter-spacing:-.03em;margin-bottom:26px}
+.contact-hook b{color:var(--accent);font-weight:600}
+.links{border-top:1px solid var(--line)}
+.links a{
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+  padding:17px 0;border-bottom:1px solid var(--line);transition:padding .3s var(--ease),border-color .3s;
+}
+.links a:hover{padding-inline:12px;border-bottom-color:var(--line-3)}
+.links .k{font-family:var(--mono);font-size:15px;color:var(--fg);transition:color .25s}
+.links a:hover .k{color:var(--accent)}
+.links .v{font-family:var(--mono);font-size:11.5px;color:var(--fg-4);display:flex;align-items:center;gap:9px;text-align:right}
+
+/* ── footer ─────────────────────────────────────────────────────── */
+footer{border-top:1px solid var(--line);padding-block:30px;position:relative;z-index:1}
+.foot{display:flex;flex-wrap:wrap;gap:12px 26px;justify-content:space-between;align-items:center;font-family:var(--mono);font-size:11.5px;color:var(--fg-4)}
+.foot a{transition:color .2s}
+.foot a:hover{color:var(--accent)}
+
+/* ── lightbox ───────────────────────────────────────────────────── */
+#lightbox{
+  position:fixed;inset:0;z-index:70;display:none;
+  align-items:center;justify-content:center;padding:clamp(16px,4vw,48px);
+  background:rgba(5,6,7,.94);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+  opacity:0;transition:opacity .25s;
+}
+#lightbox.open{display:flex}
+#lightbox.shown{opacity:1}
+.lb-inner{max-width:1080px;width:100%;position:relative}
+.lb-frame{border:1px solid var(--line-2);border-radius:5px;overflow:hidden;background:var(--bg-2);transform:scale(.97);transition:transform .3s var(--ease)}
+#lightbox.shown .lb-frame{transform:none}
+.lb-frame img{width:100%;max-height:78vh;object-fit:contain;background:#050607}
+.lb-cap{display:flex;justify-content:space-between;gap:16px;padding:13px 16px;border-top:1px solid var(--line);font-family:var(--mono);font-size:12px}
+.lb-close{position:absolute;top:-42px;right:0;display:flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;color:var(--fg-3);transition:color .2s}
+.lb-close:hover{color:var(--accent)}
+body.locked{overflow:hidden}
+
+/* ── responsive nav ─────────────────────────────────────────────── */
+@media(max-width:1023px){
+  nav.main,.hdr-status{display:none}
+  .burger{display:grid}
+}
+
+/* ── motion preferences ─────────────────────────────────────────── */
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
+  .rv{opacity:1;transform:none}
+}
+</style>
 </head>
 
-<body class="bg-ink text-paper selection:bg-accent selection:text-ink">
+<body>
+<div id="progress"></div>
+<a class="skip" href="#main">Skip to content</a>
 
-<header class="fixed top-0 left-0 right-0 z-40 border-b border-[color:var(--color-line)] bg-ink/85 backdrop-blur-md">
-    <div class="max-w-6xl mx-auto px-6 lg:px-8">
-        <div class="flex items-center justify-between h-16">
-            <a href="#" class="mono text-sm text-paper">
-                reza juliandri<span style="color: var(--color-accent);">.</span>
-            </a>
-            <nav class="hidden md:flex items-center gap-10">
-                <a href="#about" class="label hover:text-paper transition-colors">About</a>
-                <a href="#work" class="label hover:text-paper transition-colors">Work</a>
-                <a href="#experience" class="label hover:text-paper transition-colors">Experience</a>
-                <a href="#skills" class="label hover:text-paper transition-colors">Skills</a>
-                <a href="#contact" class="label hover:text-paper transition-colors">Contact</a>
-            </nav>
-            <button id="mobile-menu-button" class="md:hidden text-paper focus:outline-none" aria-label="Menu">
-                <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25">
-                    <path id="menu-icon-open" d="M4 8h16M4 16h16" stroke-linecap="round"></path>
-                    <path id="menu-icon-close" d="M6 18L18 6M6 6l12 12" stroke-linecap="round" class="hidden"></path>
-                </svg>
-            </button>
-        </div>
+<header>
+  <div class="wrap">
+    <div class="hdr">
+      <a class="brand" href="#top" aria-label="Reza Juliandri, back to top">
+        <span class="brand-path">reza<b>.juliandri</b><span class="dim">/</span></span>
+      </a>
+
+      <nav class="main" aria-label="Sections">
+        <a href="#about"><i>01</i>about</a>
+        <a href="#systems"><i>02</i>systems</a>
+        <a href="#work"><i>03</i>work</a>
+        <a href="#experience"><i>04</i>experience</a>
+        <a href="#stack"><i>05</i>stack</a>
+        <a href="#contact"><i>08</i>contact</a>
+      </nav>
+
+      <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="mobnav">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+          <path id="ic-open" d="M4 8h16M4 16h16"></path>
+          <path id="ic-close" d="M6 18 18 6M6 6l12 12" hidden></path>
+        </svg>
+      </button>
     </div>
-    <div id="mobile-menu" class="md:hidden hidden border-t border-[color:var(--color-line)]">
-        <div class="max-w-6xl mx-auto px-6 py-5 flex flex-col gap-5">
-            <a href="#about" class="label">About</a>
-            <a href="#work" class="label">Work</a>
-            <a href="#experience" class="label">Experience</a>
-            <a href="#skills" class="label">Skills</a>
-            <a href="#contact" class="label">Contact</a>
-        </div>
+  </div>
+  <div id="mobnav">
+    <div class="wrap">
+      <a href="#about"><span>about</span><i>01</i></a>
+      <a href="#systems"><span>systems</span><i>02</i></a>
+      <a href="#work"><span>work</span><i>03</i></a>
+      <a href="#experience"><span>experience</span><i>04</i></a>
+      <a href="#stack"><span>stack</span><i>05</i></a>
+      <a href="#education"><span>education</span><i>06</i></a>
+      <a href="#credentials"><span>credentials</span><i>07</i></a>
+      <a href="#contact"><span>contact</span><i>08</i></a>
     </div>
+  </div>
 </header>
 
-<section id="hero" class="min-h-screen flex items-center pt-28 pb-20">
-    <div class="max-w-6xl mx-auto px-6 lg:px-8 w-full">
-        <div class="grid md:grid-cols-12 gap-12 md:gap-16 items-center">
-            <div class="md:col-span-8 order-2 md:order-1">
-                <div class="flex items-center gap-3 mb-10">
-                    <span class="relative flex h-2 w-2">
-                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-60"></span>
-                        <span class="relative inline-flex h-2 w-2 rounded-full bg-emerald-400"></span>
-                    </span>
-                    <span class="label">Available for select engagements</span>
-                </div>
-                <h1 class="display text-[clamp(2.8rem,8vw,6.5rem)] text-paper mb-8">
-                    Reza<br>Juliandri<span style="color: var(--color-accent);">.</span>
-                </h1>
-                <p class="text-lg md:text-xl text-[color:var(--color-muted)] leading-relaxed max-w-xl">
-                    Backend engineer based in Indonesia. Eight years shipping APIs, automation, and
-                    data systems that serve millions — currently at
-                    <a href="https://www.kredibel.com" target="_blank" rel="noopener" class="link-underline">Kredibel</a>,
-                    working on fraud and trust infrastructure.
-                </p>
-                <div class="mt-12 flex flex-wrap gap-x-8 gap-y-4 label">
-                    <a href="#work" class="hover:text-paper transition-colors">
-                        Selected work <span class="ml-2" style="color: var(--color-accent);">↓</span>
-                    </a>
-                    <a href="#contact" class="hover:text-paper transition-colors">
-                        Get in touch <span class="ml-2" style="color: var(--color-accent);">→</span>
-                    </a>
-                </div>
-            </div>
-            <div class="md:col-span-4 order-1 md:order-2">
-                <div class="profile-frame max-w-[260px] md:max-w-none">
-                    <img src="./profile.jpg" alt="Reza Juliandri"
-                         class="w-full aspect-[4/5] object-cover lazyload">
-                </div>
-            </div>
+<main id="main">
+<span id="top"></span>
+
+<!-- ══ HERO ═════════════════════════════════════════════════════ -->
+<section id="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <h1 class="name rv" style="--d:60ms">
+          <span>Reza</span><span>Juliandri</span>
+        </h1>
+
+        <div class="role rv" style="--d:120ms">
+          <span>Senior Backend Engineer</span>
+          <span class="sep">/</span>
+          <span class="dim">backend · automation · machine learning</span>
         </div>
+
+        <p class="hero-copy rv" style="--d:180ms">
+          I build the half of the product nobody sees: request handling, database
+          schemas, background jobs, and integrations that have to stay correct on the
+          worst day of the month. <span data-yrs-word>Nine</span> years of it, now as senior backend engineer on
+          fraud and trust infrastructure at
+          <a class="ulink" href="https://www.kredibel.com" target="_blank" rel="noopener">Kredibel</a>,
+          and tech lead of Tunelab on the side.
+        </p>
+
+        <div class="hero-cta rv" style="--d:240ms">
+          <a class="btn btn--primary" href="#work"><span>./view-work</span><span>↓</span></a>
+          <a class="btn" href="#contact"><span>./say-hello</span><span>→</span></a>
+        </div>
+      </div>
+
+      <!-- interactive console -->
+      <div class="term rv" style="--d:300ms" aria-label="Interactive API console">
+        <div class="term-bar">
+          <b>rezajuliandri.my.id/api</b>
+          <span class="lat" id="lat">·</span>
+        </div>
+        <div class="term-body" id="termBody">
+          <p class="term-cmd"><b>curl -s https://rezajuliandri.my.id/me</b></p>
+          <pre class="term-out" id="termOut"></pre>
+          <p class="term-meta" id="termMeta"></p>
+        </div>
+        <div class="term-chips" role="group" aria-label="Try an endpoint">
+          <button class="chip" data-ep="me" aria-pressed="true">GET /me.json</button>
+          <button class="chip" data-ep="stack" aria-pressed="false">GET /stack.json</button>
+          <button class="chip" data-ep="work" aria-pressed="false">GET /work.json</button>
+          <button class="chip" data-ep="now" aria-pressed="false">now (local)</button>
+        </div>
+      </div>
     </div>
+
+    <dl class="strip rv" style="--d:360ms">
+      <div><dt>currently</dt><dd>Kredibel · Tunelab · Anadex</dd></div>
+      <div><dt>based in</dt><dd id="clock">Tangerang, ID</dd></div>
+      <div><dt>shipping since</dt><dd>2017 &middot; <span data-yrs-num>9</span>+ yrs</dd></div>
+      <div><dt>writes</dt><dd>PHP · TypeScript · Swift</dd></div>
+    </dl>
+  </div>
 </section>
 
-<section id="about" class="py-24 md:py-32 border-t border-[color:var(--color-line)]">
-    <div class="max-w-6xl mx-auto px-6 lg:px-8">
-        <div class="grid md:grid-cols-12 gap-10 md:gap-16">
-            <div class="md:col-span-4">
-                <div class="label mb-5">01 &mdash; About</div>
-                <h2 class="display text-3xl md:text-4xl text-paper">A brief introduction.</h2>
-            </div>
-            <div class="md:col-span-8 space-y-6 text-[17px] md:text-lg text-[color:var(--color-muted)] leading-relaxed">
-                <p>
-                    I work on the parts of software most users never see but rely on every
-                    day &mdash; REST APIs, automation pipelines, database performance, and
-                    the glue that keeps data flowing reliably.
-                </p>
-                <p>
-                    Since 2018 I've been at <span class="text-paper">Kredibel</span>, tackling
-                    fraud and online trust for an audience in the millions. Before that, I
-                    interned on the financial team at <span class="text-paper">Traveloka</span>
-                    and built an English assessment platform for the Indonesian civil aviation
-                    academy at <span class="text-paper">Arxist</span>.
-                </p>
-                <p>
-                    I also teach. Over the past two cohorts I've mentored and instructed
-                    dozens of students in mobile development through
-                    <span class="text-paper">Bangkit Academy</span> &mdash; a joint program
-                    from Google, GoTo, and Traveloka.
-                </p>
-                <div class="grid grid-cols-2 gap-6 pt-6 mt-2 border-t border-[color:var(--color-line)]">
-                    <div>
-                        <div class="label mb-2">Based in</div>
-                        <div class="text-paper">Bali, Indonesia</div>
-                    </div>
-                    <div>
-                        <div class="label mb-2">Focus</div>
-                        <div class="text-paper">APIs &middot; Automation &middot; Data</div>
-                    </div>
-                    <div>
-                        <div class="label mb-2">Writing</div>
-                        <div class="text-paper">Go &middot; TypeScript &middot; Swift</div>
-                    </div>
-                    <div>
-                        <div class="label mb-2">Experience</div>
-                        <div class="text-paper">8+ years</div>
-                    </div>
-                </div>
-            </div>
-        </div>
+<!-- ══ 01 ABOUT ═════════════════════════════════════════════════ -->
+<section id="about" class="sec">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="sec-idx">01</span><span class="sec-name">about</span><span class="sec-rule"></span>
     </div>
+    <div class="sec-top">
+      <h2 class="h2 rv">The unglamorous half of the product.</h2>
+      <p class="lead rv" style="--d:60ms">
+        Nobody opens an app to admire a well-normalised schema. They open it because
+        the thing loaded, the number was right, and the request they sent last night
+        actually went through.
+      </p>
+    </div>
+
+    <div class="about-grid">
+      <figure class="portrait rv">
+        <img src="about.jpg" alt="Reza Juliandri" loading="lazy" decoding="async" width="600" height="750">
+        <figcaption><span>reza juliandri</span><span class="dim">tangerang, id</span></figcaption>
+      </figure>
+
+      <div class="prose rv" style="--d:80ms">
+        <p>
+          I work on the parts of software most users never see but rely on every day:
+          REST APIs, automation pipelines, database performance, and the glue that
+          keeps data flowing reliably between services.
+        </p>
+        <p>
+          I've been at <strong>Kredibel</strong> since 2018, working on fraud and online
+          trust for an audience in the millions. I started part-time as a software
+          engineer and I'm now senior backend engineer. Most of my time goes to relational
+          data modelling, API design, query and index tuning, auth and token handling,
+          and drawing boundaries between systems so that one team's bad day doesn't
+          become everyone's.
+        </p>
+        <p>
+          Since late 2025 I've also been co-founder and tech lead at
+          <strong>Tunelab</strong>, building <strong>Nada</strong>, which is where I get to
+          own the whole stack: a provider-agnostic sync layer, and the analytics, email,
+          and content infrastructure behind it, all running on Cloudflare Workers. Along the way I've
+          interned on the financial services team at <strong>Traveloka</strong> and built
+          an English assessment platform for the Indonesian civil aviation academy at
+          <strong>Arxist</strong>.
+        </p>
+        <p>
+          I also teach, across three programs: <strong>Bangkit Academy</strong>, a joint
+          program from Google, GoTo, and Traveloka, plus <strong>Tempa</strong> and
+          <strong>Asah</strong>, both led by <strong>Dicoding</strong>. Well over a hundred
+          students in mobile and backend development so far, which is the fastest way I
+          know to find out whether you actually understand something.
+        </p>
+
+        <dl class="facts">
+          <div><dt>based in</dt><dd>Tangerang,<br>Indonesia</dd></div>
+          <div><dt>focus</dt><dd>Backend<br>Automation<br>Machine learning</dd></div>
+          <div><dt>writes</dt><dd>PHP<br>TypeScript<br>Swift</dd></div>
+          <div><dt>experience</dt><dd><span data-yrs-num>9</span>+ years<br>since 2017</dd></div>
+        </dl>
+      </div>
+    </div>
+  </div>
 </section>
 
-<section id="experience" class="py-24 md:py-32 border-t border-[color:var(--color-line)]">
-    <div class="max-w-6xl mx-auto px-6 lg:px-8">
-        <div class="grid md:grid-cols-12 gap-10 md:gap-16 mb-16">
-            <div class="md:col-span-4">
-                <div class="label mb-5">02 &mdash; Experience</div>
-                <h2 class="display text-3xl md:text-4xl text-paper">Where I've worked.</h2>
-            </div>
-        </div>
-
-        <ol class="border-t border-[color:var(--color-line)]">
-            <li class="exp-row py-10 grid md:grid-cols-12 gap-6 md:gap-10 border-b border-[color:var(--color-line)]">
-                <div class="md:col-span-3 exp-year label transition-colors">Aug 2018 &mdash; Present</div>
-                <div class="md:col-span-9">
-                    <h3 class="display text-2xl text-paper mb-1">Backend Engineer</h3>
-                    <p class="text-[color:var(--color-muted)] mb-5">PT. Kredibel Teknologi Indonesia</p>
-                    <ul class="space-y-2 text-[color:var(--color-muted)] leading-relaxed">
-                        <li>Design and ship features for APIs used across consumer and business products.</li>
-                        <li>Build scalable backend systems with clear ownership and operational boundaries.</li>
-                        <li>Tune database queries and indexes to hold up under production traffic.</li>
-                    </ul>
-                </div>
-            </li>
-
-            <li class="exp-row py-10 grid md:grid-cols-12 gap-6 md:gap-10 border-b border-[color:var(--color-line)]">
-                <div class="md:col-span-3 exp-year label transition-colors">Jan 2024 &mdash; Dec 2024</div>
-                <div class="md:col-span-9">
-                    <h3 class="display text-2xl text-paper mb-1">Mobile Development Instructor</h3>
-                    <p class="text-[color:var(--color-muted)] mb-5">Bangkit Academy 2024</p>
-                    <ul class="space-y-2 text-[color:var(--color-muted)] leading-relaxed">
-                        <li>Taught Kotlin-based Android development to a cohort of 50 students.</li>
-                        <li>Designed interactive sessions to keep engagement high across a remote format.</li>
-                    </ul>
-                </div>
-            </li>
-
-            <li class="exp-row py-10 grid md:grid-cols-12 gap-6 md:gap-10 border-b border-[color:var(--color-line)]">
-                <div class="md:col-span-3 exp-year label transition-colors">Feb 2023 &mdash; Jan 2024</div>
-                <div class="md:col-span-9">
-                    <h3 class="display text-2xl text-paper mb-1">Mobile Development Mentor</h3>
-                    <p class="text-[color:var(--color-muted)] mb-5">Bangkit Academy 2023</p>
-                    <ul class="space-y-2 text-[color:var(--color-muted)] leading-relaxed">
-                        <li>Ran ILT sessions and mentored 25 students to an 86% graduation rate.</li>
-                    </ul>
-                </div>
-            </li>
-
-            <li class="exp-row py-10 grid md:grid-cols-12 gap-6 md:gap-10 border-b border-[color:var(--color-line)]">
-                <div class="md:col-span-3 exp-year label transition-colors">Aug 2022 &mdash; Dec 2022</div>
-                <div class="md:col-span-9">
-                    <h3 class="display text-2xl text-paper mb-1">Backend Engineer Intern</h3>
-                    <p class="text-[color:var(--color-muted)] mb-5">Traveloka &middot; Financial Team</p>
-                    <ul class="space-y-2 text-[color:var(--color-muted)] leading-relaxed">
-                        <li>Shipped features with unit and automated tests in a production codebase.</li>
-                        <li>Built Know-Your-Business (KYB) flows for verifying financial partners.</li>
-                    </ul>
-                </div>
-            </li>
-
-            <li class="exp-row py-10 grid md:grid-cols-12 gap-6 md:gap-10 border-b border-[color:var(--color-line)]">
-                <div class="md:col-span-3 exp-year label transition-colors">Aug 2021 &mdash; Jun 2022</div>
-                <div class="md:col-span-9">
-                    <h3 class="display text-2xl text-paper mb-1">Laboratory Assistant</h3>
-                    <p class="text-[color:var(--color-muted)] mb-5">Universitas Multimedia Nusantara</p>
-                    <ul class="space-y-2 text-[color:var(--color-muted)] leading-relaxed">
-                        <li>Ran lab sessions in probability &amp; statistics, web dev, and mobile development.</li>
-                        <li>Taught HTML/CSS/JS, PHP, and Android (Java) to groups of 25&ndash;40 students.</li>
-                        <li>Graded and reviewed assignments across all three subject areas.</li>
-                    </ul>
-                </div>
-            </li>
-
-            <li class="exp-row py-10 grid md:grid-cols-12 gap-6 md:gap-10 border-b border-[color:var(--color-line)]">
-                <div class="md:col-span-3 exp-year label transition-colors">Mar 2020 &mdash; Dec 2021</div>
-                <div class="md:col-span-9">
-                    <h3 class="display text-2xl text-paper mb-1">Software Engineer</h3>
-                    <p class="text-[color:var(--color-muted)] mb-5">Arxist</p>
-                    <ul class="space-y-2 text-[color:var(--color-muted)] leading-relaxed">
-                        <li>Built a full-stack English assessment platform for Politeknik Penerbangan Indonesia Curug.</li>
-                        <li>Developed the Laravel backend and integrated with the web front-end.</li>
-                    </ul>
-                </div>
-            </li>
-
-            <li class="exp-row py-10 grid md:grid-cols-12 gap-6 md:gap-10 border-b border-[color:var(--color-line)]">
-                <div class="md:col-span-3 exp-year label transition-colors">Jan 2020 &mdash; Jan 2021</div>
-                <div class="md:col-span-9">
-                    <h3 class="display text-2xl text-paper mb-1">IT Division</h3>
-                    <p class="text-[color:var(--color-muted)] mb-5">U-Store UMN Gen 4</p>
-                    <ul class="space-y-2 text-[color:var(--color-muted)] leading-relaxed">
-                        <li>Supported the campus student store's IT operations and digital tooling.</li>
-                    </ul>
-                </div>
-            </li>
-
-            <li class="exp-row py-10 grid md:grid-cols-12 gap-6 md:gap-10 border-b border-[color:var(--color-line)]">
-                <div class="md:col-span-3 exp-year label transition-colors">Nov 2019 &mdash; Jan 2020</div>
-                <div class="md:col-span-9">
-                    <h3 class="display text-2xl text-paper mb-1">Google Code-in Mentor</h3>
-                    <p class="text-[color:var(--color-muted)] mb-5">OpenWISP</p>
-                    <ul class="space-y-2 text-[color:var(--color-muted)] leading-relaxed">
-                        <li>Reviewed student tasks and authored new ones aligned with OpenWISP's standards.</li>
-                        <li>Performed quality assurance on student GitHub contributions.</li>
-                    </ul>
-                </div>
-            </li>
-
-            <li class="exp-row py-10 grid md:grid-cols-12 gap-6 md:gap-10 border-b border-[color:var(--color-line)]">
-                <div class="md:col-span-3 exp-year label transition-colors">Nov 2017 &mdash; Dec 2018</div>
-                <div class="md:col-span-9">
-                    <h3 class="display text-2xl text-paper mb-1">Vice Leader</h3>
-                    <p class="text-[color:var(--color-muted)] mb-5">IT Community</p>
-                    <ul class="space-y-2 text-[color:var(--color-muted)] leading-relaxed">
-                        <li>Co-led the community's programs and coordinated member activities.</li>
-                    </ul>
-                </div>
-            </li>
-
-            <li class="exp-row py-10 grid md:grid-cols-12 gap-6 md:gap-10 border-b border-[color:var(--color-line)]">
-                <div class="md:col-span-3 exp-year label transition-colors">Jun 2016 &mdash; May 2017</div>
-                <div class="md:col-span-9">
-                    <h3 class="display text-2xl text-paper mb-1">LITBANG RPL</h3>
-                    <p class="text-[color:var(--color-muted)] mb-5">IT Community</p>
-                    <ul class="space-y-2 text-[color:var(--color-muted)] leading-relaxed">
-                        <li>Worked on research and development within the software engineering division.</li>
-                    </ul>
-                </div>
-            </li>
-        </ol>
+<!-- ══ 02 SYSTEMS ═══════════════════════════════════════════════ -->
+<section id="systems" class="sec">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="sec-idx">02</span><span class="sec-name">systems</span><span class="sec-rule"></span>
     </div>
+    <div class="sec-top">
+      <h2 class="h2 rv">How I usually build.</h2>
+      <p class="lead rv" style="--d:60ms">
+        Two shapes I keep coming back to. One sits on servers behind Nginx, with Laravel
+        doing the work and PostgreSQL and Redis behind it. The other lives entirely on
+        Cloudflare's edge. Different tools, same job.
+      </p>
+    </div>
+
+    <div class="diagram rv" role="img"
+         aria-label="A server-side shape: a mobile app, an internal system and a web client all arrive through Nginx. Nginx routes to a Laravel API that serves authentication and mobile data, to a separate Laravel web monolith, and to a Python Flask service that handles scraping. Both Laravel applications read and write PostgreSQL and use Redis as a cache. Long-running services are supervised by systemd.">
+      <svg viewBox="0 0 942 392" font-family="'JetBrains Mono',ui-monospace,monospace" aria-hidden="true">
+        <defs>
+          <marker id="ah" viewBox="0 0 10 10" refX="9.5" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse">
+            <path d="M0,0 L10,5 L0,10 z" fill="#394247"/>
+          </marker>
+          <marker id="ahA" viewBox="0 0 10 10" refX="9.5" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse">
+            <path d="M0,0 L10,5 L0,10 z" fill="#2f5896"/>
+          </marker>
+        </defs>
+
+        <g font-size="9.5" letter-spacing="2.2" fill="#4a5155">
+          <text x="20" y="18">CLIENTS</text>
+          <text x="232" y="18">EDGE</text>
+          <text x="430" y="18">APPLICATION</text>
+          <text x="740" y="18">DATA</text>
+        </g>
+
+        <g fill="none" stroke="#272d31" stroke-width="1.25">
+          <path d="M170,64 H200"/><path d="M170,124 H200"/><path d="M170,184 H200"/>
+          <path d="M200,64 V184"/>
+          <path d="M200,124 H226" marker-end="url(#ah)"/>
+          <path d="M382,124 H406"/>
+          <path d="M406,74 V264"/>
+          <path d="M406,74 H424" marker-end="url(#ah)"/>
+          <path d="M406,174 H424" marker-end="url(#ah)"/>
+          <path d="M406,264 H424" marker-end="url(#ah)"/>
+        </g>
+        <g fill="none" stroke="#2f5896" stroke-width="1.25">
+          <path d="M642,74 H690"/>
+          <path d="M642,174 H690"/>
+          <path d="M690,74 V180"/>
+          <path d="M690,90 H734" marker-end="url(#ahA)"/>
+          <path d="M690,180 H734" marker-end="url(#ahA)"/>
+        </g>
+
+        <g fill="#111417" stroke="#272d31" stroke-width="1">
+          <rect x="20" y="40" width="150" height="48" rx="3"/>
+          <rect x="20" y="100" width="150" height="48" rx="3"/>
+          <rect x="20" y="160" width="150" height="48" rx="3"/>
+        </g>
+        <g font-size="11" fill="#a3acb0" letter-spacing="1">
+          <text x="34" y="69">MOBILE APP</text>
+          <text x="34" y="129">INTERNAL SYS</text>
+          <text x="34" y="189">WEB</text>
+        </g>
+
+        <rect x="232" y="88" width="150" height="72" rx="3" fill="#111417" stroke="#272d31"/>
+        <text x="246" y="120" font-size="11" fill="#a3acb0" letter-spacing="1">NGINX</text>
+        <text x="246" y="140" font-size="10" fill="#4a5155">reverse proxy</text>
+
+        <rect x="430" y="40" width="212" height="68" rx="3" fill="rgba(91,141,239,.06)" stroke="#2f5896"/>
+        <text x="444" y="64" font-size="12" fill="#5b8def" letter-spacing="1.2">LARAVEL API</text>
+        <g font-size="10" fill="#4a5155">
+          <text x="444" y="83">authentication</text>
+          <text x="444" y="99">mobile &#183; internal data</text>
+        </g>
+
+        <rect x="430" y="140" width="212" height="68" rx="3" fill="rgba(91,141,239,.06)" stroke="#2f5896"/>
+        <text x="444" y="164" font-size="12" fill="#5b8def" letter-spacing="1.2">WEB MONOLITH</text>
+        <g font-size="10" fill="#4a5155">
+          <text x="444" y="183">laravel</text>
+        </g>
+
+        <rect x="430" y="230" width="212" height="68" rx="3" fill="#111417" stroke="#272d31"/>
+        <text x="444" y="254" font-size="11" fill="#a3acb0" letter-spacing="1">SCRAPING API</text>
+        <g font-size="10" fill="#4a5155">
+          <text x="444" y="273">python &#183; flask</text>
+        </g>
+
+        <g fill="#111417" stroke="#272d31" stroke-width="1">
+          <rect x="738" y="60" width="184" height="60" rx="3"/>
+          <rect x="738" y="150" width="184" height="60" rx="3"/>
+        </g>
+        <g font-size="11" fill="#a3acb0" letter-spacing="1">
+          <text x="752" y="88">POSTGRESQL</text>
+          <text x="752" y="178">REDIS</text>
+        </g>
+        <g font-size="10" fill="#4a5155">
+          <text x="752" y="106">primary store</text>
+          <text x="752" y="196">cache</text>
+        </g>
+
+        <rect x="20" y="330" width="902" height="44" rx="3" fill="none" stroke="#272d31" stroke-dasharray="3 4"/>
+        <text x="36" y="357" font-size="10.5" fill="#5b8def" letter-spacing="1.6">SYSTEMD</text>
+        <text x="126" y="357" font-size="10.5" fill="#4a5155">supervises the long-running services that must not die with a request</text>
+      </svg>
+    </div>
+    <div class="diagram-cap rv">
+      <span>fig. 01 &#183; the server-side shape</span>
+      <span class="scroll-hint">scroll horizontally on small screens &rarr;</span>
+    </div>
+
+    <div class="diagram rv" role="img" style="margin-top:26px"
+         aria-label="An edge shape: an iOS app calls an API running on a Cloudflare Worker built with Hono. That worker uses D1 as its database, KV as cache, R2 for blob storage, Queues for slow work, and Cloudflare Email for both sending and receiving mail.">
+      <svg viewBox="0 0 942 356" font-family="'JetBrains Mono',ui-monospace,monospace" aria-hidden="true">
+        <g font-size="9.5" letter-spacing="2.2" fill="#4a5155">
+          <text x="20" y="18">CLIENT</text>
+          <text x="290" y="18">EDGE COMPUTE</text>
+          <text x="640" y="18">CLOUDFLARE PLATFORM</text>
+        </g>
+
+        <g fill="none" stroke="#272d31" stroke-width="1.25">
+          <path d="M210,183 H284" marker-end="url(#ah)"/>
+          <path d="M520,183 H580"/>
+        </g>
+        <g fill="none" stroke="#2f5896" stroke-width="1.25">
+          <path d="M580,59 V307"/>
+          <path d="M580,59 H634" marker-end="url(#ahA)"/>
+          <path d="M580,121 H634" marker-end="url(#ahA)"/>
+          <path d="M580,183 H634" marker-end="url(#ahA)"/>
+          <path d="M580,245 H634" marker-end="url(#ahA)"/>
+          <path d="M580,307 H634" marker-end="url(#ahA)"/>
+        </g>
+
+        <rect x="20" y="151" width="190" height="64" rx="3" fill="#111417" stroke="#272d31"/>
+        <text x="34" y="180" font-size="11" fill="#a3acb0" letter-spacing="1">iOS APP</text>
+        <text x="34" y="199" font-size="10" fill="#4a5155">swift &#183; swiftui</text>
+
+        <rect x="290" y="143" width="230" height="80" rx="3" fill="rgba(91,141,239,.06)" stroke="#2f5896"/>
+        <text x="304" y="172" font-size="12" fill="#5b8def" letter-spacing="1.2">WORKER API</text>
+        <g font-size="10" fill="#4a5155">
+          <text x="304" y="191">hono</text>
+          <text x="304" y="207">sync layer &#183; rest</text>
+        </g>
+
+        <g fill="#111417" stroke="#272d31" stroke-width="1">
+          <rect x="638" y="34" width="284" height="50" rx="3"/>
+          <rect x="638" y="96" width="284" height="50" rx="3"/>
+          <rect x="638" y="158" width="284" height="50" rx="3"/>
+          <rect x="638" y="220" width="284" height="50" rx="3"/>
+          <rect x="638" y="282" width="284" height="50" rx="3"/>
+        </g>
+        <g font-size="11" fill="#a3acb0" letter-spacing="1">
+          <text x="652" y="64">D1</text>
+          <text x="652" y="126">KV</text>
+          <text x="652" y="188">R2</text>
+          <text x="652" y="250">QUEUES</text>
+          <text x="652" y="312">EMAIL</text>
+        </g>
+        <g font-size="10" fill="#4a5155">
+          <text x="742" y="64">database</text>
+          <text x="742" y="126">cache</text>
+          <text x="742" y="188">blob storage</text>
+          <text x="742" y="250">work that takes a while</text>
+          <text x="742" y="312">sending and receiving</text>
+        </g>
+      </svg>
+    </div>
+    <div class="diagram-cap rv">
+      <span>fig. 02 &#183; the edge shape</span>
+      <span class="scroll-hint">scroll horizontally on small screens &rarr;</span>
+    </div>
+
+    <div class="principles">
+      <article class="rv"><h3><em>01</em>Loose coupling</h3>
+        <p>Every API gets built as decoupled as I can manage. Some land on a clean architecture, others on a plain layered one, but a controller never learns how the data is stored.</p></article>
+      <article class="rv" style="--d:70ms"><h3><em>02</em>Migrations</h3>
+        <p>Schema changes land next to live feature work, so every one ships with a migration strategy and a cutover safeguard. Normalising profile and watchlist data meant reshaping tables without asking the team to stop.</p></article>
+      <article class="rv" style="--d:140ms"><h3><em>03</em>Auth &amp; errors</h3>
+        <p>The failure path gets the same care as the happy path. JWT handling, refresh token rotation, and masked errors, so that a stack trace never turns into a disclosure.</p></article>
+      <article class="rv" style="--d:210ms"><h3><em>04</em>Coverage</h3>
+        <p>Controller tests and <span class="stat">80%+</span> automated coverage are not a badge; they are what makes shipping continuously survivable. Regressions should be caught by the suite, not by users.</p></article>
+    </div>
+
+    <div class="sec-head rv" style="margin-top:72px">
+      <span class="sec-idx">02.1</span><span class="sec-name">code</span><span class="sec-rule"></span>
+    </div>
+    <div class="sec-top">
+      <h2 class="h2 rv">What I mean by clean.</h2>
+      <p class="lead rv" style="--d:60ms">
+        Not a style guide about brace placement. A standard about cognitive load: one
+        responsibility per function, one level of abstraction, and nothing left for the
+        person reading it in six months to hold in their head. Same rules in review as in
+        my own branches.
+      </p>
+    </div>
+
+    <div class="code-pair">
+      <div class="term rv">
+        <div class="term-bar"><b>before</b>
+          <span class="verdict verdict--bad">5 levels deep &#183; does five things</span></div>
+<pre class="code">public function <u>handle</u>($request)
+{
+    if ($request-&gt;has('email')) {
+        $user = User::where('email', $request-&gt;email)-&gt;first();
+        if ($user) {
+            if ($user-&gt;status === 'active') {
+                $rows = [];
+                foreach ($user-&gt;accounts as $account) {
+                    if ($account-&gt;verified_at !== null) {
+                        $rows[] = ['id' =&gt; $account-&gt;id];
+                    }
+                }
+                return response()-&gt;json($rows);
+            }
+        }
+    }
+
+    return response()-&gt;json(['error' =&gt; 'not found'], 404);
+}</pre>
+      </div>
+
+      <div class="term rv" style="--d:70ms">
+        <div class="term-bar"><b>after</b>
+          <span class="verdict verdict--good">1 level &#183; needs no comment</span></div>
+<pre class="code">public function <b>verifiedAccounts</b>(Request $request): JsonResponse
+{
+    $user = $this-&gt;users-&gt;<b>activeByEmail</b>($request-&gt;email);
+
+    if (! $user) {
+        return $this-&gt;<b>accountNotFound</b>();
+    }
+
+    return response()-&gt;json(
+        $this-&gt;accounts-&gt;<b>verifiedFor</b>($user)
+    );
+}</pre>
+      </div>
+    </div>
+
+    <dl class="matrix rv" style="margin-top:24px">
+      <div>
+        <dt>abstraction</dt>
+        <dd class="rule">One level per function. A function says <strong>what</strong> happens; the ones it calls say <strong>how</strong>. No reader should have to change altitude mid-function.</dd>
+      </div>
+      <div>
+        <dt>length</dt>
+        <dd class="rule">Under <span class="stat">20</span> lines. Past <span class="stat">30</span> it is not a long function, it is several functions sharing a name.</dd>
+      </div>
+      <div>
+        <dt>nesting</dt>
+        <dd class="rule">One level preferred, <span class="stat">3</span> is the ceiling. Guard clauses and early returns instead of an if/else staircase.</dd>
+      </div>
+      <div>
+        <dt>naming</dt>
+        <dd class="rule">Names carry intent. No <span class="mono dim">handle</span>, <span class="mono dim">process</span>, <span class="mono dim">manager</span>, <span class="mono dim">util</span>, and no abbreviations that save four characters and cost a lookup.</dd>
+      </div>
+      <div>
+        <dt>conditionals</dt>
+        <dd class="rule">A boolean expression nobody can read becomes a function with a name that reads. <span class="mono dim">if (shouldRetryRequest($response))</span>, not four operators in a row.</dd>
+      </div>
+      <div>
+        <dt>comments</dt>
+        <dd class="rule">A comment explaining <strong>what</strong> the code does is a naming bug. Comments earn their place only for rationale, constraints, and decisions the code cannot state.</dd>
+      </div>
+      <div>
+        <dt>dependencies</dt>
+        <dd class="rule">They point inward. Domain logic never reaches out to infrastructure; transport, persistence, and presentation stay on their own side of the line.</dd>
+      </div>
+      <div>
+        <dt>the test</dt>
+        <dd class="rule">A top-level function should be understandable in <span class="stat">15</span> seconds without opening a single helper. If it is not, I extract before I ship.</dd>
+      </div>
+    </dl>
+  </div>
 </section>
 
-<section id="work" class="py-24 md:py-32 border-t border-[color:var(--color-line)]">
-    <div class="max-w-6xl mx-auto px-6 lg:px-8">
-        <div class="grid md:grid-cols-12 gap-10 md:gap-16 mb-14">
-            <div class="md:col-span-4">
-                <div class="label mb-5">03 &mdash; Work</div>
-                <h2 class="display text-3xl md:text-4xl text-paper">Selected projects.</h2>
-            </div>
-            <div class="md:col-span-8 flex items-end">
-                <div class="flex items-center gap-10 border-b border-[color:var(--color-line)] w-full pb-3">
-                    <button class="tab-btn flex items-center gap-3 label hover:text-paper transition-colors"
-                            data-tab="web-portfolio" aria-selected="true">
-                        <span class="tab-dot w-1.5 h-1.5 rounded-full bg-[color:var(--color-line)]"></span>
-                        Software
-                    </button>
-                    <button class="tab-btn flex items-center gap-3 label hover:text-paper transition-colors"
-                            data-tab="uiux-portfolio" aria-selected="false">
-                        <span class="tab-dot w-1.5 h-1.5 rounded-full bg-[color:var(--color-line)]"></span>
-                        Design &amp; UX
-                    </button>
-                </div>
-            </div>
-        </div>
-
-        <div id="web-portfolio" class="tab-content active">
-            <div class="grid md:grid-cols-2 gap-x-10 gap-y-14">
-                <article class="work-card">
-                    <div class="aspect-[16/10] overflow-hidden mb-6 cursor-pointer bg-[color:var(--color-surface)]"
-                         onclick="openModal('projects/Kredibel.jpg', 'Kredibel')">
-                        <img class="work-thumb w-full h-full object-cover lazyload"
-                             src="projects/Kredibel.jpg" alt="Kredibel">
-                    </div>
-                    <div class="flex items-start justify-between gap-4 mb-3">
-                        <h3 class="display text-2xl text-paper">
-                            <a href="https://www.kredibel.com" target="_blank" rel="noopener" class="link-underline">
-                                Kredibel
-                            </a>
-                        </h3>
-                        <span class="work-arrow mono text-xs mt-2">↗</span>
-                    </div>
-                    <p class="text-[color:var(--color-muted)] leading-relaxed mb-5">
-                        A fraud and trust platform helping Indonesian consumers avoid scams and
-                        helping businesses onboard verified users in line with regulation.
-                    </p>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="tag">Laravel</span>
-                        <span class="tag">Lumen</span>
-                        <span class="tag">Filament</span>
-                    </div>
-                </article>
-
-                <article class="work-card">
-                    <div class="aspect-[16/10] overflow-hidden mb-6 cursor-pointer bg-[color:var(--color-surface)]"
-                         onclick="openModal('projects/Vee Presentation.jpg', 'Vee: Vehicle Management')">
-                        <img class="work-thumb w-full h-full object-cover lazyload"
-                             src="projects/Vee Presentation.jpg" alt="Vee: Vehicle Management">
-                    </div>
-                    <div class="flex items-start justify-between gap-4 mb-3">
-                        <h3 class="display text-2xl text-paper">
-                            <a href="https://github.com/C22-PS001-Capstone" target="_blank" rel="noopener"
-                               class="link-underline">Vee &mdash; Vehicle Management</a>
-                        </h3>
-                        <span class="work-arrow mono text-xs mt-2">↗</span>
-                    </div>
-                    <p class="text-[color:var(--color-muted)] leading-relaxed mb-5">
-                        Bangkit Academy 2022 capstone with Machine Learning and Cloud Computing
-                        students. Selected among the top 53 projects across the cohort.
-                    </p>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="tag">Kotlin</span>
-                        <span class="tag">ML</span>
-                        <span class="tag">GCP</span>
-                        <span class="tag">Top 53 Capstone</span>
-                    </div>
-                </article>
-
-                <article class="work-card">
-                    <div class="aspect-[16/10] overflow-hidden mb-6 cursor-pointer bg-[color:var(--color-surface)]"
-                         onclick="openModal('projects/PPI.jpg', 'English Electronic Assessment')">
-                        <img class="work-thumb w-full h-full object-cover lazyload"
-                             src="projects/PPI.jpg" alt="English Electronic Assessment Platform">
-                    </div>
-                    <div class="flex items-start justify-between gap-4 mb-3">
-                        <h3 class="display text-2xl text-paper">English Electronic Assessment</h3>
-                        <span class="work-arrow mono text-xs mt-2">·</span>
-                    </div>
-                    <p class="text-[color:var(--color-muted)] leading-relaxed mb-5">
-                        An assessment platform for Politeknik Penerbangan Indonesia Curug,
-                        digitizing placement and evaluation of English proficiency.
-                    </p>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="tag">Laravel</span>
-                        <span class="tag">Vue.js</span>
-                    </div>
-                </article>
-
-                <article class="work-card">
-                    <div class="aspect-[16/10] overflow-hidden mb-6 cursor-pointer bg-[color:var(--color-surface)]"
-                         onclick="openModal('projects/Amegu.png', 'Amegu')">
-                        <img class="work-thumb w-full h-full object-cover lazyload"
-                             src="projects/Amegu.png" alt="Amegu">
-                    </div>
-                    <div class="flex items-start justify-between gap-4 mb-3">
-                        <h3 class="display text-2xl text-paper">
-                            <a href="https://amegu.netlify.app/" target="_blank" rel="noopener" class="link-underline">
-                                Amegu &mdash; Pet Adoption
-                            </a>
-                        </h3>
-                        <span class="work-arrow mono text-xs mt-2">↗</span>
-                    </div>
-                    <p class="text-[color:var(--color-muted)] leading-relaxed mb-5">
-                        A final project connecting pet owners with adopters. Laravel API, a Nuxt
-                        web client, and a Java Android app &mdash; all tied together over REST.
-                    </p>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="tag">Laravel</span>
-                        <span class="tag">NuxtJS</span>
-                        <span class="tag">Android</span>
-                    </div>
-                </article>
-
-                <article class="work-card">
-                    <div class="aspect-[16/10] overflow-hidden mb-6 cursor-pointer bg-[color:var(--color-surface)]"
-                         onclick="openModal('projects/Klinik.jpg', 'Clinic Web App')">
-                        <img class="work-thumb w-full h-full object-cover lazyload"
-                             src="projects/Klinik.jpg" alt="Clinic Web App">
-                    </div>
-                    <div class="flex items-start justify-between gap-4 mb-3">
-                        <h3 class="display text-2xl text-paper">Clinic Web App</h3>
-                        <span class="work-arrow mono text-xs mt-2">·</span>
-                    </div>
-                    <p class="text-[color:var(--color-muted)] leading-relaxed mb-5">
-                        A clinic management tool for the Inspectorate General of Indonesia's
-                        Ministry of Education &amp; Culture &mdash; medical records, lab tests,
-                        and medication inventory.
-                    </p>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="tag">Laravel</span>
-                        <span class="tag">Bootstrap</span>
-                    </div>
-                </article>
-            </div>
-        </div>
-
-        <div id="uiux-portfolio" class="tab-content">
-            <div class="grid md:grid-cols-2 gap-x-10 gap-y-14">
-                <article class="work-card">
-                    <div class="aspect-[16/10] overflow-hidden mb-6 cursor-pointer bg-[color:var(--color-surface)]"
-                         onclick="openModal('projects/Distro.jpg', 'Distro')">
-                        <img class="work-thumb w-full h-full object-cover lazyload"
-                             src="projects/Distro.jpg" alt="Distro">
-                    </div>
-                    <div class="flex items-start justify-between gap-4 mb-3">
-                        <h3 class="display text-2xl text-paper">
-                            <a href="https://link.rezajuliandri.my.id/distro" target="_blank" rel="noopener"
-                               class="link-underline">Distro</a>
-                        </h3>
-                        <span class="work-arrow mono text-xs mt-2">↗</span>
-                    </div>
-                    <p class="text-[color:var(--color-muted)] leading-relaxed mb-4">
-                        An online clothing shopping concept with visual product search and
-                        personalized recommendations.
-                    </p>
-                    <a href="https://docs.google.com/presentation/d/17Ki4n-5iDxFDy8HzmDT4D-GVAsoyIb2NJ0UR_4RqSOU/edit?usp=sharing"
-                       target="_blank" rel="noopener"
-                       class="label hover:text-paper transition-colors inline-block mb-5">
-                        Read UX research &rarr;
-                    </a>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="tag">UX Research</span>
-                        <span class="tag">UI</span>
-                        <span class="tag">Figma</span>
-                    </div>
-                </article>
-
-                <article class="work-card">
-                    <div class="aspect-[16/10] overflow-hidden mb-6 cursor-pointer bg-[color:var(--color-surface)]"
-                         onclick="openModal('projects/Finess.jpg', 'Finess')">
-                        <img class="work-thumb w-full h-full object-cover lazyload"
-                             src="projects/Finess.jpg" alt="Finess">
-                    </div>
-                    <div class="flex items-start justify-between gap-4 mb-3">
-                        <h3 class="display text-2xl text-paper">
-                            <a href="https://link.rezajuliandri.my.id/finess" target="_blank" rel="noopener"
-                               class="link-underline">Finess</a>
-                        </h3>
-                        <span class="work-arrow mono text-xs mt-2">↗</span>
-                    </div>
-                    <p class="text-[color:var(--color-muted)] leading-relaxed mb-5">
-                        A home-workout companion with guided activities, consultation, and a
-                        reward loop to keep users consistent.
-                    </p>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="tag">UX Research</span>
-                        <span class="tag">UI</span>
-                        <span class="tag">Figma</span>
-                        <span class="tag">1st &mdash; GenFest 2021</span>
-                    </div>
-                </article>
-
-                <article class="work-card">
-                    <div class="aspect-[16/10] overflow-hidden mb-6 cursor-pointer bg-[color:var(--color-surface)]"
-                         onclick="openModal('projects/Sharity.jpg', 'Sharity')">
-                        <img class="work-thumb w-full h-full object-cover lazyload"
-                             src="projects/Sharity.jpg" alt="Sharity">
-                    </div>
-                    <div class="flex items-start justify-between gap-4 mb-3">
-                        <h3 class="display text-2xl text-paper">
-                            <a href="https://link.rezajuliandri.my.id/sharity" target="_blank" rel="noopener"
-                               class="link-underline">Sharity</a>
-                        </h3>
-                        <span class="work-arrow mono text-xs mt-2">↗</span>
-                    </div>
-                    <p class="text-[color:var(--color-muted)] leading-relaxed mb-5">
-                        A pandemic-era donation app for medicine, vitamins, oxygen, and blood
-                        &mdash; matching benefactors with those in immediate need.
-                    </p>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="tag">UI</span>
-                        <span class="tag">Figma</span>
-                    </div>
-                </article>
-
-                <article class="work-card">
-                    <div class="aspect-[16/10] overflow-hidden mb-6 cursor-pointer bg-[color:var(--color-surface)]"
-                         onclick="openModal('projects/Stecy.jpg', 'Stecy')">
-                        <img class="work-thumb w-full h-full object-cover lazyload"
-                             src="projects/Stecy.jpg" alt="Stecy">
-                    </div>
-                    <div class="flex items-start justify-between gap-4 mb-3">
-                        <h3 class="display text-2xl text-paper">Stecy</h3>
-                        <span class="work-arrow mono text-xs mt-2">·</span>
-                    </div>
-                    <p class="text-[color:var(--color-muted)] leading-relaxed mb-5">
-                        One app for stocks and crypto &mdash; real-time prices, charts, market
-                        cap, and price movement, all in a single unified portfolio view.
-                    </p>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="tag">UI</span>
-                        <span class="tag">Figma</span>
-                    </div>
-                </article>
-
-                <article class="work-card">
-                    <div class="aspect-[16/10] overflow-hidden mb-6 cursor-pointer bg-[color:var(--color-surface)]"
-                         onclick="openModal('projects/Cultrip.jpg', 'Cultrip')">
-                        <img class="work-thumb w-full h-full object-cover lazyload"
-                             src="projects/Cultrip.jpg" alt="Cultrip">
-                    </div>
-                    <div class="flex items-start justify-between gap-4 mb-3">
-                        <h3 class="display text-2xl text-paper">Cultrip</h3>
-                        <span class="work-arrow mono text-xs mt-2">·</span>
-                    </div>
-                    <p class="text-[color:var(--color-muted)] leading-relaxed mb-5">
-                        An app that makes it easier for travelers to discover and visit cultural
-                        destinations nearby &mdash; surfacing context, not just coordinates.
-                    </p>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="tag">UI</span>
-                        <span class="tag">Adobe XD</span>
-                    </div>
-                </article>
-            </div>
-        </div>
+<!-- ══ 03 WORK ══════════════════════════════════════════════════ -->
+<section id="work" class="sec">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="sec-idx">03</span><span class="sec-name">work</span><span class="sec-rule"></span>
     </div>
-</section>
-
-<section id="skills" class="py-24 md:py-32 border-t border-[color:var(--color-line)]">
-    <div class="max-w-6xl mx-auto px-6 lg:px-8">
-        <div class="grid md:grid-cols-12 gap-10 md:gap-16">
-            <div class="md:col-span-4">
-                <div class="label mb-5">04 &mdash; Skills</div>
-                <h2 class="display text-3xl md:text-4xl text-paper">Tools of the trade.</h2>
-            </div>
-            <div class="md:col-span-8 space-y-10">
-                <div class="grid md:grid-cols-4 gap-6 pb-8 border-b border-[color:var(--color-line)]">
-                    <div class="md:col-span-1 label pt-1">Backend</div>
-                    <div class="md:col-span-3 flex flex-wrap gap-2">
-                        <span class="tag">PHP</span>
-                        <span class="tag">Laravel</span>
-                        <span class="tag">Node.js</span>
-                        <span class="tag">Express</span>
-                        <span class="tag">TypeScript</span>
-                        <span class="tag">Python</span>
-                        <span class="tag">Java</span>
-                        <span class="tag">Kotlin</span>
-                        <span class="tag">Swift</span>
-                        <span class="tag">Objective-C</span>
-                    </div>
-                </div>
-
-                <div class="grid md:grid-cols-4 gap-6 pb-8 border-b border-[color:var(--color-line)]">
-                    <div class="md:col-span-1 label pt-1">Frontend</div>
-                    <div class="md:col-span-3 flex flex-wrap gap-2">
-                        <span class="tag">Vue.js</span>
-                        <span class="tag">NuxtJS</span>
-                        <span class="tag">Next.js</span>
-                    </div>
-                </div>
-
-                <div class="grid md:grid-cols-4 gap-6 pb-8 border-b border-[color:var(--color-line)]">
-                    <div class="md:col-span-1 label pt-1">Data</div>
-                    <div class="md:col-span-3 flex flex-wrap gap-2">
-                        <span class="tag">PostgreSQL</span>
-                        <span class="tag">MySQL</span>
-                        <span class="tag">MongoDB</span>
-                        <span class="tag">Firebase</span>
-                    </div>
-                </div>
-
-                <div class="grid md:grid-cols-4 gap-6 pb-8 border-b border-[color:var(--color-line)]">
-                    <div class="md:col-span-1 label pt-1">Platform</div>
-                    <div class="md:col-span-3 flex flex-wrap gap-2">
-                        <span class="tag">Google Cloud</span>
-                        <span class="tag">Docker</span>
-                        <span class="tag">Nginx</span>
-                        <span class="tag">Composer</span>
-                    </div>
-                </div>
-
-                <div class="grid md:grid-cols-4 gap-6">
-                    <div class="md:col-span-1 label pt-1">Design</div>
-                    <div class="md:col-span-3 flex flex-wrap gap-2">
-                        <span class="tag">Figma</span>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <div class="sec-top">
+      <h2 class="h2 rv">Selected projects.</h2>
+      <p class="lead rv" style="--d:60ms">
+        Backend work photographs badly, so the screenshots are the least interesting part;
+        the stack and the shape underneath each one are the point. Click any image to
+        enlarge it.
+      </p>
     </div>
-</section>
 
-<section id="education" class="py-24 md:py-32 border-t border-[color:var(--color-line)]">
-    <div class="max-w-6xl mx-auto px-6 lg:px-8">
-        <div class="grid md:grid-cols-12 gap-10 md:gap-16 mb-14">
-            <div class="md:col-span-4">
-                <div class="label mb-5">05 &mdash; Education</div>
-                <h2 class="display text-3xl md:text-4xl text-paper">How I've learned.</h2>
-            </div>
-        </div>
-
-        <div class="grid md:grid-cols-2 gap-8">
-            <article class="p-8 border border-[color:var(--color-line)] hover:border-[color:var(--color-muted)] transition-colors">
-                <div class="label mb-3">Feb 2025 &mdash; Dec 2025</div>
-                <h3 class="display text-2xl text-paper mb-1">
-                    <a href="https://developeracademy.apps.binus.ac.id/bali/" target="_blank" rel="noopener"
-                       class="link-underline">Apple Developer Academy</a>
-                </h3>
-                <p class="text-[color:var(--color-muted)] mb-5">Bali &middot; Cohort 2025</p>
-                <p class="text-[color:var(--color-muted)] leading-relaxed mb-5">
-                    A ten-month intensive program focused on iOS app development and the
-                    entrepreneurial skills around shipping native apps.
-                </p>
-                <ul class="space-y-1.5 text-[color:var(--color-muted)] text-sm">
-                    <li>&middot; Swift &amp; SwiftUI</li>
-                    <li>&middot; App design and prototyping</li>
-                    <li>&middot; Core Apple frameworks (CoreMotion, Watch Connectivity, Multipeer)</li>
-                    <li>&middot; Agile project management</li>
-                </ul>
-            </article>
-
-            <article class="p-8 border border-[color:var(--color-line)] hover:border-[color:var(--color-muted)] transition-colors">
-                <div class="label mb-3">Aug 2019 &mdash; Jan 2024</div>
-                <h3 class="display text-2xl text-paper mb-1">
-                    <a href="https://umn.ac.id" target="_blank" rel="noopener" class="link-underline">
-                        Universitas Multimedia Nusantara
-                    </a>
-                </h3>
-                <p class="text-[color:var(--color-muted)] mb-5">B.Sc. Information Systems &middot; GPA 3.85 / 4.00</p>
-                <p class="text-[color:var(--color-muted)] leading-relaxed mb-5">
-                    Studied information systems with a heavy dose of software engineering,
-                    algorithms, and data foundations.
-                </p>
-                <ul class="space-y-1.5 text-[color:var(--color-muted)] text-sm">
-                    <li>&middot; Web design &amp; development</li>
-                    <li>&middot; Algorithms &amp; data structures</li>
-                    <li>&middot; Mobile application development</li>
-                    <li>&middot; Artificial intelligence</li>
-                    <li>&middot; Big data analytics</li>
-                </ul>
-            </article>
-
-            <article class="md:col-span-2 p-8 border border-[color:var(--color-line)] hover:border-[color:var(--color-muted)] transition-colors">
-                <div class="label mb-3">Feb 2022 &mdash; Jul 2022</div>
-                <h3 class="display text-2xl text-paper mb-1">
-                    <a href="http://bangkit.academy/" target="_blank" rel="noopener" class="link-underline">
-                        Bangkit Academy
-                    </a>
-                </h3>
-                <p class="text-[color:var(--color-muted)] mb-5">Mobile Development Cohort &middot; Google, GoTo &amp; Traveloka</p>
-                <p class="text-[color:var(--color-muted)] leading-relaxed max-w-3xl">
-                    Career-readiness program focused on in-demand mobile skills &mdash; Kotlin,
-                    fundamental and intermediate Android, UX design, SOLID principles, and
-                    career development.
-                </p>
-            </article>
-        </div>
+    <div class="tabs rv" role="tablist" aria-label="Project category" style="margin-bottom:34px">
+      <button class="tab" role="tab" id="tab-sw" aria-controls="panel-sw" aria-selected="true" data-panel="panel-sw"><i></i>Software</button>
+      <button class="tab" role="tab" id="tab-ux" aria-controls="panel-ux" aria-selected="false" data-panel="panel-ux"><i></i>Design &amp; UX</button>
     </div>
-</section>
 
-<section id="certifications" class="py-24 md:py-32 border-t border-[color:var(--color-line)]">
-    <div class="max-w-6xl mx-auto px-6 lg:px-8">
-        <div class="grid md:grid-cols-12 gap-10 md:gap-16 mb-14">
-            <div class="md:col-span-4">
-                <div class="label mb-5">06 &mdash; Credentials</div>
-                <h2 class="display text-3xl md:text-4xl text-paper">Certifications &amp; recognition.</h2>
+    <div class="panel" id="panel-sw" role="tabpanel" aria-labelledby="tab-sw">
+      <div class="grid-work">
+
+        <article class="proj rv">
+          <button class="proj-media" data-img="projects/Kredibel.jpg" data-title="Kredibel · fraud &amp; trust platform" aria-label="Enlarge Kredibel screenshot">
+            <img src="projects/Kredibel.jpg" alt="Kredibel" loading="lazy" decoding="async">
+          </button>
+          <div class="proj-body">
+            <div class="proj-head">
+              <h3><a class="ulink" href="https://www.kredibel.com" target="_blank" rel="noopener">Kredibel</a></h3>
+              <span class="ext">↗</span>
             </div>
-        </div>
-
-        <div class="grid md:grid-cols-3 gap-8">
-            <article class="group">
-                <div class="aspect-[4/3] overflow-hidden mb-5 cursor-pointer bg-[color:var(--color-surface)] border border-[color:var(--color-line)]"
-                     onclick="openModal('certificates/AAD.jpg', 'Associate Android Developer')">
-                    <img src="certificates/AAD.jpg" alt="Associate Android Developer"
-                         class="work-thumb w-full h-full object-cover lazyload">
-                </div>
-                <div class="label mb-2">Google &middot; Jul 2022</div>
-                <h3 class="display text-xl text-paper">
-                    <a href="https://www.credential.net/c05c17d2-dd1b-4b70-a524-e2226f547afa#acc.RZnw9iET"
-                       target="_blank" rel="noopener" class="link-underline">Associate Android Developer</a>
-                </h3>
-            </article>
-
-            <article class="group">
-                <div class="aspect-[4/3] overflow-hidden mb-5 cursor-pointer bg-[color:var(--color-surface)] border border-[color:var(--color-line)]"
-                     onclick="openModal('certificates/CISDV.jpg', 'CISDV')">
-                    <img src="certificates/CISDV.jpg" alt="CISDV"
-                         class="work-thumb w-full h-full object-cover lazyload">
-                </div>
-                <div class="label mb-2">PASAS Institute &middot; Mar 2022</div>
-                <h3 class="display text-xl text-paper">
-                    <a href="https://drive.google.com/file/d/198tqFlM0u8rYIxUc2ewqVK7p_7mOhRNb/view"
-                       target="_blank" rel="noopener" class="link-underline">
-                        Certified Specialist in Data Visualization
-                    </a>
-                </h3>
-            </article>
-
-            <article class="group">
-                <div class="aspect-[4/3] overflow-hidden mb-5 cursor-pointer bg-[color:var(--color-surface)] border border-[color:var(--color-line)]"
-                     onclick="openModal('certificates/GCI 2018 Certificate for Reza Juliandri_page-0001.jpg', 'Google Code-in Grand Prize')">
-                    <img src="certificates/GCI 2018 Certificate for Reza Juliandri_page-0001.jpg"
-                         alt="Google Code-in Grand Prize Winner"
-                         class="work-thumb w-full h-full object-cover lazyload">
-                </div>
-                <div class="label mb-2">Google Code-in &middot; Dec 2018</div>
-                <h3 class="display text-xl text-paper">
-                    <a href="https://drive.google.com/file/d/1KPNQbPOYT1Au21O5Pb6VuLwyRsSE7wWN/view?usp=sharing"
-                       target="_blank" rel="noopener" class="link-underline">
-                        Google Code-in Grand Prize Winner
-                    </a>
-                </h3>
-            </article>
-        </div>
-
-        <div class="mt-20 grid md:grid-cols-12 gap-10 md:gap-16">
-            <div class="md:col-span-4">
-                <div class="label">Also &mdash; Awards</div>
+            <p>A fraud and trust platform helping Indonesian consumers avoid scams, and helping businesses onboard verified users in line with regulation.</p>
+            <p class="proj-stats-note">platform totals, published on kredibel.com</p>
+            <dl class="proj-stats proj-stats--trio">
+              <div><dt>scam reports</dt><dd>283,099+</dd></div>
+              <div><dt>blacklisted</dt><dd>177,910+</dd></div>
+              <div><dt>losses since 2018</dt><dd>Rp424.6B+</dd></div>
+            </dl>
+            <dl class="proj-meta">
+              <div><dt>role</dt><dd>Senior Backend Engineer</dd></div>
+              <div><dt>years</dt><dd>2018 – present</dd></div>
+              <div><dt>scope</dt><dd>API design · query &amp; index tuning · internal apps · integrations</dd></div>
+            </dl>
+            <div class="flow">mobile · internal · web ─▶ nginx ─┬─▶ <b>laravel</b> ─▶ postgresql · redis
+                                  └─▶ <b>flask</b> · scraping</div>
+            <div class="proj-tags">
+              <span class="tag tag--hi">Laravel</span><span class="tag tag--hi">Lumen</span><span class="tag tag--hi">PostgreSQL</span>
+              <span class="tag">Python</span><span class="tag">Flask</span>
+              <span class="tag">Redis</span><span class="tag">Nginx</span><span class="tag">Filament</span>
             </div>
-            <div class="md:col-span-8">
-                <ol class="border-t border-[color:var(--color-line)]">
-                    <li class="py-5 grid md:grid-cols-12 gap-4 md:gap-8 border-b border-[color:var(--color-line)]">
-                        <div class="md:col-span-3 label">Feb 2019</div>
-                        <div class="md:col-span-7 text-paper">1st Winner &mdash; Tangerang Skill Competition, Web Design &amp; Development</div>
-                        <div class="md:col-span-2 text-[color:var(--color-muted)] text-sm md:text-right">Ditsmk</div>
-                    </li>
-                    <li class="py-5 grid md:grid-cols-12 gap-4 md:gap-8 border-b border-[color:var(--color-line)]">
-                        <div class="md:col-span-3 label">Nov 2018</div>
-                        <div class="md:col-span-7 text-paper">1st Winner &mdash; Web Design LINEA 2018</div>
-                        <div class="md:col-span-2 text-[color:var(--color-muted)] text-sm md:text-right">SMKN 5 Tangerang</div>
-                    </li>
-                    <li class="py-5 grid md:grid-cols-12 gap-4 md:gap-8 border-b border-[color:var(--color-line)]">
-                        <div class="md:col-span-3 label">Apr 2018</div>
-                        <div class="md:col-span-7 text-paper">2nd Winner &mdash; Banten Skill Competition, Web Design &amp; Development</div>
-                        <div class="md:col-span-2 text-[color:var(--color-muted)] text-sm md:text-right">Ditsmk</div>
-                    </li>
-                    <li class="py-5 grid md:grid-cols-12 gap-4 md:gap-8 border-b border-[color:var(--color-line)]">
-                        <div class="md:col-span-3 label">Feb 2018</div>
-                        <div class="md:col-span-7 text-paper">1st Winner &mdash; Tangerang Skill Competition, Web Design &amp; Development</div>
-                        <div class="md:col-span-2 text-[color:var(--color-muted)] text-sm md:text-right">Ditsmk</div>
-                    </li>
-                    <li class="py-5 grid md:grid-cols-12 gap-4 md:gap-8 border-b border-[color:var(--color-line)]">
-                        <div class="md:col-span-3 label">Jan 2018</div>
-                        <div class="md:col-span-7 text-paper">Google Code-in 2017 Participant</div>
-                        <div class="md:col-span-2 text-[color:var(--color-muted)] text-sm md:text-right">Google</div>
-                    </li>
-                    <li class="py-5 grid md:grid-cols-12 gap-4 md:gap-8 border-b border-[color:var(--color-line)]">
-                        <div class="md:col-span-3 label">Dec 2017</div>
-                        <div class="md:col-span-7 text-paper">1st Winner &mdash; Web Design LINEA 2017</div>
-                        <div class="md:col-span-2 text-[color:var(--color-muted)] text-sm md:text-right">SMKN 5 Tangerang</div>
-                    </li>
-                    <li class="py-5 grid md:grid-cols-12 gap-4 md:gap-8 border-b border-[color:var(--color-line)]">
-                        <div class="md:col-span-3 label">Mar 2017</div>
-                        <div class="md:col-span-7 text-paper">2nd Winner &mdash; Tangerang Skill Competition, Web Design &amp; Development</div>
-                        <div class="md:col-span-2 text-[color:var(--color-muted)] text-sm md:text-right">Ditsmk</div>
-                    </li>
-                    <li class="py-5 grid md:grid-cols-12 gap-4 md:gap-8 border-b border-[color:var(--color-line)]">
-                        <div class="md:col-span-3 label">Oct 2016</div>
-                        <div class="md:col-span-7 text-paper">3rd Winner &mdash; Web Design LINEA 2016</div>
-                        <div class="md:col-span-2 text-[color:var(--color-muted)] text-sm md:text-right">SMKN 5 Tangerang</div>
-                    </li>
-                </ol>
-            </div>
-        </div>
-    </div>
-</section>
+          </div>
+        </article>
 
-<section id="contact" class="py-24 md:py-36 border-t border-[color:var(--color-line)]">
-    <div class="max-w-6xl mx-auto px-6 lg:px-8">
-        <div class="grid md:grid-cols-12 gap-10 md:gap-16 items-start">
-            <div class="md:col-span-4">
-                <div class="label mb-5">07 &mdash; Contact</div>
-                <h2 class="display text-3xl md:text-4xl text-paper">Say hello.</h2>
-            </div>
-            <div class="md:col-span-8">
-                <p class="display text-3xl md:text-5xl text-paper leading-tight mb-10">
-                    Have an interesting problem to solve?
-                    <span style="color: var(--color-accent);">Let's talk.</span>
-                </p>
-                <div class="flex flex-col gap-4 mb-10">
-                    <a href="#"
-                       onclick="window.location.href = 'mailto:' + ['me','rezajuliandri','my.id'].join('@').replace('@my.id','@rezajuliandri.my.id'); return false;"
-                       class="flex items-center justify-between border-b border-[color:var(--color-line)] hover:border-paper py-5 group transition-colors">
-                        <span class="display text-2xl text-paper">me@rezajuliandri.my.id</span>
-                        <span class="mono text-xs text-[color:var(--color-muted)] group-hover:text-paper transition">
-                            Email &rarr;
-                        </span>
-                    </a>
-                    <a href="#"
-                       onclick="window.open(atob('aHR0cHM6Ly9saW5rZWRpbi5jb20vaW4vcmV6YWp1bGlhbmRyaQ=='), '_blank'); return false;"
-                       class="flex items-center justify-between border-b border-[color:var(--color-line)] hover:border-paper py-5 group transition-colors">
-                        <span class="display text-2xl text-paper">LinkedIn</span>
-                        <span class="mono text-xs text-[color:var(--color-muted)] group-hover:text-paper transition">
-                            /in/rezajuliandri &rarr;
-                        </span>
-                    </a>
-                    <a href="#"
-                       onclick="window.open(atob('aHR0cHM6Ly9naXRodWIuY29tL3BwYWJjZA=='), '_blank'); return false;"
-                       class="flex items-center justify-between border-b border-[color:var(--color-line)] hover:border-paper py-5 group transition-colors">
-                        <span class="display text-2xl text-paper">GitHub</span>
-                        <span class="mono text-xs text-[color:var(--color-muted)] group-hover:text-paper transition">
-                            @ppabcd &rarr;
-                        </span>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<div id="imageModal"
-     class="fixed inset-0 bg-ink/95 z-50 hidden items-center justify-center p-6 transition-opacity duration-300">
-    <div class="relative max-w-5xl w-full">
-        <button onclick="closeModal()" aria-label="Close"
-                class="absolute -top-12 right-0 text-paper hover:text-[color:var(--color-accent)] transition-colors z-10">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.25">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
+        <article class="proj rv" style="--d:70ms">
+          <div class="proj-media proj-media--logo">
+            <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect width="36" height="36" rx="6.87238" fill="#E9E8E8"/>
+              <g clip-path="url(#nada-clip)">
+                <rect x="4.83984" y="4.83984" width="26.3163" height="26.3163" rx="6.87238" fill="#E9E8E8"/>
+                <path d="M17.998 31.1561C25.265 31.1561 31.1561 25.265 31.1561 17.998C31.1561 10.7309 25.265 4.83984 17.998 4.83984C10.7309 4.83984 4.83984 10.7309 4.83984 17.998C4.83984 25.265 10.7309 31.1561 17.998 31.1561Z" fill="#2D2D2D"/>
+                <path d="M17.9984 23.8717C21.2432 23.8717 23.8737 21.2413 23.8737 17.9964C23.8737 14.7516 21.2432 12.1211 17.9984 12.1211C14.7535 12.1211 12.123 14.7516 12.123 17.9964C12.123 21.2413 14.7535 23.8717 17.9984 23.8717Z" fill="white"/>
+                <path d="M25.5435 25.3605C26.4229 25.3605 27.1359 24.6475 27.1359 23.7681C27.1359 22.8887 26.4229 22.1758 25.5435 22.1758C24.6641 22.1758 23.9512 22.8887 23.9512 23.7681C23.9512 24.6475 24.6641 25.3605 25.5435 25.3605Z" fill="#F15B22"/>
+              </g>
+              <defs><clipPath id="nada-clip"><rect x="4.83984" y="4.83984" width="26.3163" height="26.3163" rx="6.87238" fill="white"/></clipPath></defs>
             </svg>
-        </button>
-        <div class="border border-[color:var(--color-line)] overflow-hidden transform transition-all duration-300 scale-95"
-             id="modalContent">
-            <img id="modalImage" src="" alt="" class="w-full h-auto max-h-[85vh] object-contain bg-black">
-            <div class="px-6 py-4 bg-[color:var(--color-surface)] border-t border-[color:var(--color-line)]">
-                <h3 id="modalTitle" class="display text-lg text-paper"></h3>
+            <img src="projects/nada-wordmark.svg" alt="Nada" width="86" height="26">
+          </div>
+          <div class="proj-body">
+            <div class="proj-head">
+              <h3><a class="ulink" href="https://tunelab.id/nada" target="_blank" rel="noopener">Nada</a> <span class="dim">by Tunelab</span></h3>
+              <span class="ext">↗</span>
             </div>
-        </div>
-    </div>
-</div>
+            <p>The product I co-founded and lead the engineering for: composing music by humming. The sync layer is provider-agnostic by design, with remote sync interfaces, cursor-based state, an offline queue, and conflict snapshots, all running on our own Cloudflare Workers backend.</p>
+            <p class="proj-stats-note">product totals to date</p>
+            <dl class="proj-stats">
+              <div><dt>registered</dt><dd>1,043</dd></div>
+              <div><dt>paid</dt><dd>30+</dd></div>
+              <div><dt>projects</dt><dd>2,000+</dd></div>
+              <div><dt>tracks</dt><dd>3,800+</dd></div>
+            </dl>
+            <dl class="proj-meta">
+              <div><dt>role</dt><dd>Co-Founder · Tech Lead</dd></div>
+              <div><dt>years</dt><dd>Nov 2025 – present</dd></div>
+              <div><dt>scope</dt><dd>Sync architecture · analytics · email &amp; content infra</dd></div>
+            </dl>
+            <div class="flow">ios (swiftui) ─▶ <b>worker</b> (hono) ─┬─▶ D1 · KV
+                                └─▶ R2 · Queues · Email</div>
+            <div class="proj-tags">
+              <span class="tag tag--hi">SwiftUI</span><span class="tag tag--hi">Hono</span>
+              <span class="tag">Cloudflare Workers</span><span class="tag">D1</span><span class="tag">KV</span>
+              <span class="tag">R2</span><span class="tag">Queues</span><span class="tag">Email</span>
+              <span class="tag">React</span><span class="tag">RevenueCat</span>
+            </div>
+          </div>
+        </article>
 
-<footer class="border-t border-[color:var(--color-line)] py-10">
-    <div class="max-w-6xl mx-auto px-6 lg:px-8 flex flex-col md:flex-row justify-between gap-4 label">
-        <p>&copy; 2026 Reza Juliandri. All rights reserved.</p>
-        <p>Built with care in Bali, Indonesia.</p>
+        <article class="proj rv" style="--d:140ms">
+          <div class="proj-media proj-media--logo proj-media--logo--dark">
+            <img class="mark" src="projects/anadex-icon.png" alt="" width="512" height="512" loading="lazy" decoding="async">
+            <img class="wordmark" src="projects/anadex-wordmark.png" alt="Anadex" width="680" height="183" loading="lazy" decoding="async">
+          </div>
+          <div class="proj-body">
+            <div class="proj-head">
+              <h3><a class="ulink" href="https://anadex.id" target="_blank" rel="noopener">Anadex</a></h3>
+              <span class="ext">↗</span>
+            </div>
+            <p>A companion app for arcade trading card collectors: catalogue what you own, scan a barcode to log it, and keep a record of every session. Built and shipped alone, from the Cloudflare backend to the Android client, with a payment gateway live in production on an approved merchant account.</p>
+            <p class="proj-stats-note">product totals, two months in</p>
+            <dl class="proj-stats">
+              <div><dt>users</dt><dd>191</dd></div>
+              <div><dt>active 7d</dt><dd>15</dd></div>
+              <div><dt>cards catalogued</dt><dd>1,461</dd></div>
+              <div><dt>scans</dt><dd>419</dd></div>
+            </dl>
+            <dl class="proj-meta">
+              <div><dt>role</dt><dd>Founder · sole engineer</dd></div>
+              <div><dt>years</dt><dd>Jun 2026 – present</dd></div>
+              <div><dt>scope</dt><dd>Sequence alignment · barcode scanning · live payments · Android client</dd></div>
+            </dl>
+            <div class="flow">web · android ─▶ <b>worker</b> (hono) ─┬─▶ D1 · R2
+                                └─▶ oauth · payments</div>
+            <div class="proj-tags">
+              <span class="tag tag--hi">Cloudflare Workers</span><span class="tag tag--hi">Hono</span><span class="tag tag--hi">Kotlin</span>
+              <span class="tag">D1</span><span class="tag">R2</span><span class="tag">React</span>
+              <span class="tag">Jetpack Compose</span><span class="tag">ML Kit</span><span class="tag">CameraX</span><span class="tag">Duitku</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="proj rv" style="--d:210ms">
+          <button class="proj-media" data-img="projects/PPI.jpg" data-title="English Electronic Assessment · PPI Curug" aria-label="Enlarge English Electronic Assessment screenshot">
+            <img src="projects/PPI.jpg" alt="English Electronic Assessment Platform" loading="lazy" decoding="async">
+          </button>
+          <div class="proj-body">
+            <div class="proj-head">
+              <h3>English Electronic Assessment</h3>
+              <span class="ext">·</span>
+            </div>
+            <p>An assessment platform for Politeknik Penerbangan Indonesia Curug, digitising placement and evaluation of English proficiency for cadets.</p>
+            <dl class="proj-meta">
+              <div><dt>role</dt><dd>Software Engineer @ Arxist</dd></div>
+              <div><dt>years</dt><dd>2020 – 2021</dd></div>
+              <div><dt>scope</dt><dd>Laravel backend · front-end integration</dd></div>
+            </dl>
+            <div class="flow">vue client ─▶ <b>laravel api</b> ─▶ database</div>
+            <div class="proj-tags">
+              <span class="tag tag--hi">Laravel</span><span class="tag">Vue.js</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="proj rv" style="--d:280ms">
+          <button class="proj-media" data-img="projects/Amegu.png" data-title="Amegu · pet adoption" aria-label="Enlarge Amegu screenshot">
+            <img src="projects/Amegu.png" alt="Amegu" loading="lazy" decoding="async">
+          </button>
+          <div class="proj-body">
+            <div class="proj-head">
+              <h3><a class="ulink" href="https://amegu.netlify.app/" target="_blank" rel="noopener">Amegu · Pet Adoption</a></h3>
+              <span class="ext">↗</span>
+            </div>
+            <p>A final project connecting pet owners with adopters. One API serving two very different clients, which is where most of the interesting decisions lived.</p>
+            <dl class="proj-meta">
+              <div><dt>role</dt><dd>Full-stack</dd></div>
+              <div><dt>scope</dt><dd>REST API · web client · Android app</dd></div>
+            </dl>
+            <div class="flow">nuxt web ─┐
+          ├─▶ <b>laravel rest api</b>
+android  ─┘</div>
+            <div class="proj-tags">
+              <span class="tag tag--hi">Laravel</span><span class="tag">NuxtJS</span><span class="tag">Android</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="proj rv" style="--d:350ms">
+          <button class="proj-media" data-img="projects/Klinik.jpg" data-title="Clinic Web App" aria-label="Enlarge Clinic Web App screenshot">
+            <img src="projects/Klinik.jpg" alt="Clinic Web App" loading="lazy" decoding="async">
+          </button>
+          <div class="proj-body">
+            <div class="proj-head">
+              <h3>Clinic Web App</h3>
+              <span class="ext">·</span>
+            </div>
+            <p>A clinic management tool for the Inspectorate General of Indonesia's Ministry of Education &amp; Culture, covering medical records, lab tests, and medication inventory in one place.</p>
+            <dl class="proj-meta">
+              <div><dt>role</dt><dd>Full-stack</dd></div>
+              <div><dt>domain</dt><dd>Records · lab results · inventory</dd></div>
+            </dl>
+            <div class="flow">server-rendered app ─▶ <b>laravel</b> ─▶ database</div>
+            <div class="proj-tags">
+              <span class="tag tag--hi">Laravel</span><span class="tag">Bootstrap</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="proj rv" style="--d:420ms">
+          <button class="proj-media" data-img="projects/Vee Presentation.jpg" data-title="Vee · vehicle management" aria-label="Enlarge Vee screenshot">
+            <img src="projects/Vee Presentation.jpg" alt="Vee: Vehicle Management" loading="lazy" decoding="async">
+          </button>
+          <div class="proj-body">
+            <div class="proj-head">
+              <h3><a class="ulink" href="https://github.com/C22-PS001-Capstone" target="_blank" rel="noopener">Vee · Vehicle Management</a></h3>
+              <span class="ext">↗</span>
+            </div>
+            <p>Bangkit Academy 2022 capstone, built with Machine Learning and Cloud Computing students. Selected among the top 53 projects across the cohort.</p>
+            <dl class="proj-meta">
+              <div><dt>role</dt><dd>Mobile (Kotlin)</dd></div>
+              <div><dt>team</dt><dd>Mobile + ML + Cloud Computing</dd></div>
+              <div><dt>result</dt><dd>Top 53 capstone, cohort-wide</dd></div>
+            </dl>
+            <div class="proj-tags">
+              <span class="tag tag--hi">Kotlin</span><span class="tag">Machine Learning</span><span class="tag">Google Cloud</span>
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+      <p class="rv" style="margin-top:34px">
+        <a class="arrow-link" href="https://github.com/ppabcd" target="_blank" rel="noopener"><span>More on GitHub · @ppabcd</span><span>↗</span></a>
+      </p>
     </div>
+
+    <div class="panel" id="panel-ux" role="tabpanel" aria-labelledby="tab-ux" hidden>
+      <div class="grid-work">
+
+        <article class="proj">
+          <button class="proj-media" data-img="projects/Distro.jpg" data-title="Distro" aria-label="Enlarge Distro screenshot">
+            <img src="projects/Distro.jpg" alt="Distro" loading="lazy" decoding="async">
+          </button>
+          <div class="proj-body">
+            <div class="proj-head">
+              <h3><a class="ulink" href="https://link.rezajuliandri.my.id/distro" target="_blank" rel="noopener">Distro</a></h3>
+              <span class="ext">↗</span>
+            </div>
+            <p>An online clothing shopping concept with visual product search and personalised recommendations.</p>
+            <dl class="proj-meta">
+              <div><dt>role</dt><dd>UX research · UI design</dd></div>
+            </dl>
+            <p style="margin-bottom:18px">
+              <a class="arrow-link" href="https://docs.google.com/presentation/d/17Ki4n-5iDxFDy8HzmDT4D-GVAsoyIb2NJ0UR_4RqSOU/edit?usp=sharing" target="_blank" rel="noopener"><span>Read the UX research</span><span>↗</span></a>
+            </p>
+            <div class="proj-tags"><span class="tag">UX Research</span><span class="tag">UI</span><span class="tag">Figma</span></div>
+          </div>
+        </article>
+
+        <article class="proj">
+          <button class="proj-media" data-img="projects/Finess.jpg" data-title="Finess" aria-label="Enlarge Finess screenshot">
+            <img src="projects/Finess.jpg" alt="Finess" loading="lazy" decoding="async">
+          </button>
+          <div class="proj-body">
+            <div class="proj-head">
+              <h3><a class="ulink" href="https://link.rezajuliandri.my.id/finess" target="_blank" rel="noopener">Finess</a></h3>
+              <span class="ext">↗</span>
+            </div>
+            <p>A home-workout companion with guided activities, consultation, and a reward loop to keep users consistent.</p>
+            <dl class="proj-meta">
+              <div><dt>role</dt><dd>UX research · UI design</dd></div>
+              <div><dt>result</dt><dd>1st place · GenFest 2021</dd></div>
+            </dl>
+            <div class="proj-tags"><span class="tag">UX Research</span><span class="tag">UI</span><span class="tag">Figma</span></div>
+          </div>
+        </article>
+
+        <article class="proj">
+          <button class="proj-media" data-img="projects/Sharity.jpg" data-title="Sharity" aria-label="Enlarge Sharity screenshot">
+            <img src="projects/Sharity.jpg" alt="Sharity" loading="lazy" decoding="async">
+          </button>
+          <div class="proj-body">
+            <div class="proj-head">
+              <h3><a class="ulink" href="https://link.rezajuliandri.my.id/sharity" target="_blank" rel="noopener">Sharity</a></h3>
+              <span class="ext">↗</span>
+            </div>
+            <p>A pandemic-era donation app for medicine, vitamins, oxygen, and blood, matching benefactors with those in immediate need.</p>
+            <dl class="proj-meta"><div><dt>role</dt><dd>UI design</dd></div></dl>
+            <div class="proj-tags"><span class="tag">UI</span><span class="tag">Figma</span></div>
+          </div>
+        </article>
+
+        <article class="proj">
+          <button class="proj-media" data-img="projects/Stecy.jpg" data-title="Stecy" aria-label="Enlarge Stecy screenshot">
+            <img src="projects/Stecy.jpg" alt="Stecy" loading="lazy" decoding="async">
+          </button>
+          <div class="proj-body">
+            <div class="proj-head"><h3>Stecy</h3><span class="ext">·</span></div>
+            <p>One app for stocks and crypto: real-time prices, charts, market cap, and price movement in a single unified portfolio view.</p>
+            <dl class="proj-meta"><div><dt>role</dt><dd>UI design</dd></div></dl>
+            <div class="proj-tags"><span class="tag">UI</span><span class="tag">Figma</span></div>
+          </div>
+        </article>
+
+        <article class="proj">
+          <button class="proj-media" data-img="projects/Cultrip.jpg" data-title="Cultrip" aria-label="Enlarge Cultrip screenshot">
+            <img src="projects/Cultrip.jpg" alt="Cultrip" loading="lazy" decoding="async">
+          </button>
+          <div class="proj-body">
+            <div class="proj-head"><h3>Cultrip</h3><span class="ext">·</span></div>
+            <p>An app that makes it easier for travellers to discover and visit cultural destinations nearby, surfacing context rather than just coordinates.</p>
+            <dl class="proj-meta"><div><dt>role</dt><dd>UI design</dd></div></dl>
+            <div class="proj-tags"><span class="tag">UI</span><span class="tag">Adobe XD</span></div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 04 EXPERIENCE ════════════════════════════════════════════ -->
+<section id="experience" class="sec">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="sec-idx">04</span><span class="sec-name">experience</span><span class="sec-rule"></span>
+    </div>
+    <div class="sec-top">
+      <h2 class="h2 rv">Where I've worked.</h2>
+      <p class="lead rv" style="--d:60ms">Production systems, and the classrooms that kept me honest about how they work.</p>
+    </div>
+
+    <ol class="timeline">
+      <li class="xp rv">
+        <div>
+          <div class="xp-when">Aug 2018 – Present</div>
+          <div class="xp-tenure">8 yrs · 5 roles</div>
+        </div>
+        <div>
+          <h3 class="xp-role">Kredibel<span class="xp-now"><span class="pulse"></span>current</span></h3>
+          <p class="xp-org">PT. Kredibel Teknologi Indonesia · Remote</p>
+
+          <ol class="xp-track">
+            <li class="xp-step is-now">
+              <div class="xp-step-head">
+                <span class="xp-step-role">Senior Backend Engineer</span>
+                <span class="xp-step-kind">full-time</span>
+                <span class="xp-step-when">Feb 2026 – Present</span>
+              </div>
+              <ul>
+                <li>Design and evolve relational data models in PostgreSQL for profile and watchlist normalisation, including migration strategy and cutover safeguards.</li>
+                <li>Refactor the Laravel backend around clearer service and DTO layers, and expand controller test coverage to hold regressions down under continuous delivery.</li>
+                <li>Harden auth: JWT best practices, refresh token handling, and secure error masking so failures don't leak anything sensitive.</li>
+                <li>Modernise internal Python services: Python 3.13 and Docker-based containerisation for consistent dev and deploy environments.</li>
+              </ul>
+            </li>
+            <li class="xp-step">
+              <div class="xp-step-head">
+                <span class="xp-step-role">Backend Engineer</span>
+                <span class="xp-step-kind">contract</span>
+                <span class="xp-step-when">Feb 2025 – Feb 2026</span>
+              </div>
+            </li>
+            <li class="xp-step">
+              <div class="xp-step-head">
+                <span class="xp-step-role">Backend Engineer</span>
+                <span class="xp-step-kind">full-time</span>
+                <span class="xp-step-when">Jan 2023 – Feb 2025</span>
+              </div>
+              <ul>
+                <li>Owned the API surface for the business and mobile products, working alongside the frontend and mobile teams.</li>
+                <li>Kept <span class="stat">80%+</span> automated test coverage on backend code while shipping new features.</li>
+                <li>Monitored and improved performance and security of backend systems continuously.</li>
+              </ul>
+            </li>
+            <li class="xp-step">
+              <div class="xp-step-head">
+                <span class="xp-step-role">Back End Engineer</span>
+                <span class="xp-step-kind">part-time</span>
+                <span class="xp-step-when">Apr 2022 – Aug 2022</span>
+              </div>
+              <ul>
+                <li>Ran the Business API and Mobile API on a customised Lumen setup that made day-to-day development faster.</li>
+              </ul>
+            </li>
+            <li class="xp-step">
+              <div class="xp-step-head">
+                <span class="xp-step-role">Software Engineer</span>
+                <span class="xp-step-kind">part-time</span>
+                <span class="xp-step-when">Aug 2018 – Apr 2022</span>
+              </div>
+              <ul>
+                <li>Built the APIs behind the mobile and web apps, standardising responses against Google and Facebook API conventions.</li>
+                <li>Migrated a legacy application onto a current Laravel version.</li>
+                <li>Built the billing and payment system for Kredibel Business and Enterprise, and owned the Business database structure.</li>
+              </ul>
+            </li>
+          </ol>
+        </div>
+      </li>
+
+      <li class="xp rv">
+        <div>
+          <div class="xp-when">Nov 2025 – Present</div>
+          <div class="xp-tenure">10 mos</div>
+        </div>
+        <div>
+          <h3 class="xp-role">Co-Founder · Tech Lead<span class="xp-now"><span class="pulse"></span>current</span></h3>
+          <p class="xp-org">Tunelab</p>
+          <ul>
+            <li>Architected a provider-agnostic sync foundation (remote sync interfaces, cursor-based sync state, offline queue handling, and conflict resolution snapshots) running on our own Cloudflare Workers backend.</li>
+            <li>Built the internal analytics dashboard on Hono, Cloudflare D1, and React (Vite), pulling product and growth data into one place.</li>
+            <li>Built email campaign infrastructure on Cloudflare Email, Queues, and D1, with unsubscribe routing and subscription deduplication.</li>
+            <li>Fixed RevenueCat event duplication and stale dashboard state to keep subscription reporting consistent per user.</li>
+            <li>Built markdown-based content tooling on Hono, Cloudflare R2, and React: media uploads, CDN browsing, image compression, soft-delete/restore.</li>
+          </ul>
+        </div>
+      </li>
+
+      <li class="xp rv">
+        <div>
+          <div class="xp-when">Jun 2026 – Present</div>
+          <div class="xp-tenure">2 mos</div>
+        </div>
+        <div>
+          <h3 class="xp-role">Founder · Sole Engineer<span class="xp-now"><span class="pulse"></span>current</span></h3>
+          <p class="xp-org">Anadex · NgideIn</p>
+          <ul>
+            <li>Shipped the whole product alone: a Hono API and a React SPA served by a single Cloudflare Worker, plus a Kotlin and Jetpack Compose Android client.</li>
+            <li>Designed a sequence-alignment engine that works out which physical deck a machine is running from a short run of scanned barcodes, in either scanning direction, and drops that lock again once the machine is restocked mid-session.</li>
+            <li>Scanning prefers the browser's own BarcodeDetector and lazy-loads a 250 KB fallback only for the browsers that lack it; on Android it runs on ML Kit and CameraX.</li>
+            <li>Kept the test suite structurally confined to pure domain logic, so a green run means the arithmetic holds rather than that a route happened to work.</li>
+            <li>Took the payment gateway all the way from sandbox to live production on an approved merchant account, alongside Google OAuth, R2 image delivery behind a CDN, and product analytics.</li>
+          </ul>
+        </div>
+      </li>
+
+      <li class="xp rv">
+        <div>
+          <div class="xp-when">Feb 2026 – Jun 2026</div>
+          <div class="xp-tenure">5 mos</div>
+        </div>
+        <div>
+          <h3 class="xp-role">Full-Stack Web Developer Instructor</h3>
+          <p class="xp-org">Tempa, led by Dicoding · Remote</p>
+          <ul>
+            <li>Taught full-stack web development across the program's five-month run.</li>
+            <li>Tempa closed at a <span class="stat">92%</span> graduation rate across its contributors.</li>
+          </ul>
+        </div>
+      </li>
+
+      <li class="xp rv">
+        <div>
+          <div class="xp-when">Oct 2025 – Dec 2025</div>
+          <div class="xp-tenure">3 mos</div>
+        </div>
+        <div>
+          <h3 class="xp-role">React Backend &amp; AI Instructor</h3>
+          <p class="xp-org">Asah, led by Dicoding · Remote</p>
+          <ul>
+            <li>Taught JavaScript backend development to <span class="stat">70+</span> students across in-person learning sessions.</li>
+            <li>Used interactive teaching strategies to lift engagement and comprehension.</li>
+          </ul>
+        </div>
+      </li>
+
+      <li class="xp rv">
+        <div>
+          <div class="xp-when">Feb 2023 – Dec 2024</div>
+          <div class="xp-tenure">1 yr 11 mos · 6 roles</div>
+        </div>
+        <div>
+          <h3 class="xp-role">Mobile Development Instructor &amp; Mentor</h3>
+          <p class="xp-org">Bangkit Academy, led by Google, GoTo &amp; Traveloka · Remote</p>
+
+          <ol class="xp-track">
+            <li class="xp-step">
+              <div class="xp-step-head">
+                <span class="xp-step-role">Mobile Development Advisor</span>
+                <span class="xp-step-when">Nov 2024 – Dec 2024</span>
+              </div>
+            </li>
+            <li class="xp-step">
+              <div class="xp-step-head">
+                <span class="xp-step-role">Mobile Development Instructor</span>
+                <span class="xp-step-kind">cohort 2 · 2024</span>
+                <span class="xp-step-when">Aug 2024 – Dec 2024</span>
+              </div>
+              <ul>
+                <li>Taught Kotlin Android development to <span class="stat">50</span> students; the cohort reached a <span class="stat">91%</span> graduation rate.</li>
+                <li>Held a <span class="stat">4.76 / 5.0</span> instructor rating.</li>
+              </ul>
+            </li>
+            <li class="xp-step">
+              <div class="xp-step-head">
+                <span class="xp-step-role">Mobile Development Advisor</span>
+                <span class="xp-step-when">May 2024 – Jul 2024</span>
+              </div>
+            </li>
+            <li class="xp-step">
+              <div class="xp-step-head">
+                <span class="xp-step-role">Mobile Development Instructor</span>
+                <span class="xp-step-kind">cohort 1 · 2024</span>
+                <span class="xp-step-when">Jan 2024 – May 2024</span>
+              </div>
+              <ul>
+                <li>Taught Kotlin Android development to <span class="stat">50</span> students; the cohort reached a <span class="stat">93%</span> graduation rate.</li>
+                <li>Held a <span class="stat">4.73 / 5.0</span> instructor rating.</li>
+              </ul>
+            </li>
+            <li class="xp-step">
+              <div class="xp-step-head">
+                <span class="xp-step-role">Mobile Development Mentor</span>
+                <span class="xp-step-kind">batch 2</span>
+                <span class="xp-step-when">Aug 2023 – Jan 2024</span>
+              </div>
+              <ul>
+                <li>Led and mentored a group of <span class="stat">25</span> students through the Android track to a <span class="stat">86%</span> graduation rate.</li>
+                <li>Supported ILT sessions as timekeeper and prep, keeping students engaged throughout.</li>
+              </ul>
+            </li>
+            <li class="xp-step">
+              <div class="xp-step-head">
+                <span class="xp-step-role">Mobile Development Mentor</span>
+                <span class="xp-step-kind">batch 1</span>
+                <span class="xp-step-when">Feb 2023 – Aug 2023</span>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </li>
+
+      <li class="xp rv">
+        <div>
+          <div class="xp-when">Aug 2022 – Dec 2022</div>
+          <div class="xp-tenure">5 mos</div>
+        </div>
+        <div>
+          <h3 class="xp-role">Backend Engineer Intern</h3>
+          <p class="xp-org">Traveloka · Financial Services</p>
+          <ul>
+            <li>Shipped new features in the Financial Services domain in a production codebase.</li>
+            <li>Wrote unit and automated tests for the team's work; built Know-Your-Business (KYB) flows for verifying financial partners.</li>
+          </ul>
+          <div class="proj-tags" style="margin-top:14px">
+            <span class="tag">Kotlin</span><span class="tag">Spring Framework</span>
+          </div>
+        </div>
+      </li>
+
+      <li class="xp rv">
+        <div>
+          <div class="xp-when">Aug 2021 – Jun 2022</div>
+          <div class="xp-tenure">11 mos</div>
+        </div>
+        <div>
+          <h3 class="xp-role">Laboratory Assistant</h3>
+          <p class="xp-org">Universitas Multimedia Nusantara</p>
+          <ul>
+            <li>Ran lab sessions in probability &amp; statistics, web dev, and mobile development.</li>
+            <li>Taught HTML/CSS/JS, PHP, and Android (Java) to groups of <span class="stat">25–40</span> students.</li>
+            <li>Graded and reviewed assignments across all three subject areas.</li>
+          </ul>
+        </div>
+      </li>
+
+      <li class="xp rv">
+        <div>
+          <div class="xp-when">Mar 2020 – Dec 2021</div>
+          <div class="xp-tenure">1 yr 10 mos</div>
+        </div>
+        <div>
+          <h3 class="xp-role">Software Engineer</h3>
+          <p class="xp-org">Arxist</p>
+          <ul>
+            <li>Built a full-stack English assessment platform for Politeknik Penerbangan Indonesia Curug.</li>
+            <li>Developed the Laravel backend and integrated it with the web front-end.</li>
+          </ul>
+        </div>
+      </li>
+
+    </ol>
+
+    <div class="sec-head rv" style="margin-top:64px">
+      <span class="sec-idx">04.1</span><span class="sec-name">volunteering</span><span class="sec-rule"></span>
+    </div>
+
+    <div class="cards">
+      <article class="card card--wide rv">
+        <div class="when">Jul 2024 – Aug 2026 · 2 yrs 2 mos</div>
+        <h3>Front of House</h3>
+        <p class="sub">Google for Developers · Jakarta</p>
+        <p>Preparing the presentation material and checking the equipment before an event starts, then keeping the session running to schedule on the day, in constant coordination with the live streaming team.</p>
+        <dl class="event-years">
+          <div>
+            <dt>2026</dt>
+            <dd>
+              <span>Cloud Next Extended Jakarta × KodingDeepDive</span>
+              <span>Build with AI, Cloud Jakarta</span>
+            </dd>
+          </div>
+          <div>
+            <dt>2024</dt>
+            <dd>
+              <span>DevFest, Cloud Jakarta</span>
+              <span>Google I/O Extended, Cloud Jakarta</span>
+            </dd>
+          </div>
+        </dl>
+      </article>
+
+      <article class="card rv" style="--d:70ms">
+        <div class="when">Nov 2019 – Jan 2020</div>
+        <h3>Google Code-in 2019 Mentor</h3>
+        <p class="sub">OpenWISP · open source</p>
+        <p>OpenWISP is an open-source network management system for building low-cost networks. As a mentor I sat on the reviewing side of the contest.</p>
+        <ul>
+          <li>Reviewed student task submissions</li>
+          <li>Authored new tasks to OpenWISP's standard</li>
+          <li>Ran quality assurance on student GitHub contributions</li>
+        </ul>
+      </article>
+
+      <article class="card rv" style="--d:140ms">
+        <div class="when">Oct 2018 – Dec 2018</div>
+        <h3>Google Code-in 2018 Student</h3>
+        <p class="sub">OpenWISP · open source</p>
+        <p>The year before mentoring, I was on the other side of it: <span class="stat">26</span> completed tasks against the OpenWISP codebase, and the run that ended in a Grand Prize.</p>
+        <ul>
+          <li>Built a commit message style check</li>
+          <li>Contributed to OpenWISP quality assurance</li>
+          <li>Created an LXD deployment</li>
+        </ul>
+      </article>
+    </div>
+
+    <div class="matrix rv" style="margin-top:34px">
+      <div>
+        <dt>earlier <em>· community</em></dt>
+        <dd style="display:block;font-family:var(--mono);font-size:12.5px;color:var(--fg-3);line-height:2">
+          <span class="dim">2020–2021</span> &nbsp;IT Division, U-Store UMN Gen 4<br>
+          <span class="dim">2017–2018</span> &nbsp;Vice Leader, IT Community<br>
+          <span class="dim">2016–2017</span> &nbsp;LITBANG RPL, IT Community
+        </dd>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 05 STACK ═════════════════════════════════════════════════ -->
+<section id="stack" class="sec">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="sec-idx">05</span><span class="sec-name">stack</span><span class="sec-rule"></span>
+    </div>
+    <div class="sec-top">
+      <h2 class="h2 rv">Tools I actually reach for.</h2>
+      <p class="lead rv" style="--d:60ms">
+        Highlighted items are the ones I'm fastest in; the rest I'm comfortable being
+        dropped into. Tools are the easy part; the hard part is deciding what not to build.
+      </p>
+    </div>
+
+    <dl class="matrix rv">
+      <div>
+        <dt>languages <em>· 09</em></dt>
+        <dd>
+          <span class="tag tag--hi">PHP</span><span class="tag tag--hi">TypeScript</span><span class="tag tag--hi">JavaScript</span>
+          <span class="tag tag--hi">Kotlin</span><span class="tag tag--hi">Swift</span>
+          <span class="tag">Go</span><span class="tag">Python</span>
+          <span class="tag">Java</span><span class="tag">Objective-C</span>
+        </dd>
+      </div>
+      <div>
+        <dt>backend &amp; apis <em>· 08</em></dt>
+        <dd>
+          <span class="tag tag--hi">Laravel</span><span class="tag tag--hi">Lumen</span>
+          <span class="tag">Filament</span><span class="tag">Node.js</span><span class="tag">Express</span>
+          <span class="tag">Hono</span><span class="tag">Flask</span><span class="tag">Spring</span>
+        </dd>
+      </div>
+      <div>
+        <dt>data <em>· 07</em></dt>
+        <dd>
+          <span class="tag tag--hi">PostgreSQL</span><span class="tag tag--hi">MySQL</span><span class="tag tag--hi">Cloudflare D1</span>
+          <span class="tag">Redis</span><span class="tag">Cloudflare KV</span>
+          <span class="tag">MongoDB</span><span class="tag">Firebase</span>
+        </dd>
+      </div>
+      <div>
+        <dt>llm tooling <em>· 03</em></dt>
+        <dd>
+          <span class="tag tag--hi">Claude</span><span class="tag">Codex</span><span class="tag">MiniMax</span>
+        </dd>
+      </div>
+      <div>
+        <dt>platform &amp; ops <em>· 09</em></dt>
+        <dd>
+          <span class="tag tag--hi">Cloudflare R2</span><span class="tag tag--hi">Google Cloud</span>
+          <span class="tag tag--hi">Nginx</span><span class="tag tag--hi">Composer</span>
+          <span class="tag">systemd</span><span class="tag">Docker</span><span class="tag">Cloudflare Workers</span>
+          <span class="tag">Cloudflare Queues</span><span class="tag">Cloudflare Email</span>
+        </dd>
+      </div>
+      <div>
+        <dt>mobile <em>· 05</em></dt>
+        <dd>
+          <span class="tag tag--hi">SwiftUI</span><span class="tag tag--hi">Kotlin</span>
+          <span class="tag">Jetpack Compose</span><span class="tag">Android</span><span class="tag">RevenueCat</span>
+        </dd>
+      </div>
+      <div>
+        <dt>frontend <em>· 05</em></dt>
+        <dd>
+          <span class="tag">React</span><span class="tag">Vite</span>
+          <span class="tag">Vue.js</span><span class="tag">NuxtJS</span><span class="tag">Next.js</span>
+        </dd>
+      </div>
+      <div>
+        <dt>design <em>· 01</em></dt>
+        <dd><span class="tag">Figma</span></dd>
+      </div>
+    </dl>
+  </div>
+</section>
+
+<!-- ══ 06 EDUCATION ═════════════════════════════════════════════ -->
+<section id="education" class="sec">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="sec-idx">06</span><span class="sec-name">education</span><span class="sec-rule"></span>
+    </div>
+    <div class="sec-top">
+      <h2 class="h2 rv">How I've learned.</h2>
+    </div>
+
+    <div class="cards">
+      <article class="card rv">
+        <div class="when">Mar 2026 – Aug 2026</div>
+        <h3>Apple Developer Institute for Entrepreneurship</h3>
+        <p class="sub">Catalyst Program (Nada / Tunelab) · Jakarta · Hybrid</p>
+        <p>A six-month follow-on program for teams taking an Apple Developer Academy project toward a real business. I went through it with Nada.</p>
+        <ul>
+          <li>Product and go-to-market development</li>
+          <li>Building on top of Apple platforms</li>
+          <li>Hybrid, cohort-based</li>
+        </ul>
+      </article>
+
+      <article class="card rv" style="--d:70ms">
+        <div class="when">Feb 2025 – Dec 2025</div>
+        <h3><a class="ulink" href="https://developeracademy.apps.binus.ac.id/bali/" target="_blank" rel="noopener">Apple Developer Academy</a></h3>
+        <p class="sub">Bali · Cohort 2025 · iOS Developer Internship</p>
+        <p>A ten-month intensive focused on iOS development and the entrepreneurial side of shipping native apps end to end, built around Challenge Based Learning with cross-functional student teams.</p>
+        <ul>
+          <li>Swift &amp; SwiftUI</li>
+          <li>App design and prototyping</li>
+          <li>Core Apple frameworks: CoreMotion, Watch Connectivity, Multipeer</li>
+          <li>Agile project management</li>
+        </ul>
+      </article>
+
+      <article class="card rv" style="--d:140ms">
+        <div class="when">Aug 2019 – Jan 2024</div>
+        <h3><a class="ulink" href="https://umn.ac.id" target="_blank" rel="noopener">Universitas Multimedia Nusantara</a></h3>
+        <p class="sub">B.Sc. Information Systems · GPA 3.85 / 4.00</p>
+        <p>Information systems with a heavy dose of software engineering, algorithms, and data foundations.</p>
+        <ul>
+          <li>Algorithms &amp; data structures</li>
+          <li>Web design &amp; development</li>
+          <li>Mobile application development</li>
+          <li>Artificial intelligence</li>
+          <li>Big data analytics</li>
+        </ul>
+      </article>
+
+      <article class="card rv" style="--d:210ms">
+        <div class="when">Feb 2022 – Jul 2022</div>
+        <h3><a class="ulink" href="http://bangkit.academy/" target="_blank" rel="noopener">Bangkit Academy</a></h3>
+        <p class="sub">Mobile Development Cohort · Google, GoTo &amp; Traveloka</p>
+        <p style="margin-bottom:0">
+          Career-readiness program focused on in-demand mobile skills: Kotlin, fundamental
+          and intermediate Android, UX design, SOLID principles, and career development.
+          One of three thousand students in the cohort; graduated with
+          <span class="stat">Distinction (top 10%)</span> on the Mobile Development path and
+          served as a peer tutor for Android Fundamentals. I came back as a mentor in 2023
+          and an instructor across both 2024 cohorts.
+        </p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 07 CREDENTIALS ═══════════════════════════════════════════ -->
+<section id="credentials" class="sec">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="sec-idx">07</span><span class="sec-name">credentials</span><span class="sec-rule"></span>
+    </div>
+    <div class="sec-top">
+      <h2 class="h2 rv">Certifications &amp; recognition.</h2>
+    </div>
+
+    <div class="certs">
+      <article class="cert rv">
+        <button class="cert-media" data-img="certificates/AAD.jpg" data-title="Associate Android Developer · Google" aria-label="Enlarge Associate Android Developer certificate">
+          <img src="certificates/AAD.jpg" alt="Associate Android Developer certificate" loading="lazy" decoding="async">
+        </button>
+        <div class="when">Google · Jul 2022</div>
+        <h3><a class="ulink" href="https://www.credential.net/c05c17d2-dd1b-4b70-a524-e2226f547afa#acc.RZnw9iET" target="_blank" rel="noopener">Associate Android Developer</a></h3>
+      </article>
+
+      <article class="cert rv" style="--d:70ms">
+        <button class="cert-media" data-img="certificates/CISDV.jpg" data-title="Certified Specialist in Data Visualization" aria-label="Enlarge CISDV certificate">
+          <img src="certificates/CISDV.jpg" alt="Certified Specialist in Data Visualization certificate" loading="lazy" decoding="async">
+        </button>
+        <div class="when">PASAS Institute · Mar 2022</div>
+        <h3><a class="ulink" href="https://drive.google.com/file/d/198tqFlM0u8rYIxUc2ewqVK7p_7mOhRNb/view" target="_blank" rel="noopener">Certified Specialist in Data Visualization</a></h3>
+      </article>
+
+      <article class="cert rv" style="--d:140ms">
+        <button class="cert-media" data-img="certificates/GCI 2018 Certificate for Reza Juliandri_page-0001.jpg" data-title="Google Code-in Grand Prize Winner" aria-label="Enlarge Google Code-in certificate">
+          <img src="certificates/GCI 2018 Certificate for Reza Juliandri_page-0001.jpg" alt="Google Code-in Grand Prize Winner certificate" loading="lazy" decoding="async">
+        </button>
+        <div class="when">Google Code-in · Dec 2018</div>
+        <h3><a class="ulink" href="https://drive.google.com/file/d/1KPNQbPOYT1Au21O5Pb6VuLwyRsSE7wWN/view?usp=sharing" target="_blank" rel="noopener">Google Code-in Grand Prize Winner</a></h3>
+      </article>
+    </div>
+
+    <div class="sec-head rv" style="margin-top:64px">
+      <span class="sec-idx">07.1</span><span class="sec-name">awards</span><span class="sec-rule"></span>
+    </div>
+    <ol class="awards rv">
+      <li><span class="yr">Feb 2019</span><span class="ttl"><b>1st</b>Tangerang Skill Competition, Web Design &amp; Development</span><span class="by">Ditsmk</span></li>
+      <li><span class="yr">Nov 2018</span><span class="ttl"><b>1st</b>Web Design LINEA 2018</span><span class="by">SMKN 5 Tangerang</span></li>
+      <li><span class="yr">Apr 2018</span><span class="ttl"><b>2nd</b>Banten Skill Competition, Web Design &amp; Development</span><span class="by">Ditsmk</span></li>
+      <li><span class="yr">Feb 2018</span><span class="ttl"><b>1st</b>Tangerang Skill Competition, Web Design &amp; Development</span><span class="by">Ditsmk</span></li>
+      <li><span class="yr">Jan 2018</span><span class="ttl"><b>·</b>Google Code-in 2017 Participant</span><span class="by">Google</span></li>
+      <li><span class="yr">Dec 2017</span><span class="ttl"><b>1st</b>Web Design LINEA 2017</span><span class="by">SMKN 5 Tangerang</span></li>
+      <li><span class="yr">Mar 2017</span><span class="ttl"><b>2nd</b>Tangerang Skill Competition, Web Design &amp; Development</span><span class="by">Ditsmk</span></li>
+      <li><span class="yr">Oct 2016</span><span class="ttl"><b>3rd</b>Web Design LINEA 2016</span><span class="by">SMKN 5 Tangerang</span></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ══ 08 CONTACT ═══════════════════════════════════════════════ -->
+<section id="contact" class="sec">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="sec-idx">08</span><span class="sec-name">contact</span><span class="sec-rule"></span>
+    </div>
+
+    <div class="contact-grid">
+      <div class="rv">
+        <p class="contact-hook">
+          Got a system that's outgrown its first design?<br><b>Let's talk.</b>
+        </p>
+        <p style="color:var(--fg-2);max-width:46ch">
+          Backend and platform work, API design reviews, the occasional teaching
+          engagement. Happy to talk about any of it. I read everything that isn't a
+          recruiter template.
+        </p>
+
+        <div class="term" style="margin-top:30px">
+          <div class="term-bar"><b>rezajuliandri.my.id/contact</b></div>
+          <div class="term-body" style="min-height:0;max-height:none">
+            <p class="term-cmd"><b>curl -s rezajuliandri.my.id/contact</b></p>
+<pre class="term-out"><span class="j-punc">{</span>
+  <span class="j-key">"email"</span><span class="j-punc">:</span>    <span class="j-str">"me@rezajuliandri.my.id"</span><span class="j-punc">,</span>
+  <span class="j-key">"github"</span><span class="j-punc">:</span>   <span class="j-str">"ppabcd"</span><span class="j-punc">,</span>
+  <span class="j-key">"linkedin"</span><span class="j-punc">:</span> <span class="j-str">"rezajuliandri"</span><span class="j-punc">,</span>
+  <span class="j-key">"timezone"</span><span class="j-punc">:</span> <span class="j-str">"Asia/Jakarta (UTC+7)"</span><span class="j-punc">,</span>
+  <span class="j-key">"replies"</span><span class="j-punc">:</span>  <span class="j-bool">true</span>
+<span class="j-punc">}</span></pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="links rv" style="--d:80ms">
+        <a href="#" data-mail>
+          <span class="k">me@rezajuliandri.my.id</span>
+          <span class="v">email <span>→</span></span>
+        </a>
+        <a href="#" data-ext="aHR0cHM6Ly9naXRodWIuY29tL3BwYWJjZA==">
+          <span class="k">GitHub</span>
+          <span class="v">@ppabcd <span>↗</span></span>
+        </a>
+        <a href="#" data-ext="aHR0cHM6Ly9saW5rZWRpbi5jb20vaW4vcmV6YWp1bGlhbmRyaQ==">
+          <span class="k">LinkedIn</span>
+          <span class="v">/in/rezajuliandri <span>↗</span></span>
+        </a>
+        <a href="https://www.kredibel.com" target="_blank" rel="noopener">
+          <span class="k">Kredibel</span>
+          <span class="v">current employer <span>↗</span></span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span>&copy; 2026 Reza Juliandri</span>
+    <span>Tangerang, Indonesia</span>
+  </div>
 </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/lazysizes@5/lazysizes.min.js" async></script>
+<!-- lightbox -->
+<div id="lightbox" role="dialog" aria-modal="true" aria-label="Image preview">
+  <div class="lb-inner">
+    <button class="lb-close" id="lbClose"><span>close</span><span class="kbd">esc</span></button>
+    <div class="lb-frame">
+      <img id="lbImg" src="" alt="">
+      <div class="lb-cap"><span id="lbTitle"></span><span class="dim" id="lbHint">click outside to dismiss</span></div>
+    </div>
+  </div>
+</div>
+
 <script>
-    const tabButtons = document.querySelectorAll('.tab-btn');
-    const tabContents = document.querySelectorAll('.tab-content');
+(function () {
+  'use strict';
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    tabButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            tabButtons.forEach(btn => btn.setAttribute('aria-selected', 'false'));
-            button.setAttribute('aria-selected', 'true');
-            tabContents.forEach(c => c.classList.remove('active'));
-            document.getElementById(button.dataset.tab).classList.add('active');
-        });
-    });
+  /* ── helpers ─────────────────────────────────────────────────── */
+  function $(s, r) { return (r || document).querySelector(s); }
+  function $$(s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); }
+  function esc(s) { return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
 
-    const menuButton = document.getElementById('mobile-menu-button');
-    const mobileMenu = document.getElementById('mobile-menu');
-    const menuOpen = document.getElementById('menu-icon-open');
-    const menuClose = document.getElementById('menu-icon-close');
-    menuButton?.addEventListener('click', () => {
-        mobileMenu.classList.toggle('hidden');
-        menuOpen.classList.toggle('hidden');
-        menuClose.classList.toggle('hidden');
-    });
-    mobileMenu?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-        mobileMenu.classList.add('hidden');
-        menuOpen.classList.remove('hidden');
-        menuClose.classList.add('hidden');
-    }));
+  function highlight(json) {
+    return esc(json).replace(
+      /("(?:\\u[a-fA-F0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(?:true|false|null)\b|-?\d+(?:\.\d+)?(?:[eE][+-]?\d+)?)/g,
+      function (m) {
+        var cls = 'j-num';
+        if (m.charAt(0) === '"') cls = /:\s*$/.test(m) ? 'j-key' : 'j-str';
+        else if (/^(true|false|null)$/.test(m)) cls = 'j-bool';
+        return '<span class="' + cls + '">' + m + '</span>';
+      }
+    );
+  }
 
-    function openModal(imageSrc, title) {
-        const modal = document.getElementById('imageModal');
-        const modalImage = document.getElementById('modalImage');
-        const modalTitle = document.getElementById('modalTitle');
-        const modalContent = document.getElementById('modalContent');
+  // Career started Aug 2017; everything that quotes a duration derives from this.
+  var CAREER_START = new Date(2017, 7, 1);
+  var YEAR_WORDS = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight',
+    'nine', 'ten', 'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen',
+    'seventeen', 'eighteen', 'nineteen', 'twenty'];
 
-        modalImage.src = imageSrc;
-        modalTitle.textContent = title || '';
+  function careerYears() {
+    var now = new Date(), y = now.getFullYear() - CAREER_START.getFullYear();
+    var m = now.getMonth() - CAREER_START.getMonth();
+    if (m < 0 || (m === 0 && now.getDate() < CAREER_START.getDate())) y--;
+    return y;
+  }
+  function careerYearsWord() {
+    var n = careerYears();
+    return YEAR_WORDS[n] || String(n);
+  }
 
-        modal.classList.remove('hidden');
-        modal.classList.add('flex');
-
-        setTimeout(() => {
-            modalContent.classList.remove('scale-95');
-            modalContent.classList.add('scale-100');
-        }, 10);
+  function localTime() {
+    try {
+      return new Intl.DateTimeFormat('en-GB', {
+        timeZone: 'Asia/Jakarta', hour: '2-digit', minute: '2-digit', hour12: false
+      }).format(new Date());
+    } catch (e) {
+      return new Intl.DateTimeFormat('en-GB', { hour: '2-digit', minute: '2-digit', hour12: false }).format(new Date());
     }
+  }
 
-    function closeModal() {
-        const modal = document.getElementById('imageModal');
-        const modalContent = document.getElementById('modalContent');
-
-        modalContent.classList.remove('scale-100');
-        modalContent.classList.add('scale-95');
-
-        setTimeout(() => {
-            modal.classList.add('hidden');
-            modal.classList.remove('flex');
-        }, 300);
+  /* ── api console ─────────────────────────────────────────────── */
+  var ENDPOINTS = {
+    now: function () {
+      return {
+        local_time: localTime(),
+        timezone: 'Asia/Jakarta (UTC+7)',
+        location: 'Tangerang, Indonesia',
+        currently: ['senior backend engineering at Kredibel', 'building Nada at Tunelab', 'building Anadex'],
+        recent: 'Catalyst Program · Apple Developer Institute for Entrepreneurship, 2026'
+      };
     }
+  };
 
-    document.getElementById('imageModal').addEventListener('click', function (e) {
-        if (e.target === this) closeModal();
+  var termOut = $('#termOut'), termMeta = $('#termMeta'), termCmd = $('.term-cmd b'), latEl = $('#lat');
+  var typeRaf = null, typeFallback = null;
+
+  // me/stack/work are real files in this repo, so `curl` gets byte-for-byte what the
+  // page shows. /now is the exception on purpose: a clock cannot be a static file.
+  var ENDPOINT_FILES = { me: 'me.json', stack: 'stack.json', work: 'work.json' };
+  var SITE = 'https://rezajuliandri.my.id/';
+
+  function computeNow() {
+    var t0 = performance.now();
+    var body = JSON.stringify(ENDPOINTS.now(), null, 2);
+    return {
+      body: body,
+      command: '// computed in your browser, not a file you can curl',
+      meta: '<span class="dim">local</span> &nbsp;' + body.length + ' bytes',
+      ms: Math.max(1, Math.round(performance.now() - t0))
+    };
+  }
+
+  function fetchEndpoint(ep) {
+    var file = ENDPOINT_FILES[ep];
+    var t0 = performance.now();
+    // no-store so the timing shown is a real round trip, not a cache hit
+    return fetch(file, { cache: 'no-store' }).then(function (response) {
+      return response.text().then(function (text) {
+        var ms = Math.max(1, Math.round(performance.now() - t0));
+        var type = (response.headers.get('content-type') || 'application/json').split(';')[0];
+        var label = response.ok ? 'acc' : 'dim';
+        return {
+          body: text.trim(),
+          command: 'curl -s ' + SITE + file,
+          meta: '<span class="' + label + '">' + response.status + '</span> &nbsp;' + type +
+                ' &nbsp;·&nbsp; ' + text.trim().length + ' bytes &nbsp;·&nbsp; ' + ms + 'ms',
+          ms: ms
+        };
+      });
+    }).catch(function (networkError) {
+      return {
+        body: '// ' + networkError.message,
+        command: 'curl -s ' + SITE + file,
+        meta: '<span class="dim">request failed</span>',
+        ms: 0
+      };
+    });
+  }
+
+  function loadEndpoint(ep) {
+    return ep === 'now' ? Promise.resolve(computeNow()) : fetchEndpoint(ep);
+  }
+
+  function stopReveal() {
+    if (typeRaf) { cancelAnimationFrame(typeRaf); typeRaf = null; }
+    if (typeFallback) { clearTimeout(typeFallback); typeFallback = null; }
+  }
+
+  function revealResponse(body) {
+    stopReveal();
+    if (reduced) { termOut.innerHTML = highlight(body); return; }
+
+    // time-based reveal so the duration holds even when frames are throttled
+    var start = null, dur = 420;
+    function done() {
+      stopReveal();
+      termOut.innerHTML = highlight(body);
+    }
+    termOut.textContent = '';
+    typeRaf = requestAnimationFrame(function frame(t) {
+      if (start === null) start = t;
+      var p = Math.min(1, (t - start) / dur);
+      if (p >= 1) { done(); return; }
+      termOut.textContent = body.slice(0, Math.floor(p * body.length));
+      typeRaf = requestAnimationFrame(frame);
+    });
+    // rAF is paused in background tabs, so make sure the response still lands
+    typeFallback = setTimeout(done, dur + 400);
+  }
+
+  var inFlight = 0;
+
+  function request(ep) {
+    if (!termOut) return;
+    stopReveal();
+
+    var ticket = ++inFlight;
+    termCmd.textContent = ep === 'now'
+      ? '// computed in your browser'
+      : 'curl -s ' + SITE + ENDPOINT_FILES[ep];
+    termOut.textContent = '';
+    termMeta.innerHTML = '<span class="dim">…</span>';
+    if (latEl) latEl.textContent = '…';
+
+    loadEndpoint(ep).then(function (result) {
+      if (ticket !== inFlight) return; // a newer click already won
+      termCmd.textContent = result.command;
+      termMeta.innerHTML = result.meta;
+      if (latEl) latEl.textContent = result.ms ? result.ms + 'ms' : '·';
+      revealResponse(result.body);
+    });
+  }
+
+  $$('.chip').forEach(function (chip) {
+    chip.addEventListener('click', function () {
+      $$('.chip').forEach(function (c) { c.setAttribute('aria-pressed', 'false'); });
+      chip.setAttribute('aria-pressed', 'true');
+      request(chip.dataset.ep);
+    });
+  });
+  request('me');
+
+  /* ── clocks ──────────────────────────────────────────────────── */
+  var clock = $('#clock');
+  function tick() {
+    if (clock) clock.textContent = 'Tangerang, ID · ' + localTime() + ' WIB';
+  }
+  tick(); setInterval(tick, 15000);
+
+  /* ── experience duration, derived not hard-coded ─────────────── */
+  (function () {
+    var n = careerYears(), word = careerYearsWord();
+    $$('[data-yrs-num]').forEach(function (el) { el.textContent = String(n); });
+    $$('[data-yrs-word]').forEach(function (el) {
+      el.textContent = word.charAt(0).toUpperCase() + word.slice(1);
     });
 
-    document.addEventListener('keydown', e => {
-        if (e.key === 'Escape') closeModal();
+    var re = new RegExp('\\b(' + YEAR_WORDS.join('|') + ')(\\s+years)\\b', 'i');
+    ['meta[name="description"]', 'meta[property="og:description"]'].forEach(function (sel) {
+      var m = $(sel);
+      if (!m) return;
+      m.content = m.content.replace(re, function (_, hit, tail) {
+        var w = word;
+        if (hit.charAt(0) === hit.charAt(0).toUpperCase()) w = w.charAt(0).toUpperCase() + w.slice(1);
+        return w + tail;
+      });
     });
+  })();
 
-    const io = new IntersectionObserver((entries) => {
-        entries.forEach(e => {
-            if (e.isIntersecting) {
-                e.target.classList.add('is-visible');
-                io.unobserve(e.target);
-            }
-        });
-    }, { threshold: 0.15 });
-    document.querySelectorAll('.fade-in').forEach(el => io.observe(el));
+  /* ── header: burger, spy, progress ───────────────────────────── */
+  var burger = $('#burger'), mobnav = $('#mobnav');
+  burger.addEventListener('click', function () {
+    var open = mobnav.classList.toggle('open');
+    burger.setAttribute('aria-expanded', String(open));
+    burger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    $('#ic-open').toggleAttribute('hidden', open);
+    $('#ic-close').toggleAttribute('hidden', !open);
+  });
+  $$('#mobnav a').forEach(function (a) {
+    a.addEventListener('click', function () {
+      mobnav.classList.remove('open');
+      burger.setAttribute('aria-expanded', 'false');
+      $('#ic-open').removeAttribute('hidden');
+      $('#ic-close').setAttribute('hidden', '');
+    });
+  });
+
+  var bar = $('#progress');
+  var navLinks = $$('nav.main a');
+  function onScroll() {
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  var spy = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (!e.isIntersecting) return;
+      var id = e.target.id;
+      navLinks.forEach(function (a) {
+        a.classList.toggle('active', a.getAttribute('href') === '#' + id);
+      });
+    });
+  }, { rootMargin: '-45% 0px -50% 0px' });
+  $$('section[id]').forEach(function (s) { spy.observe(s); });
+
+  /* ── tabs ────────────────────────────────────────────────────── */
+  var tabs = $$('.tab');
+  function selectTab(tab) {
+    tabs.forEach(function (t) {
+      var on = t === tab;
+      t.setAttribute('aria-selected', String(on));
+      $('#' + t.dataset.panel).toggleAttribute('hidden', !on);
+    });
+  }
+  tabs.forEach(function (tab, i) {
+    tab.addEventListener('click', function () { selectTab(tab); });
+    tab.addEventListener('keydown', function (e) {
+      if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+      e.preventDefault();
+      var next = tabs[(i + (e.key === 'ArrowRight' ? 1 : tabs.length - 1)) % tabs.length];
+      next.focus(); selectTab(next);
+    });
+  });
+
+  /* ── lightbox ────────────────────────────────────────────────── */
+  var lb = $('#lightbox'), lbImg = $('#lbImg'), lbTitle = $('#lbTitle'), lbClose = $('#lbClose');
+  var lastFocus = null;
+
+  function openLb(src, title, alt) {
+    lastFocus = document.activeElement;
+    lbImg.src = src; lbImg.alt = alt || title || '';
+    lbTitle.textContent = title || '';
+    lb.classList.add('open');
+    document.body.classList.add('locked');
+    requestAnimationFrame(function () { lb.classList.add('shown'); });
+    lbClose.focus();
+  }
+  function closeLb() {
+    lb.classList.remove('shown');
+    document.body.classList.remove('locked');
+    setTimeout(function () { lb.classList.remove('open'); lbImg.src = ''; }, reduced ? 0 : 250);
+    if (lastFocus) lastFocus.focus();
+  }
+
+  $$('[data-img]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      openLb(btn.dataset.img, btn.dataset.title, ($('img', btn) || {}).alt);
+    });
+  });
+  lbClose.addEventListener('click', closeLb);
+  lb.addEventListener('click', function (e) { if (e.target === lb) closeLb(); });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') {
+      if (lb.classList.contains('open')) closeLb();
+      else if (mobnav.classList.contains('open')) burger.click();
+    }
+    if (e.key === 'Tab' && lb.classList.contains('open')) { e.preventDefault(); lbClose.focus(); }
+  });
+
+  /* ── obfuscated contact links ────────────────────────────────── */
+  var mail = $('[data-mail]');
+  if (mail) mail.addEventListener('click', function (e) {
+    e.preventDefault();
+    window.location.href = 'mailto:' + ['me', 'rezajuliandri.my.id'].join('@');
+  });
+  $$('[data-ext]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      e.preventDefault();
+      window.open(atob(a.dataset.ext), '_blank', 'noopener');
+    });
+  });
+
+  /* ── reveal on scroll ────────────────────────────────────────── */
+  var pending = $$('.rv');
+
+  function revealAll() {
+    pending.forEach(function (el) { el.classList.add('in'); });
+    pending = [];
+  }
+
+  // IntersectionObserver is the nice path, but it can be deferred (background
+  // tabs) or absent. A plain geometry sweep on scroll guarantees nothing is
+  // ever left stuck at opacity 0.
+  function sweep() {
+    if (!pending.length) return;
+    var limit = window.innerHeight * 0.94;
+    pending = pending.filter(function (el) {
+      if (el.getBoundingClientRect().top > limit) return true;
+      el.classList.add('in');
+      return false;
+    });
+  }
+
+  if (reduced || !('IntersectionObserver' in window)) {
+    revealAll();
+  } else {
+    var rio = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        e.target.classList.add('in');
+        rio.unobserve(e.target);
+        pending = pending.filter(function (el) { return el !== e.target; });
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    pending.forEach(function (el) { rio.observe(el); });
+
+    sweep();
+    window.addEventListener('scroll', sweep, { passive: true });
+    window.addEventListener('resize', sweep, { passive: true });
+    window.addEventListener('load', sweep);
+    setTimeout(sweep, 1200);
+  }
+})();
 </script>
 </body>
 </html>

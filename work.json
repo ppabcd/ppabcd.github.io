@@ -1,0 +1,91 @@
+[
+  {
+    "name": "Kredibel",
+    "role": "Senior Backend Engineer",
+    "years": "2018–present",
+    "stack": [
+      "Laravel",
+      "Lumen",
+      "PostgreSQL",
+      "Python"
+    ],
+    "platform": {
+      "scam_reports": "283099+",
+      "blacklisted_accounts": "177910+",
+      "losses_reported": "Rp424.6B+"
+    }
+  },
+  {
+    "name": "Anadex",
+    "role": "Founder · sole engineer",
+    "years": "2026–present",
+    "stack": [
+      "Cloudflare Workers",
+      "Hono",
+      "React",
+      "Kotlin"
+    ],
+    "note": "sequence-alignment engine over scanned barcodes",
+    "payments": "live",
+    "traction": {
+      "users": 191,
+      "active_7d": 15,
+      "cards_catalogued": 1461,
+      "card_versions": 28,
+      "scans": 419
+    }
+  },
+  {
+    "name": "Nada by Tunelab",
+    "role": "Co-Founder · Tech Lead",
+    "years": "2025–present",
+    "stack": [
+      "SwiftUI",
+      "Hono",
+      "Cloudflare"
+    ],
+    "traction": {
+      "registered_users": 1043,
+      "paying_users": "30+",
+      "projects": "2000+",
+      "tracks": "3800+"
+    }
+  },
+  {
+    "name": "English Electronic Assessment",
+    "role": "Software Engineer",
+    "years": "2020–2021",
+    "stack": [
+      "Laravel",
+      "Vue.js"
+    ]
+  },
+  {
+    "name": "Amegu",
+    "role": "Full-stack",
+    "stack": [
+      "Laravel",
+      "NuxtJS",
+      "Android"
+    ]
+  },
+  {
+    "name": "Clinic Web App",
+    "role": "Full-stack",
+    "stack": [
+      "Laravel",
+      "Bootstrap"
+    ]
+  },
+  {
+    "name": "Vee",
+    "role": "Mobile",
+    "years": "2022",
+    "stack": [
+      "Kotlin",
+      "ML",
+      "GCP"
+    ],
+    "note": "top 53 capstone"
+  }
+]

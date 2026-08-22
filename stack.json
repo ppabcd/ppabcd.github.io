@@ -1,0 +1,62 @@
+{
+  "languages": [
+    "PHP",
+    "TypeScript",
+    "JavaScript",
+    "Kotlin",
+    "Swift",
+    "Go",
+    "Python",
+    "Java",
+    "Objective-C"
+  ],
+  "backend": [
+    "Laravel",
+    "Lumen",
+    "Filament",
+    "Node.js",
+    "Express",
+    "Hono",
+    "Flask",
+    "Spring"
+  ],
+  "data": [
+    "PostgreSQL",
+    "MySQL",
+    "Cloudflare D1",
+    "Redis",
+    "Cloudflare KV",
+    "MongoDB",
+    "Firebase"
+  ],
+  "llm": [
+    "Claude",
+    "Codex",
+    "MiniMax"
+  ],
+  "platform": [
+    "Cloudflare R2",
+    "Google Cloud",
+    "Nginx",
+    "Composer",
+    "systemd",
+    "Docker",
+    "Cloudflare Workers",
+    "Cloudflare Queues",
+    "Cloudflare Email"
+  ],
+  "mobile": [
+    "SwiftUI",
+    "Kotlin",
+    "Jetpack Compose",
+    "Android",
+    "RevenueCat"
+  ],
+  "frontend": [
+    "React",
+    "Vite",
+    "Vue.js",
+    "NuxtJS",
+    "Next.js"
+  ]
+}
